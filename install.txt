@@ -7,7 +7,8 @@
 ##     Release date:  2013-06-15
 ##           Author:  Daniël Rokven (rokven@gmail.com)
 ##
-##      Description:  This mod does nothing useful!
+##      Description:  Adds Social links to the profile and viewtopic pages
+##                    where users can add there usernames.
 ##
 ##   Repository URL:  http://fluxbb.org/resources/mods/xxx
 ##
