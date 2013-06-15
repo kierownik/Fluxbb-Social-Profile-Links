@@ -1,5 +1,6 @@
 ﻿<?php
-
+if (!$pun_user['is_guest'])
+{
 	if ($user['spl_github'] != '' AND $pun_config['o_spl_prof_github'] == '1')
 	{
 		$user['spl_github'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['spl_github']) : $user['spl_github']);
@@ -7,7 +8,7 @@
 		
 		if ($pun_config['o_spl_icon_github'] == '1')
 		{
-			$user_personal[] = '<dd><span><a href="https://github.com/'.$user['spl_github'].'" rel="nofollow"><img src="img/spl/Github-icon.png" /></a></span></dd>';
+			$user_personal[] = '<dd><span><a href="https://github.com/'.$user['spl_github'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/github-icon.png" /></a></span></dd>';
 		}
 		else
 		{
@@ -22,7 +23,7 @@
 		
 		if ($pun_config['o_spl_icon_facebook'] == '1')
 		{
-			$user_personal[] = '<dd><span><a href="https://facebook.com/'.$user['spl_facebook'].'" rel="nofollow"><img src="img/spl/Facebook-icon.png" /></a></span></dd>';
+			$user_personal[] = '<dd><span><a href="https://facebook.com/'.$user['spl_facebook'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/facebook-icon.png" /></a></span></dd>';
 		}
 		else
 		{
@@ -37,7 +38,7 @@
 		
 		if ($pun_config['o_spl_icon_twitter'] == '1')
 		{
-			$user_personal[] = '<dd><span><a href="https://twitter.com/'.$user['spl_twitter'].'" rel="nofollow"><img src="img/spl/Twitter-icon.png" /></a></span></dd>';
+			$user_personal[] = '<dd><span><a href="https://twitter.com/'.$user['spl_twitter'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/twitter-icon.png" /></a></span></dd>';
 		}
 		else
 		{
@@ -52,7 +53,7 @@
 		
 		if ($pun_config['o_spl_icon_youtube'] == '1')
 		{
-			$user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_youtube'].'" rel="nofollow"><img src="img/spl/YouTube-icon.png" /></a></span></dd>';
+			$user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_youtube'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/youtube-icon.png" /></a></span></dd>';
 		}
 		else
 		{
@@ -74,4 +75,5 @@
       $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_googleplus'].'" rel="nofollow">'.$user['spl_googleplus'].'</a></span></dd>';
     }
 	}
+}
 ?>

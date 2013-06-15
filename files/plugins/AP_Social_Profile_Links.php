@@ -343,6 +343,3 @@ if ( isset( $_POST['set_options'] ) )
     </form>
   </div>      <!-- end class="box" -->
 </div>        <!-- end class="blockform" -->
-<?
-  } // end links not shown
-?>
