@@ -109,7 +109,7 @@ profile.php
 		}
 
 #
-#---------[ 10. FIND (line: 1004) ]-------------------------------------------
+#---------[ 10. FIND (line: 1005) ]-------------------------------------------
 #
 
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
@@ -118,13 +118,13 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 #---------[ 11. INLINE, ADD ]--------------------------------------------------
 #
 
- u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus
+ u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus,
 
 #
-#---------[ 12. Find (line: 1047 ]--------------------------------------------
+#---------[ 12. Find (line: 1049 ]--------------------------------------------
 #
 
-if ($user['url'] != '')
+	if ($user['url'] != '')
 	{
 		$user['url'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['url']) : $user['url']);
 		$user_personal[] = '<dt>'.$lang_profile['Website'].'</dt>';
@@ -138,7 +138,7 @@ if ($user['url'] != '')
 			include('plugins/spl/profile.php');
 
 #
-#---------[ 14. Find (line: 1532 ]--------------------------------------------
+#---------[ 14. Find (line: 1501 ]--------------------------------------------
 #
 
 	else if ($section == 'personality')
@@ -165,10 +165,10 @@ viewtopic.php
 $result = $db->query('SELECT u.email, u.title, u.url,
 
 #
-#---------[ 18. AFTER, ADD ]--------------------------------------------------
+#---------[ 18. INLINE, ADD ]-------------------------------------------------
 #
 
- u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus
+ u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus,
 
 #
 #---------[ 19. FIND (line: 268) ]--------------------------------------------
