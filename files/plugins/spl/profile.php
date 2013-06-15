@@ -59,4 +59,19 @@
       $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_youtube'].'" rel="nofollow">'.$user['spl_youtube'].'</a></span></dd>';
     }
 	}
+
+	if ($user['spl_googleplus'] != '' AND $pun_config['o_spl_prof_googleplus'] == '1')
+	{
+		$user['spl_googleplus'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['spl_googleplus']) : $user['spl_googleplus']);
+		$user_personal[] = '<dt>Youtube</dt>';
+		
+		if ($pun_config['o_spl_icon_googleplus'] == '1')
+		{
+			$user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_googleplus'].'" rel="nofollow"><img src="img/spl/googleplus-icon.png" /></a></span></dd>';
+		}
+		else
+		{
+      $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_googleplus'].'" rel="nofollow">'.$user['spl_googleplus'].'</a></span></dd>';
+    }
+	}
 ?>

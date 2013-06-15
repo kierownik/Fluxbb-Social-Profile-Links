@@ -25,18 +25,21 @@ function install()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'o_spl_prof_github'    => '0',
-    'o_spl_prof_facebook'  => '0',
-    'o_spl_prof_twitter'   => '0',
-    'o_spl_prof_youtube'   => '0',
-    'o_spl_view_github'    => '0',
-    'o_spl_view_facebook'  => '0',
-    'o_spl_view_twitter'   => '0',
-    'o_spl_view_youtube'   => '0',
-    'o_spl_icon_github'    => '0',
-    'o_spl_icon_facebook'  => '0',
-    'o_spl_icon_twitter'   => '0',
-    'o_spl_icon_youtube'   => '0',
+    'o_spl_prof_github'       => '0',
+    'o_spl_prof_facebook'     => '0',
+    'o_spl_prof_twitter'      => '0',
+    'o_spl_prof_youtube'      => '0',
+    'o_spl_prof_googleplus'   => '0',
+    'o_spl_view_github'       => '0',
+    'o_spl_view_facebook'     => '0',
+    'o_spl_view_twitter'      => '0',
+    'o_spl_view_youtube'      => '0',
+    'o_spl_view_googleplus'   => '0',
+    'o_spl_icon_github'       => '0',
+    'o_spl_icon_facebook'     => '0',
+    'o_spl_icon_twitter'      => '0',
+    'o_spl_icon_youtube'      => '0',
+    'o_spl_icon_googleplus'   => '0',
   );
 
   foreach($spl_config AS $key => $value)
@@ -45,10 +48,11 @@ function install()
   }
 
   $spl_users = array(
-    'spl_github'    => '',
-    'spl_facebook'  => '',
-    'spl_twitter'   => '',
-    'spl_youtube'   => '',
+    'spl_github'      => '',
+    'spl_facebook'    => '',
+    'spl_twitter'     => '',
+    'spl_youtube'     => '',
+    'spl_googleplus'  => '',
   );
 
   $allow_null = false;
@@ -67,18 +71,21 @@ function restore()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'o_spl_prof_github'    => '0',
-    'o_spl_prof_facebook'  => '0',
-    'o_spl_prof_twitter'   => '0',
-    'o_spl_prof_youtube'   => '0',
-    'o_spl_view_github'    => '0',
-    'o_spl_view_facebook'  => '0',
-    'o_spl_view_twitter'   => '0',
-    'o_spl_view_youtube'   => '0',
-    'o_spl_icon_github'    => '0',
-    'o_spl_icon_facebook'  => '0',
-    'o_spl_icon_twitter'   => '0',
-    'o_spl_icon_youtube'   => '0',
+    'o_spl_prof_github'       => '0',
+    'o_spl_prof_facebook'     => '0',
+    'o_spl_prof_twitter'      => '0',
+    'o_spl_prof_youtube'      => '0',
+    'o_spl_prof_googleplus'   => '0',
+    'o_spl_view_github'       => '0',
+    'o_spl_view_facebook'     => '0',
+    'o_spl_view_twitter'      => '0',
+    'o_spl_view_youtube'      => '0',
+    'o_spl_view_googleplus'   => '0',
+    'o_spl_icon_github'       => '0',
+    'o_spl_icon_facebook'     => '0',
+    'o_spl_icon_twitter'      => '0',
+    'o_spl_icon_youtube'      => '0',
+    'o_spl_icon_googleplus'   => '0',
   );
 
   foreach($spl_config as $key => $value)
@@ -87,10 +94,11 @@ function restore()
   }
 
   $spl_users = array(
-    'spl_github'    => '',
-    'spl_facebook'  => '',
-    'spl_twitter'   => '',
-    'spl_youtube'   => '',
+    'spl_github'      => '',
+    'spl_facebook'    => '',
+    'spl_twitter'     => '',
+    'spl_youtube'     => '',
+    'spl_googleplus'  => '',
   );
 
   foreach($spl_users as $key => $value)

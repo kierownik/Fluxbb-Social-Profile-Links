@@ -49,4 +49,16 @@
           $user_contacts[] = '<span class="website"><a href="https://youtube.com/user/'.pun_htmlspecialchars($cur_post['spl_youtube']).'" rel="nofollow">Youtube</a></span>';
         }
       }
+
+      if ($pun_config['o_spl_view_googleplus'] == '1' AND $cur_post['spl_googleplus'] !='')
+      {
+        if ($pun_config['o_spl_icon_googleplus'] == '1')
+        {
+          $user_contacts[] = '<span><a href="https://profiles.google.com/'.pun_htmlspecialchars($cur_post['spl_googleplus']).'" rel="nofollow" title="Google+"><img src="img/spl/googleplus-icon.png" /></a></span>';
+        }
+        else
+        {
+          $user_contacts[] = '<span class="website"><a href="https://profiles.google.com/'.pun_htmlspecialchars($cur_post['spl_googleplus']).'" rel="nofollow">Google+</a></span>';
+        }
+      }
 ?>

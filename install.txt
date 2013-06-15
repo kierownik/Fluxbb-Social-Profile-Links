@@ -102,13 +102,14 @@ profile.php
 				'spl_facebook'			=> pun_trim($_POST['form']['spl_facebook']),
 				'spl_youtube'			=> pun_trim($_POST['form']['spl_youtube']),
 				'spl_twitter'			=> pun_trim($_POST['form']['spl_twitter']),
+				'spl_googleplus'			=> pun_trim($_POST['form']['spl_googleplus']),
 			);
 
 			break;
 		}
 
 #
-#---------[ 10. FIND (line: 1003) ]-------------------------------------------
+#---------[ 10. FIND (line: 1004) ]-------------------------------------------
 #
 
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
@@ -117,7 +118,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 #---------[ 11. INLINE, ADD ]--------------------------------------------------
 #
 
- u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube,
+ u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus
 
 #
 #---------[ 12. Find (line: 1047 ]--------------------------------------------
@@ -167,7 +168,7 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 #---------[ 18. AFTER, ADD ]--------------------------------------------------
 #
 
- u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook,
+ u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus
 
 #
 #---------[ 19. FIND (line: 268) ]--------------------------------------------

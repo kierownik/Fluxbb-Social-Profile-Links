@@ -16,10 +16,11 @@
 						<legend>Enter your usernames</legend>
 						<div class="infldset">
 							<input type="hidden" name="form_sent" value="1" />
-							<label>Github<br /><input id="spl_github" type="text" name="form[spl_github]" value="<?php echo pun_htmlspecialchars($user['spl_github']) ?>" size="40" maxlength="75" /><br /></label>
-							<label>Facebook<br /><input id="spl_facebook" type="text" name="form[spl_facebook]" value="<?php echo $user['spl_facebook'] ?>" size="40" maxlength="75" /><br /></label>
-							<label>Twitter<br /><input id="spl_twitter" type="text" name="form[spl_twitter]" value="<?php echo pun_htmlspecialchars($user['spl_twitter']) ?>" size="40" maxlength="75" /><br /></label>
-							<label>Youtube<br /><input id="spl_youtube" type="text" name="form[spl_youtube]" value="<?php echo pun_htmlspecialchars($user['spl_youtube']) ?>" size="40" maxlength="75" /><br /></label>
+							<label>Github<br /><input id="spl_github" type="text" name="form[spl_github]" value="<?php echo pun_htmlspecialchars($user['spl_github']) ?>" size="40" maxlength="75" placeholder="Username" /><br /></label>
+							<label>Facebook<br /><input id="spl_facebook" type="text" name="form[spl_facebook]" value="<?php echo $user['spl_facebook'] ?>" size="40" maxlength="75" placeholder="Username" /><br /></label>
+							<label>Twitter<br /><input id="spl_twitter" type="text" name="form[spl_twitter]" value="<?php echo pun_htmlspecialchars($user['spl_twitter']) ?>" size="40" maxlength="75" placeholder="Username" /><br /></label>
+							<label>Youtube<br /><input id="spl_youtube" type="text" name="form[spl_youtube]" value="<?php echo pun_htmlspecialchars($user['spl_youtube']) ?>" size="40" maxlength="75" placeholder="Username" /><br /></label>
+							<label>Google+<br /><input id="spl_googleplus" type="text" name="form[spl_googleplus]" value="<?php echo pun_htmlspecialchars($user['spl_googleplus']) ?>" size="40" maxlength="75" placeholder="google+ user id"/><br /></label>
 						</div>
 					</fieldset>
 				</div>

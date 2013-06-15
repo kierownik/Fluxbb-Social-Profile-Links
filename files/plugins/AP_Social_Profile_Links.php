@@ -131,6 +131,33 @@ if ( isset( $_POST['set_options'] ) )
     
     $updated = true;
   }
+
+  if ( $_POST['o_spl_prof_googleplus'] != $pun_config['o_spl_prof_googleplus'] )
+  {
+    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_googleplus']."' WHERE `conf_name` = 'o_spl_prof_googleplus'";
+    
+    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
+    
+    $updated = true;
+  }
+
+  if ( $_POST['o_spl_view_googleplus'] != $pun_config['o_spl_view_googleplus'] )
+  {
+    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_googleplus']."' WHERE `conf_name` = 'o_spl_view_googleplus'";
+    
+    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
+    
+    $updated = true;
+  }
+
+  if ( $_POST['o_spl_icon_googleplus'] != $pun_config['o_spl_icon_googleplus'] )
+  {
+    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_googleplus']."' WHERE `conf_name` = 'o_spl_icon_googleplus'";
+    
+    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
+    
+    $updated = true;
+  }
   
   if ( $updated )
   { 
@@ -274,6 +301,33 @@ if ( isset( $_POST['set_options'] ) )
                 <input type="checkbox" name="o_spl_icon_youtube" value="1"
                 <?php
                   if ( $pun_config['o_spl_icon_youtube'] == '1' ) {
+                    echo 'checked="checked"';
+                  }
+                ?> />
+              </td>
+            </tr>
+            <tr>
+              <th scope="col">Google+</th>
+              <td>
+                <input type="checkbox" name="o_spl_prof_googleplus" value="1" 
+                <?php
+                  if ( $pun_config['o_spl_prof_googleplus'] == '1' ) {
+                    echo ' checked="checked"';
+                  }
+                ?> />
+              </td>
+              <td>
+                <input type="checkbox" name="o_spl_view_googleplus" value="1"
+                <?php
+                  if ( $pun_config['o_spl_view_googleplus'] == '1' ) {
+                    echo 'checked="checked"';
+                  }
+                ?> />
+              </td>
+              <td>
+                <input type="checkbox" name="o_spl_icon_googleplus" value="1"
+                <?php
+                  if ( $pun_config['o_spl_icon_googleplus'] == '1' ) {
                     echo 'checked="checked"';
                   }
                 ?> />
