@@ -2,10 +2,11 @@
 /**
 ************************************************************************
 *  Author: kierownik
-*  Date: 2006-11-25
-*  Description: Adds links to the profile and viewtopic pages
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add there usernames.
 *  Copyright (C) Daniel Rokven (rokven@gmail.com)
-* License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
 *
 ************************************************************************
 **/
