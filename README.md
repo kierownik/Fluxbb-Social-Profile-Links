@@ -10,9 +10,9 @@ Works on FluxBB:  1.5.3
 Release date:     2013-06-15  
 Author:           Daniël Rokven (rokven@gmail.com)  
   
-Description:  This mod does nothing useful!  
+Description:  Adds Social links to the profile and viewtopic pages where users can add there usernames.  
   
-Repository URL:  http://fluxbb.org/resources/mods/xxx  
+Repository URL:  https://fluxbb.org/forums/viewtopic.php?id=7122  
 
 Affected files:  include/functions.php  
                  profile.php  
