@@ -5,7 +5,7 @@ if (!$pun_user['is_guest'])
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
   $user_contacts[] = '<br /><br />';
-  
+
   if ($pun_config['o_spl_view_github'] == '1' AND $cur_post['spl_github'] !='')
   {
     if ($pun_config['o_spl_icon_github'] == '1')

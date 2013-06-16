@@ -5,7 +5,7 @@
 		require PUN_ROOT.'header.php';
 
 		generate_profile_menu('spl');
-    
+
   // Load the social-profile-links.php language file
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
