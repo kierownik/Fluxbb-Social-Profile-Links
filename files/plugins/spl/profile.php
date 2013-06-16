@@ -68,11 +68,11 @@ if (!$pun_user['is_guest'])
 		
 		if ($pun_config['o_spl_icon_googleplus'] == '1')
 		{
-			$user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_googleplus'].'" rel="nofollow"><img src="img/spl/googleplus-icon.png" /></a></span></dd>';
+			$user_personal[] = '<dd><span><a href="https://plus.google.com/'.$user['spl_googleplus'].'/posts" rel="nofollow"><img src="img/spl/googleplus-icon.png" /></a></span></dd>';
 		}
 		else
 		{
-      $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_googleplus'].'" rel="nofollow">'.$user['spl_googleplus'].'</a></span></dd>';
+      $user_personal[] = '<dd><span class="website"><a href="https://plus.google.com/'.$user['spl_googleplus'].'/posts" rel="nofollow">'.$user['spl_googleplus'].'</a></span></dd>';
     }
 	}
 }
