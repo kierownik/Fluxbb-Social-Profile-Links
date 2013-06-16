@@ -3,19 +3,19 @@
 $lang_spl = array(
 
 'social profile links'  =>  'Social Profile Links',
-'username of user id'   =>  'Vul je `Gebruikersnaam` of `Gebruikers Id` in',
-'username'              =>  'Gebruikersnaam',
-'user id'               =>  'Gebruikers Id',
+'username of user id'   =>  'Enter your `Username` or `User Id`',
+'username'              =>  'Username',
+'user id'               =>  'User Id',
 'github'                =>  'GitHub',
 'facebook'              =>  'Facebook',
 'twitter'               =>  'Twitter',
 'youtube'               =>  'YouTube',
 'google+'               =>  'Google+',
 
-'options'               =>  'Opties',
+'options'               =>  'Options',
 'profile.php'           =>  'profile.php',
 'viewtopic.php'         =>  'viewtopic.php',
-'use icon'              =>  'Gebruik icoon',
+'use icon'              =>  'Use icon',
 
 'bad facebook'          =>  'You entered an invalid Facebook username. Please go back and correct.',
 'bad github'            =>  'You entered an invalid GitHub username. Please go back and correct.',
