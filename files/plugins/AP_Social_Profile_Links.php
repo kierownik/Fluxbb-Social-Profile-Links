@@ -16,6 +16,10 @@ if ( !defined( 'PUN' ) ) {
   exit;
 }
 
+// Load the social-profile-links.php language file
+require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+
+
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
 
@@ -194,7 +198,7 @@ if ( isset( $_POST['set_options'] ) )
 
 ?>
 <div id="exampleplugin" class="plugin blockform">
-  <h2><span>Social Profile Links - V 0.1.1</span></h2>
+  <h2><span><?php echo $lang_spl['social profile links'] ?> - V 0.1.1</span></h2>
   <div class="box">
     <div class="inbox">
       <p>This plugin is used to place links in the profile and/or viewtopic page of the user.</p>
@@ -202,7 +206,7 @@ if ( isset( $_POST['set_options'] ) )
   </div>
 </div>
 <div class="blockform">
-  <h2 class="block2"><span>Options</span></h2>
+  <h2 class="block2"><span><?php echo $lang_spl['options'] ?></span></h2>
   <div class="box">
     <form id="spl" method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
     <div class="inform">
@@ -210,17 +214,17 @@ if ( isset( $_POST['set_options'] ) )
           <input type="submit" name="set_options" value="Save options"/>
         </p>
       <fieldset>
-      <legend>Options</legend>
+      <legend><?php echo $lang_spl['options'] ?></legend>
         <div class="infldset">
           <table class="aligntop" cellspacing="0">
             <tr>
             <td></td>
-            <td>profile.php</td>
-            <td>viewtopic.php</td>
-            <td>Use Icon</td>
+            <td><?php echo $lang_spl['profile.php'] ?></td>
+            <td><?php echo $lang_spl['viewtopic.php'] ?></td>
+            <td><?php echo $lang_spl['use icon'] ?></td>
           </tr>
             <tr>
-              <th scope="col">Github</th>
+              <th scope="col"><?php echo $lang_spl['github'] ?></th>
               <td>
                 <input type="checkbox" name="o_spl_prof_github" value="1" 
                 <?php
@@ -247,7 +251,7 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col">Facebook</th>
+              <th scope="col"><?php echo $lang_spl['facebook'] ?></th>
               <td>
                 <input type="checkbox" name="o_spl_prof_facebook" value="1" 
                 <?php
@@ -274,7 +278,7 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col">Twitter</th>
+              <th scope="col"><?php echo $lang_spl['twitter'] ?></th>
               <td>
                 <input type="checkbox" name="o_spl_prof_twitter" value="1" 
                 <?php
@@ -301,7 +305,7 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col">Youtube</th>
+              <th scope="col"><?php echo $lang_spl['youtube'] ?></th>
               <td>
                 <input type="checkbox" name="o_spl_prof_youtube" value="1" 
                 <?php
@@ -328,7 +332,7 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col">Google+</th>
+              <th scope="col"><?php echo $lang_spl['google+'] ?></th>
               <td>
                 <input type="checkbox" name="o_spl_prof_googleplus" value="1" 
                 <?php
