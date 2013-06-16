@@ -12,7 +12,7 @@ Author:           Daniël Rokven (rokven@gmail.com)
   
 Description:  Adds Social links to the profile and viewtopic pages where users can add there usernames.  
   
-Repository URL:  https://fluxbb.org/forums/viewtopic.php?id=7122  
+Repository URL:  https://fluxbb.org/resources/mods/social-profile-links/  
 
 Affected files:  include/functions.php  
                  profile.php  
