@@ -4,7 +4,7 @@ if (!$pun_user['is_guest'])
 	if ($user['spl_github'] != '' AND $pun_config['o_spl_prof_github'] == '1')
 	{
 		$user['spl_github'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['spl_github']) : $user['spl_github']);
-		$user_personal[] = '<dt>Github</dt>';
+		$user_personal[] = '<dt>GitHub</dt>';
 		
 		if ($pun_config['o_spl_icon_github'] == '1')
 		{
@@ -49,7 +49,7 @@ if (!$pun_user['is_guest'])
 	if ($user['spl_youtube'] != '' AND $pun_config['o_spl_prof_youtube'] == '1')
 	{
 		$user['spl_youtube'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['spl_youtube']) : $user['spl_youtube']);
-		$user_personal[] = '<dt>Youtube</dt>';
+		$user_personal[] = '<dt>YouTube</dt>';
 		
 		if ($pun_config['o_spl_icon_youtube'] == '1')
 		{
@@ -64,7 +64,7 @@ if (!$pun_user['is_guest'])
 	if ($user['spl_googleplus'] != '' AND $pun_config['o_spl_prof_googleplus'] == '1')
 	{
 		$user['spl_googleplus'] = pun_htmlspecialchars(($pun_config['o_censoring'] == '1') ? censor_words($user['spl_googleplus']) : $user['spl_googleplus']);
-		$user_personal[] = '<dt>Youtube</dt>';
+		$user_personal[] = '<dt>Google+</dt>';
 		
 		if ($pun_config['o_spl_icon_googleplus'] == '1')
 		{
