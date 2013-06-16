@@ -25,6 +25,36 @@ define( 'PUN_PLUGIN_LOADED', 1 );
 // this save's the guest options
 if ( isset( $_POST['set_options'] ) )
 {
+  $_POST['o_spl_prof_github'] = !isset($_POST['o_spl_prof_github']) ? '0' : $_POST['o_spl_prof_github'];
+
+  $_POST['o_spl_view_github'] = !isset($_POST['o_spl_view_github']) ? '0' : $_POST['o_spl_view_github'];
+
+  $_POST['o_spl_icon_github'] = !isset($_POST['o_spl_icon_github']) ? '0' : $_POST['o_spl_icon_github'];
+
+  $_POST['o_spl_prof_facebook'] = !isset($_POST['o_spl_prof_facebook']) ? '0' : $_POST['o_spl_prof_facebook'];
+
+  $_POST['o_spl_view_facebook'] = !isset($_POST['o_spl_view_facebook']) ? '0' : $_POST['o_spl_view_facebook'];
+
+  $_POST['o_spl_icon_facebook'] = !isset($_POST['o_spl_icon_facebook']) ? '0' : $_POST['o_spl_icon_facebook'];
+
+  $_POST['o_spl_icon_twitter'] = !isset($_POST['o_spl_icon_twitter']) ? '0' : $_POST['o_spl_icon_twitter'];
+
+  $_POST['o_spl_prof_twitter'] = !isset($_POST['o_spl_prof_twitter']) ? '0' : $_POST['o_spl_prof_twitter'];
+
+  $_POST['o_spl_view_twitter'] = !isset($_POST['o_spl_view_twitter']) ? '0' : $_POST['o_spl_view_twitter'];
+
+  $_POST['o_spl_icon_youtube'] = !isset($_POST['o_spl_icon_youtube']) ? '0' : $_POST['o_spl_icon_youtube'];
+
+  $_POST['o_spl_prof_youtube'] = !isset($_POST['o_spl_prof_youtube']) ? '0' : $_POST['o_spl_prof_twitter'];
+
+  $_POST['o_spl_view_youtube'] = !isset($_POST['o_spl_view_youtube']) ? '0' : $_POST['o_spl_view_youtube'];
+
+  $_POST['o_spl_icon_googleplus'] = !isset($_POST['o_spl_icon_googleplus']) ? '0' : $_POST['o_spl_icon_googleplus'];
+
+  $_POST['o_spl_prof_googleplus'] = !isset($_POST['o_spl_prof_googleplus']) ? '0' : $_POST['o_spl_prof_googleplus'];
+
+  $_POST['o_spl_view_googleplus'] = !isset($_POST['o_spl_view_googleplus']) ? '0' : $_POST['o_spl_view_googleplus'];
+
   if ( $_POST['o_spl_prof_github'] != $pun_config['o_spl_prof_github'] )
   {
     $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_github']."' WHERE `conf_name` = 'o_spl_prof_github'";
