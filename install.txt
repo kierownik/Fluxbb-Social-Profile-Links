@@ -2,9 +2,9 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  0.1
+##      Mod version:  0.1.1
 ##  Works on FluxBB:  1.5.3
-##     Release date:  2013-06-15
+##     Release date:  2013-06-16
 ##           Author:  Daniël Rokven (rokven@gmail.com)
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages

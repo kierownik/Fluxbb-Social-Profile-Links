@@ -3,8 +3,8 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '0.1';
-$release_date   = '2013-06-15';
+$mod_version    = '0.1.1';
+$release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
 
