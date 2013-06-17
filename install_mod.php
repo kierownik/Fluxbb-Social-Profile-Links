@@ -63,6 +63,10 @@ function install()
   {
     $db->add_field('users', ''.$key.'', 'varchar(200)', $allow_null, $default_value, $after_field) or error('Unable to add column "'.$key.'" to table "users"', __FILE__, __LINE__, $db->error());
   }
+
+    // Regenerate the config cache
+    require_once PUN_ROOT.'include/cache.php';
+    generate_config_cache();
 }
 
 // This following function will be called when the user presses the "Restore" button (only if $mod_restore is true (see above))
@@ -105,6 +109,10 @@ function restore()
   {
     $db->drop_field('users', ''.$key.'', true) or error('Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error());;
   }
+
+    // Regenerate the config cache
+    require_once PUN_ROOT.'include/cache.php';
+    generate_config_cache();
 }
 
 /***********************************************************************/
