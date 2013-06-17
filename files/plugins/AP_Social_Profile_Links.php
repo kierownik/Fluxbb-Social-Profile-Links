@@ -182,9 +182,9 @@ if ( isset( $_POST['set_options'] ) )
     
     $updated = true;
   }
-  
+
   if ( $updated )
-  { 
+  {
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
     generate_config_cache();
