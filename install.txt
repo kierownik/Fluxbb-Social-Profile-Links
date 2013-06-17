@@ -18,7 +18,7 @@
 ##
 ##       Affects DB:  Yes
 ##
-##            Notes:  
+##            Notes:  Thanks to quy [https://fluxbb.org/forums/profile.php?id=22] for helping
 ##
 ##       DISCLAIMER:  Please note that "mods" are not officially supported by
 ##                    FluxBB. Installation of this modification is done at 
