@@ -110,19 +110,19 @@ profile.php
       );
 
       // If the GitHub username contains anything other than alphanumeric and period it's invalid
-      if ( preg_match( '/[^A-Za-z0-9\.]{5,50}$/', $form['spl_github'] ) )
+      if ( $form['spl_github'] != '' && !preg_match( '%^[A-Za-z0-9\.]{5,50}$%', $form['spl_github'] ) )
         message( $lang_spl['bad github'] );
 
       // If the Facebook username contains anything other than alphanumeric and period it's invalid
-      if ( preg_match( '/[^A-Za-z0-9\.]{5,50}$/', $form['spl_facebook'] ) )
+      if ( $form['spl_facebook'] != '' && !preg_match( '%^[A-Za-z0-9\.]{5,50}$%', $form['spl_facebook'] ) )
         message( $lang_spl['bad facebook'] );
 
-      // If the Youtube username contains anything other than alphanumeric, underscore, dash, apostrophe, period it's invalid
-      if ( preg_match( '/^[^A-Za-z0-9_\-.]{6,20}$/', $form['spl_youtube'] ) )
+      // If the YouTube username contains anything other than alphanumeric, underscore, dash, apostrophe, period it's invalid
+      if ( $form['spl_youtube'] != '' && !preg_match( '%^[A-Za-z0-9_\-.]{6,20}$%', $form['spl_youtube'] ) )
         message( $lang_spl['bad youtube'] );
 
       // If the Twitter username contains anything other than alphanumeric and dashes it's invalid
-      if ( preg_match( '/^[^A-Za-z0-9_]{1,15}$/', $form['spl_twitter'] ) )
+      if ( $form['spl_twitter'] != '' && !preg_match( '%^[A-Za-z0-9_]{1,15}$%', $form['spl_twitter'] ) )
         message( $lang_spl['bad twitter'] );
 
       // If the Google+ user id contains anything other than digits it's invalid
