@@ -28,6 +28,8 @@ define( 'PUN_PLUGIN_LOADED', 1 );
 // this save's the guest options
 if ( isset( $_POST['set_options'] ) )
 {
+  $updated = false;
+
   $_POST['o_spl_prof_github'] = isset($_POST['o_spl_prof_github']) ? '1' : '0';
   $_POST['o_spl_view_github'] = isset($_POST['o_spl_view_github']) ? '1' : '0';
   $_POST['o_spl_icon_github'] = isset($_POST['o_spl_icon_github']) ? '1' : '0';
@@ -361,7 +363,7 @@ if ( isset( $_POST['set_options'] ) )
         </div>	<!-- end class="infldset" -->
         </fieldset>
         <p class="submittop">
-          <input type="submit" name="set_options" value="Save options"/>
+          <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
         </p>
       </div>
     </form>

@@ -23,4 +23,6 @@ $lang_spl = array(
 'bad google+'           =>  'Je gaf een ongeldige Google+ gebruikers id in. Ga terug en herstel de fout.',
 'bad youtube'           =>  'Je gaf een ongeldige YouTube gebruikersnaam in. Ga terug en herstel de fout.',
 
+'save options'          =>  'Opties Opslaan',
+
 );

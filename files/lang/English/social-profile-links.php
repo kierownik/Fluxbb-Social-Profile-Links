@@ -23,4 +23,6 @@ $lang_spl = array(
 'bad google+'           =>  'You entered an invalid Google+ user id. Please go back and correct.',
 'bad youtube'           =>  'You entered an invalid YouTube username. Please go back and correct.',
 
+'save options'           =>  'Save Options',
+
 );
