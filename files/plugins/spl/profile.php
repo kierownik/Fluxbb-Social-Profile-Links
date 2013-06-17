@@ -11,7 +11,7 @@ if (!$pun_user['is_guest'])
     
     if ($pun_config['o_spl_icon_github'] == '1')
     {
-      $user_personal[] = '<dd><span><a href="https://github.com/'.$user['spl_github'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/GitHub.png" /></a></span></dd>';
+      $user_personal[] = '<dd><span><a href="https://github.com/'.$user['spl_github'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/GitHub.png" alt="" /></a></span></dd>';
     }
     else
     {
@@ -26,7 +26,7 @@ if (!$pun_user['is_guest'])
     
     if ($pun_config['o_spl_icon_facebook'] == '1')
     {
-      $user_personal[] = '<dd><span><a href="https://facebook.com/'.$user['spl_facebook'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/Facebook.png" /></a></span></dd>';
+      $user_personal[] = '<dd><span><a href="https://facebook.com/'.$user['spl_facebook'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/Facebook.png" alt="" /></a></span></dd>';
     }
     else
     {
@@ -41,7 +41,7 @@ if (!$pun_user['is_guest'])
     
     if ($pun_config['o_spl_icon_twitter'] == '1')
     {
-      $user_personal[] = '<dd><span><a href="https://twitter.com/'.$user['spl_twitter'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/Twitter.png" /></a></span></dd>';
+      $user_personal[] = '<dd><span><a href="https://twitter.com/'.$user['spl_twitter'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/Twitter.png" alt="" /></a></span></dd>';
     }
     else
     {
@@ -56,7 +56,7 @@ if (!$pun_user['is_guest'])
     
     if ($pun_config['o_spl_icon_youtube'] == '1')
     {
-      $user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_youtube'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/YouTube.png" /></a></span></dd>';
+      $user_personal[] = '<dd><span><a href="https://youtube.com/user/'.$user['spl_youtube'].'" rel="nofollow"><img src="'.$pun_config['o_base_url'].'/img/spl/YouTube.png" alt="" /></a></span></dd>';
     }
     else
     {
@@ -71,7 +71,7 @@ if (!$pun_user['is_guest'])
     
     if ($pun_config['o_spl_icon_googleplus'] == '1')
     {
-      $user_personal[] = '<dd><span><a href="https://plus.google.com/'.$user['spl_googleplus'].'/posts" rel="nofollow"><img src="img/spl/Google+.png" /></a></span></dd>';
+      $user_personal[] = '<dd><span><a href="https://plus.google.com/'.$user['spl_googleplus'].'/posts" rel="nofollow"><img src="img/spl/Google+.png" alt="" /></a></span></dd>';
     }
     else
     {

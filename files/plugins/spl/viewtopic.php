@@ -10,7 +10,7 @@ if (!$pun_user['is_guest'])
   {
     if ($pun_config['o_spl_icon_github'] == '1')
     {
-      $user_contacts[] = '<span><a href="https://github.com/'.pun_htmlspecialchars($cur_post['spl_github']).'" rel="nofollow" title="'.$lang_spl['github'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/GitHub.png" /></a></span>';
+      $user_contacts[] = '<span><a href="https://github.com/'.pun_htmlspecialchars($cur_post['spl_github']).'" rel="nofollow" title="'.$lang_spl['github'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/GitHub.png" alt="" /></a></span>';
     }
     else
     {
@@ -22,7 +22,7 @@ if (!$pun_user['is_guest'])
   {
     if ($pun_config['o_spl_icon_facebook'] == '1')
     {
-      $user_contacts[] = '<span><a href="https://www.facebook.com/'.pun_htmlspecialchars($cur_post['spl_facebook']).'" rel="nofollow" title="'.$lang_spl['facebook'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Facebook.png" /></a></span>';
+      $user_contacts[] = '<span><a href="https://www.facebook.com/'.pun_htmlspecialchars($cur_post['spl_facebook']).'" rel="nofollow" title="'.$lang_spl['facebook'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Facebook.png" alt="" /></a></span>';
     }
     else
     {
@@ -34,7 +34,7 @@ if (!$pun_user['is_guest'])
   {
     if ($pun_config['o_spl_icon_twitter'] == '1')
     {
-      $user_contacts[] = '<span><a href="https://twitter.com/'.pun_htmlspecialchars($cur_post['spl_twitter']).'" rel="nofollow" title="'.$lang_spl['twitter'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Twitter.png" /></a></span>';
+      $user_contacts[] = '<span><a href="https://twitter.com/'.pun_htmlspecialchars($cur_post['spl_twitter']).'" rel="nofollow" title="'.$lang_spl['twitter'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Twitter.png" alt="" /></a></span>';
     }
     else
     {
@@ -46,7 +46,7 @@ if (!$pun_user['is_guest'])
   {
     if ($pun_config['o_spl_icon_youtube'] == '1')
     {
-      $user_contacts[] = '<span><a href="https://youtube.com/user/'.pun_htmlspecialchars($cur_post['spl_youtube']).'" rel="nofollow" title="'.$lang_spl['youtube'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/YouTube.png" /></a></span>';
+      $user_contacts[] = '<span><a href="https://youtube.com/user/'.pun_htmlspecialchars($cur_post['spl_youtube']).'" rel="nofollow" title="'.$lang_spl['youtube'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/YouTube.png" alt="" /></a></span>';
     }
     else
     {
@@ -58,7 +58,7 @@ if (!$pun_user['is_guest'])
   {
     if ($pun_config['o_spl_icon_googleplus'] == '1')
     {
-      $user_contacts[] = '<span><a href="https://profiles.google.com/'.pun_htmlspecialchars($cur_post['spl_googleplus']).'" rel="nofollow" title="'.$lang_spl['google+'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Google+.png" /></a></span>';
+      $user_contacts[] = '<span><a href="https://profiles.google.com/'.pun_htmlspecialchars($cur_post['spl_googleplus']).'" rel="nofollow" title="'.$lang_spl['google+'].'"><img src="'.$pun_config['o_base_url'].'/img/spl/Google+.png" alt="" /></a></span>';
     }
     else
     {
