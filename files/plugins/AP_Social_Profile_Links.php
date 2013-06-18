@@ -190,7 +190,7 @@ if ( isset( $_POST['set_options'] ) )
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
     generate_config_cache();
-    redirect($_SERVER['REQUEST_URI'], 'Your data has been saved');
+    redirect($_SERVER['REQUEST_URI'], $lang_spl['data saved']);
   }
 } // end set_options
 

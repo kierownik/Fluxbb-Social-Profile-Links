@@ -24,5 +24,6 @@ $lang_spl = array(
 'bad youtube'           =>  'Je gaf een ongeldige YouTube gebruikersnaam in. Ga terug en herstel de fout.',
 
 'save options'          =>  'Opties Opslaan',
+'data saved'            =>  'Je opties zijn opgeslagen',
 
 );
