@@ -11,7 +11,7 @@
 
 ?>
   <div class="blockform">
-    <h2><span><?php echo pun_htmlspecialchars($user['username']).' - Social Profile Links' ?></span></h2>
+    <h2><span><?php echo pun_htmlspecialchars($user['username']).' - '. $lang_spl['social profile links'] ?></span></h2>
     <div class="box">
       <form id="profile3a" method="post" action="profile.php?section=spl&amp;id=<?php echo $id ?>">
         <div class="inform">
