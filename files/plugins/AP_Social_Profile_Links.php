@@ -212,7 +212,7 @@ if ( isset( $_POST['set_options'] ) )
     <form id="spl" method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
     <div class="inform">
         <p class="submittop">
-          <input type="submit" name="set_options" value="Save options"/>
+          <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
         </p>
       <fieldset>
       <legend><?php echo $lang_spl['options'] ?></legend>
