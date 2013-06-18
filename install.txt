@@ -62,7 +62,7 @@ include/functions.php
 #---------[ 6. AFTER ADD ]---------------------------------------------------
 #
 
-					<li<?php if ($page == 'spl') echo ' class="isactive"'; ?>><a href="profile.php?section=spl&amp;id=<?php echo $id ?>">Social Profile Links</a></li>
+					<li<?php if ($page == 'spl') echo ' class="isactive"'; ?>><a href="profile.php?section=spl&amp;id=<?php echo $id ?>"><?php echo $lang_spl['social profile links'] ?></a></li>
 
 #
 #---------[ 7. OPEN ]---------------------------------------------------------
