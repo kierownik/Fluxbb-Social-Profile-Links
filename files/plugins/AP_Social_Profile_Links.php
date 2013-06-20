@@ -5,7 +5,7 @@
 *  Date: 2013-06-15
 *  Description: Adds Social links to the profile and viewtopic pages
 *               where users can add there usernames.
-*  Copyright (C) Daniel Rokven (rokven@gmail.com)
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
 *  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
 *
 ************************************************************************
@@ -30,170 +30,40 @@ if ( isset( $_POST['set_options'] ) )
 {
   $updated = false;
 
-  $_POST['o_spl_prof_github'] = isset($_POST['o_spl_prof_github']) ? '1' : '0';
-  $_POST['o_spl_view_github'] = isset($_POST['o_spl_view_github']) ? '1' : '0';
-  $_POST['o_spl_icon_github'] = isset($_POST['o_spl_icon_github']) ? '1' : '0';
-
-  $_POST['o_spl_prof_facebook'] = isset($_POST['o_spl_prof_facebook']) ? '1' : '0';
-  $_POST['o_spl_view_facebook'] = isset($_POST['o_spl_view_facebook']) ? '1' : '0';
-  $_POST['o_spl_icon_facebook'] = isset($_POST['o_spl_icon_facebook']) ? '1' : '0';
-
-  $_POST['o_spl_icon_twitter'] = isset($_POST['o_spl_icon_twitter']) ? '1' : '0';
-  $_POST['o_spl_prof_twitter'] = isset($_POST['o_spl_prof_twitter']) ? '1' : '0';
-  $_POST['o_spl_view_twitter'] = isset($_POST['o_spl_view_twitter']) ? '1' : '0';
-
-  $_POST['o_spl_icon_youtube'] = isset($_POST['o_spl_icon_youtube']) ? '1' : '0';
-  $_POST['o_spl_prof_youtube'] = isset($_POST['o_spl_prof_youtube']) ? '1' : '0';
-  $_POST['o_spl_view_youtube'] = isset($_POST['o_spl_view_youtube']) ? '1' : '0';
-
-  $_POST['o_spl_icon_googleplus'] = isset($_POST['o_spl_icon_googleplus']) ? '1' : '0';
-  $_POST['o_spl_prof_googleplus'] = isset($_POST['o_spl_prof_googleplus']) ? '1' : '0';
-  $_POST['o_spl_view_googleplus'] = isset($_POST['o_spl_view_googleplus']) ? '1' : '0';
-
-  $_POST['o_spl_show_guest'] = isset($_POST['o_spl_show_guest']) ? '1' : '0';
-
-  if ( $_POST['o_spl_prof_github'] != $pun_config['o_spl_prof_github'] )
-  {
-    $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_github']."' WHERE `conf_name` = 'o_spl_prof_github'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_view_github'] != $pun_config['o_spl_view_github'] )
-  {
-    $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_github']."' WHERE `conf_name` = 'o_spl_view_github'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_icon_github'] != $pun_config['o_spl_icon_github'] )
-  {
-    $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_github']."' WHERE `conf_name` = 'o_spl_icon_github'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_prof_facebook'] != $pun_config['o_spl_prof_facebook'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_facebook']."' WHERE `conf_name` = 'o_spl_prof_facebook'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_view_facebook'] != $pun_config['o_spl_view_facebook'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_facebook']."' WHERE `conf_name` = 'o_spl_view_facebook'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_icon_facebook'] != $pun_config['o_spl_icon_facebook'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_facebook']."' WHERE `conf_name` = 'o_spl_icon_facebook'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_prof_twitter'] != $pun_config['o_spl_prof_twitter'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_twitter']."' WHERE `conf_name` = 'o_spl_prof_twitter'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_view_twitter'] != $pun_config['o_spl_view_twitter'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_twitter']."' WHERE `conf_name` = 'o_spl_view_twitter'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_icon_twitter'] != $pun_config['o_spl_icon_twitter'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_twitter']."' WHERE `conf_name` = 'o_spl_icon_twitter'";
-
-    $db->query($query) or error('Unable to update board config post '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_prof_youtube'] != $pun_config['o_spl_prof_youtube'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_youtube']."' WHERE `conf_name` = 'o_spl_prof_youtube'";
+  $spl_options = array(
+    'o_spl_prof_github'     => ''.isset( $_POST['o_spl_prof_github'] ) ? '1' : '0',
+    'o_spl_view_github'     => ''.isset( $_POST['o_spl_view_github'] ) ? '1' : '0',
+    'o_spl_icon_github'     => ''.isset( $_POST['o_spl_icon_github'] ) ? '1' : '0',
     
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
+    'o_spl_prof_facebook'   => ''.isset( $_POST['o_spl_prof_facebook'] ) ? '1' : '0',
+    'o_spl_view_facebook'   => ''.isset( $_POST['o_spl_view_facebook'] ) ? '1' : '0',
+    'o_spl_icon_facebook'   => ''.isset( $_POST['o_spl_icon_facebook'] ) ? '1' : '0',
     
-    $updated = true;
-  }
+    'o_spl_prof_twitter'    => ''.isset( $_POST['o_spl_prof_twitter'] ) ? '1' : '0',
+    'o_spl_view_twitter'    => ''.isset( $_POST['o_spl_view_twitter'] ) ? '1' : '0',
+    'o_spl_icon_twitter'    => ''.isset( $_POST['o_spl_icon_twitter'] ) ? '1' : '0',
+    
+    'o_spl_prof_youtube'    => ''.isset( $_POST['o_spl_prof_youtube'] ) ? '1' : '0',
+    'o_spl_view_youtube'    => ''.isset( $_POST['o_spl_view_youtube'] ) ? '1' : '0',
+    'o_spl_icon_youtube'    => ''.isset( $_POST['o_spl_icon_youtube'] ) ? '1' : '0',
+    
+    'o_spl_prof_googleplus' => ''.isset( $_POST['o_spl_prof_googleplus'] ) ? '1' : '0',
+    'o_spl_view_googleplus' => ''.isset( $_POST['o_spl_view_googleplus'] ) ? '1' : '0',
+    'o_spl_icon_googleplus' => ''.isset( $_POST['o_spl_icon_googleplus'] ) ? '1' : '0',
+    
+    'o_spl_show_guest'      => ''.isset( $_POST['o_spl_show_guest'] ) ? '1' : '0',
+  );
 
-  if ( $_POST['o_spl_view_youtube'] != $pun_config['o_spl_view_youtube'] )
+  foreach ( $spl_options AS $key => $value )
   {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_youtube']."' WHERE `conf_name` = 'o_spl_view_youtube'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
-  }
+    if ( $spl_options[$key] != $pun_config[$key] )
+    {
+      $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$value."' WHERE `conf_name` = '".$key."'";
 
-  if ( $_POST['o_spl_icon_youtube'] != $pun_config['o_spl_icon_youtube'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_youtube']."' WHERE `conf_name` = 'o_spl_icon_youtube'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
-  }
+      $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
 
-  if ( $_POST['o_spl_prof_googleplus'] != $pun_config['o_spl_prof_googleplus'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_googleplus']."' WHERE `conf_name` = 'o_spl_prof_googleplus'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_view_googleplus'] != $pun_config['o_spl_view_googleplus'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_view_googleplus']."' WHERE `conf_name` = 'o_spl_view_googleplus'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_icon_googleplus'] != $pun_config['o_spl_icon_googleplus'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_googleplus']."' WHERE `conf_name` = 'o_spl_icon_googleplus'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
-  }
-
-  if ( $_POST['o_spl_show_guest'] != $pun_config['o_spl_show_guest'] )
-  {
-    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_show_guest']."' WHERE `conf_name` = 'o_spl_show_guest'";
-    
-    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
-    
-    $updated = true;
+      $updated = true;
+    }
   }
 
   if ( $updated )
@@ -201,12 +71,12 @@ if ( isset( $_POST['set_options'] ) )
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
     generate_config_cache();
-    redirect($_SERVER['REQUEST_URI'], $lang_spl['data saved']);
+    redirect( $_SERVER['REQUEST_URI'], $lang_spl['data saved'] );
   }
 } // end set_options
 
   // Display the admin navigation menu
-  generate_admin_menu($plugin);
+  generate_admin_menu( $plugin );
 
 ?>
 <div id="exampleplugin" class="plugin blockform">
