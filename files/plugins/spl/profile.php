@@ -1,11 +1,11 @@
 ﻿<?php
 
-if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
+if ( ($pun_config['o_spl_show_guest'] == '1' AND $pun_config['o_spl_show_in_profile'] == '1' ) OR ( !$pun_user['is_guest'] AND $pun_config['o_spl_show_in_profile'] == '1' ) )
 {
   // Load the social-profile-links.php language file
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
-  if ( $user['spl_github'] != '' AND $pun_config['o_spl_show_in_profile'] == '1' )
+  if ( $user['spl_github'] != '' )
   {
     $user['spl_github'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_github'] ) : $user['spl_github']);
     $user_personal[] = '<dt>'.$lang_spl['github'].'</dt>';
@@ -20,7 +20,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $user['spl_facebook'] != '' AND $pun_config['o_spl_show_in_profile'] == '1' )
+  if ( $user['spl_facebook'] != '' )
   {
     $user['spl_facebook'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_facebook'] ) : $user['spl_facebook'] );
     $user_personal[] = '<dt>'.$lang_spl['facebook'].'</dt>';
@@ -35,7 +35,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $user['spl_twitter'] != '' AND $pun_config['o_spl_show_in_profile'] == '1' )
+  if ( $user['spl_twitter'] != '' )
   {
     $user['spl_twitter'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words($user['spl_twitter']) : $user['spl_twitter'] );
     $user_personal[] = '<dt>'.$lang_spl['twitter'].'</dt>';
@@ -50,7 +50,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $user['spl_youtube'] != '' AND $pun_config['o_spl_show_in_profile'] == '1' )
+  if ( $user['spl_youtube'] != '' )
   {
     $user['spl_youtube'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_youtube']) : $user['spl_youtube'] );
     $user_personal[] = '<dt>'.$lang_spl['youtube'].'</dt>';
@@ -65,7 +65,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $user['spl_googleplus'] != '' AND $pun_config['o_spl_show_in_profile'] == '1' )
+  if ( $user['spl_googleplus'] != '' )
   {
     $user['spl_googleplus'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_googleplus'] ) : $user['spl_googleplus'] );
     $user_personal[] = '<dt>'.$lang_spl['google+'].'</dt>';

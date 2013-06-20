@@ -1,17 +1,17 @@
 ﻿<?php
 
-if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
+if ( ($pun_config['o_spl_show_guest'] == '1' AND $pun_config['o_spl_show_in_viewtopic'] == '1' ) OR ( !$pun_user['is_guest'] AND $pun_config['o_spl_show_in_viewtopic'] == '1' ) )
 {
   // Load the social-profile-links.php language file
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
   // If there are links to display we need to add 2 empty newlines
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $cur_post['spl_github'] != '' OR $cur_post['spl_facebook'] != '' OR $cur_post['spl_twitter'] != '' OR  $cur_post['spl_youtube'] != '' OR $cur_post['spl_googleplus'] != '' ) )
+  if ( $cur_post['spl_github'] != '' OR $cur_post['spl_facebook'] != '' OR $cur_post['spl_twitter'] != '' OR  $cur_post['spl_youtube'] != '' OR $cur_post['spl_googleplus'] != '' )
   {
     $user_contacts[] = '<br /><br />';
   }
 
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND $cur_post['spl_github'] != '' )
+  if ( $cur_post['spl_github'] != '' )
   {
     $cur_post['spl_github'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_github'] ) : $cur_post['spl_github'] );
 
@@ -25,7 +25,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND $cur_post['spl_facebook'] != '' )
+  if ( $cur_post['spl_facebook'] != '' )
   {
     $cur_post['spl_facebook'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words($cur_post['spl_facebook'] ) : $cur_post['spl_facebook'] );
 
@@ -39,7 +39,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND $cur_post['spl_twitter'] != '' )
+  if ( $cur_post['spl_twitter'] != '' )
   {
     $cur_post['spl_twitter'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_twitter']) : $cur_post['spl_twitter'] );
 
@@ -53,7 +53,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND $cur_post['spl_youtube'] != '' )
+  if ( $cur_post['spl_youtube'] != '' )
   {
     $cur_post['spl_youtube'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_youtube'] ) : $cur_post['spl_youtube'] );
 
@@ -67,7 +67,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
     }
   }
 
-  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND $cur_post['spl_googleplus'] != '' )
+  if ( $cur_post['spl_googleplus'] != '' )
   {
     $cur_post['spl_googleplus'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_googleplus'] ) : $cur_post['spl_googleplus'] );
 
