@@ -1,5 +1,6 @@
 ﻿<?php
-if (!$pun_user['is_guest'])
+
+if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
 {
   // Load the social-profile-links.php language file
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';

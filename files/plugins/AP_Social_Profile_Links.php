@@ -50,6 +50,8 @@ if ( isset( $_POST['set_options'] ) )
   $_POST['o_spl_prof_googleplus'] = isset($_POST['o_spl_prof_googleplus']) ? '1' : '0';
   $_POST['o_spl_view_googleplus'] = isset($_POST['o_spl_view_googleplus']) ? '1' : '0';
 
+  $_POST['o_spl_show_guest'] = isset($_POST['o_spl_show_guest']) ? '1' : '0';
+
   if ( $_POST['o_spl_prof_github'] != $pun_config['o_spl_prof_github'] )
   {
     $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_prof_github']."' WHERE `conf_name` = 'o_spl_prof_github'";
@@ -179,6 +181,15 @@ if ( isset( $_POST['set_options'] ) )
   if ( $_POST['o_spl_icon_googleplus'] != $pun_config['o_spl_icon_googleplus'] )
   {
     $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_icon_googleplus']."' WHERE `conf_name` = 'o_spl_icon_googleplus'";
+    
+    $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
+    
+    $updated = true;
+  }
+
+  if ( $_POST['o_spl_show_guest'] != $pun_config['o_spl_show_guest'] )
+  {
+    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$_POST['o_spl_show_guest']."' WHERE `conf_name` = 'o_spl_show_guest'";
     
     $db->query($query) or error('Unable to update board config post  '. print_r($db->error()),__FILE__, __LINE__, $db->error());
     
@@ -357,6 +368,20 @@ if ( isset( $_POST['set_options'] ) )
                     echo 'checked="checked"';
                   }
                 ?> />
+              </td>
+            </tr>
+          </table>
+
+          <table class="aligntop" cellspacing="0">
+            <tr>
+              <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
+              <td>
+                <input type="checkbox" name="o_spl_show_guest" value="1" 
+                <?php
+                  if ( $pun_config['o_spl_show_guest'] == '1' ) {
+                    echo ' checked="checked"';
+                  }
+                ?> /> <?php echo $lang_spl['show guests info'] ?>
               </td>
             </tr>
           </table>

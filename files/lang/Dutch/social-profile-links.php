@@ -12,6 +12,9 @@ $lang_spl = array(
 'youtube'               =>  'YouTube',
 'google+'               =>  'Google+',
 
+'show guests'           =>  'Laat Gasten Zien',
+'show guests info'      =>  'Als je dit aanzet kunnen je gasten de links van je gebruikers zien',
+
 'options'               =>  'Opties',
 'profile.php'           =>  'profile.php',
 'viewtopic.php'         =>  'viewtopic.php',

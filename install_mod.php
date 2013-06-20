@@ -40,11 +40,22 @@ function install()
     'o_spl_icon_twitter'      => '0',
     'o_spl_icon_youtube'      => '0',
     'o_spl_icon_googleplus'   => '0',
+    'o_spl_show_guest'        => '0',
   );
 
-  foreach($spl_config AS $key => $value)
+  foreach( $spl_config AS $key => $value )
   {
-    $db->query("INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape($value)."') ") or error('Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error());
+    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = '".$key."'");
+
+    if ( !$db->num_rows( $query ) )
+    {
+      $db->query("INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape($value)."') ") or error('Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error());
+    }
+    
+    /*if ( $db->index_exists( 'config', $key ) == true )
+    {
+      $db->query("INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape($value)."') ") or error('Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error());
+    }*/
   }
 
   $spl_users = array(
@@ -90,6 +101,7 @@ function restore()
     'o_spl_icon_twitter'      => '0',
     'o_spl_icon_youtube'      => '0',
     'o_spl_icon_googleplus'   => '0',
+    'o_spl_show_guest'        => '0',
   );
 
   foreach($spl_config as $key => $value)
@@ -161,7 +173,7 @@ if (isset($_POST['form_sent']))
   <h2><span>Installation successful</span></h2>
   <div class="box">
     <div class="inbox">
-      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars($mod_title) ?>. See readme.txt for further instructions.</p>
+      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars($mod_title) ?>. See install.txt for further instructions.</p>
     </div>
   </div>
 </div>
