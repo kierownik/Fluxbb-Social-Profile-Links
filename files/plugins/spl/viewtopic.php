@@ -6,7 +6,7 @@ if ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] )
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
   // If there are links to display we need to add 2 empty newlines
-  if ( $cur_post['spl_github'] != '' OR $cur_post['spl_facebook'] != '' OR $cur_post['spl_twitter'] != '' == '1' OR $cur_post['spl_youtube'] != '' OR $cur_post['spl_googleplus'] != '' )
+  if ( $cur_post['spl_github'] != '' OR $cur_post['spl_facebook'] != '' OR $cur_post['spl_twitter'] != '' OR $cur_post['spl_youtube'] != '' OR $cur_post['spl_googleplus'] != '' )
   {
     $user_contacts[] = '<br /><br />';
   }
