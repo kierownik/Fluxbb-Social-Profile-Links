@@ -25,21 +25,14 @@ function install()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'o_spl_prof_github'       => '0',
-    'o_spl_prof_facebook'     => '0',
-    'o_spl_prof_twitter'      => '0',
-    'o_spl_prof_youtube'      => '0',
-    'o_spl_prof_googleplus'   => '0',
-    'o_spl_view_github'       => '0',
-    'o_spl_view_facebook'     => '0',
-    'o_spl_view_twitter'      => '0',
-    'o_spl_view_youtube'      => '0',
-    'o_spl_view_googleplus'   => '0',
-    'o_spl_icon_github'       => '0',
-    'o_spl_icon_facebook'     => '0',
-    'o_spl_icon_twitter'      => '0',
-    'o_spl_icon_youtube'      => '0',
-    'o_spl_icon_googleplus'   => '0',
+    'o_spl_github'            => '0',
+    'o_spl_facebook'          => '0',
+    'o_spl_twitter'           => '0',
+    'o_spl_youtube'           => '0',
+    'o_spl_googleplus'        => '0',
+    'o_spl_use_icon'          => '0',
+    'o_spl_show_in_profile'   => '0',
+    'o_spl_show_in_viewtopic' => '0',
     'o_spl_show_guest'        => '0',
   );
 
@@ -81,6 +74,16 @@ function restore()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
+    'o_spl_github'            => '0',
+    'o_spl_facebook'          => '0',
+    'o_spl_twitter'           => '0',
+    'o_spl_youtube'           => '0',
+    'o_spl_googleplus'        => '0',
+    'o_spl_use_icon'          => '0',
+    'o_spl_show_in_profile'   => '0',
+    'o_spl_show_in_viewtopic' => '0',
+    'o_spl_show_guest'        => '0',
+    // old residue from V0.2
     'o_spl_prof_github'       => '0',
     'o_spl_prof_facebook'     => '0',
     'o_spl_prof_twitter'      => '0',
@@ -97,11 +100,17 @@ function restore()
     'o_spl_icon_youtube'      => '0',
     'o_spl_icon_googleplus'   => '0',
     'o_spl_show_guest'        => '0',
+    // old residue from V0.2
   );
 
   foreach( $spl_config as $key => $value )
   {
-    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "'.$key.'"' ) or error( 'Unable to delete "'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
+    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = '".$key."'");
+
+    if ( $db->num_rows( $query ) )
+    {
+      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "'.$key.'"' ) or error( 'Unable to delete "'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
+    }
   }
 
   $spl_users = array(

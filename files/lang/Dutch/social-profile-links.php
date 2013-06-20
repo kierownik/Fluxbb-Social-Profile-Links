@@ -16,8 +16,8 @@ $lang_spl = array(
 'show guests info'      =>  'Als je dit aanzet kunnen je gasten de links van je gebruikers zien',
 
 'options'               =>  'Opties',
-'profile.php'           =>  'profile.php',
-'viewtopic.php'         =>  'viewtopic.php',
+'show in users profile' =>  'Laat zien in gebruikers profiel',
+'show in viewtopic'     =>  'Laat zien in viewtopic',
 'use icon'              =>  'Gebruik icoon',
 
 'bad facebook'          =>  'Je gaf een ongeldige Facebook gebruikersnaam in. Ga terug en herstel de fout.',

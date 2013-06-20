@@ -31,27 +31,23 @@ if ( isset( $_POST['set_options'] ) )
   $updated = false;
 
   $spl_options = array(
-    'o_spl_prof_github'     => ''.isset( $_POST['o_spl_prof_github'] ) ? '1' : '0',
-    'o_spl_view_github'     => ''.isset( $_POST['o_spl_view_github'] ) ? '1' : '0',
-    'o_spl_icon_github'     => ''.isset( $_POST['o_spl_icon_github'] ) ? '1' : '0',
-    
-    'o_spl_prof_facebook'   => ''.isset( $_POST['o_spl_prof_facebook'] ) ? '1' : '0',
-    'o_spl_view_facebook'   => ''.isset( $_POST['o_spl_view_facebook'] ) ? '1' : '0',
-    'o_spl_icon_facebook'   => ''.isset( $_POST['o_spl_icon_facebook'] ) ? '1' : '0',
-    
-    'o_spl_prof_twitter'    => ''.isset( $_POST['o_spl_prof_twitter'] ) ? '1' : '0',
-    'o_spl_view_twitter'    => ''.isset( $_POST['o_spl_view_twitter'] ) ? '1' : '0',
-    'o_spl_icon_twitter'    => ''.isset( $_POST['o_spl_icon_twitter'] ) ? '1' : '0',
-    
-    'o_spl_prof_youtube'    => ''.isset( $_POST['o_spl_prof_youtube'] ) ? '1' : '0',
-    'o_spl_view_youtube'    => ''.isset( $_POST['o_spl_view_youtube'] ) ? '1' : '0',
-    'o_spl_icon_youtube'    => ''.isset( $_POST['o_spl_icon_youtube'] ) ? '1' : '0',
-    
-    'o_spl_prof_googleplus' => ''.isset( $_POST['o_spl_prof_googleplus'] ) ? '1' : '0',
-    'o_spl_view_googleplus' => ''.isset( $_POST['o_spl_view_googleplus'] ) ? '1' : '0',
-    'o_spl_icon_googleplus' => ''.isset( $_POST['o_spl_icon_googleplus'] ) ? '1' : '0',
-    
-    'o_spl_show_guest'      => ''.isset( $_POST['o_spl_show_guest'] ) ? '1' : '0',
+    'o_spl_github'            => ''.isset( $_POST['o_spl_github'] ) ? '1' : '0',
+
+    'o_spl_facebook'          => ''.isset( $_POST['o_spl_facebook'] ) ? '1' : '0',
+
+    'o_spl_twitter'           => ''.isset( $_POST['o_spl_twitter'] ) ? '1' : '0',
+
+    'o_spl_youtube'           => ''.isset( $_POST['o_spl_youtube'] ) ? '1' : '0',
+
+    'o_spl_googleplus'        => ''.isset( $_POST['o_spl_googleplus'] ) ? '1' : '0',
+
+    'o_spl_show_in_profile'   => ''.isset( $_POST['o_spl_show_in_profile'] ) ? '1' : '0',
+
+    'o_spl_show_in_viewtopic' => ''.isset( $_POST['o_spl_show_in_viewtopic'] ) ? '1' : '0',
+
+    'o_spl_use_icon'          => ''.isset( $_POST['o_spl_use_icon'] ) ? '1' : '0',
+
+    'o_spl_show_guest'        => ''.isset( $_POST['o_spl_show_guest'] ) ? '1' : '0',
   );
 
   foreach ( $spl_options AS $key => $value )
@@ -100,33 +96,11 @@ if ( isset( $_POST['set_options'] ) )
         <div class="infldset">
           <table class="aligntop" cellspacing="0">
             <tr>
-            <td></td>
-            <td><?php echo $lang_spl['profile.php'] ?></td>
-            <td><?php echo $lang_spl['viewtopic.php'] ?></td>
-            <td><?php echo $lang_spl['use icon'] ?></td>
-          </tr>
-            <tr>
               <th scope="col"><?php echo $lang_spl['github'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_prof_github" value="1" 
+                <input type="checkbox" name="o_spl_github" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_prof_github'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_view_github" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_view_github'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_icon_github" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_icon_github'] == '1' ) {
+                  if ( $pun_config['o_spl_github'] == '1' ) {
                     echo ' checked="checked"';
                   }
                 ?> />
@@ -135,26 +109,10 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['facebook'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_prof_facebook" value="1" 
+                <input type="checkbox" name="o_spl_facebook" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_prof_facebook'] == '1' ) {
+                  if ( $pun_config['o_spl_facebook'] == '1' ) {
                     echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                  <input type="checkbox" name="o_spl_view_facebook" value="1"
-                <?php
-                  if ( $pun_config['o_spl_view_facebook'] == '1' ) {
-                    echo 'checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                  <input type="checkbox" name="o_spl_icon_facebook" value="1"
-                <?php
-                  if ( $pun_config['o_spl_icon_facebook'] == '1' ) {
-                    echo 'checked="checked"';
                   }
                 ?> />
               </td>
@@ -162,26 +120,10 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['twitter'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_prof_twitter" value="1" 
+                <input type="checkbox" name="o_spl_twitter" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_prof_twitter'] == '1' ) {
+                  if ( $pun_config['o_spl_twitter'] == '1' ) {
                     echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_view_twitter" value="1"
-                <?php
-                  if ( $pun_config['o_spl_view_twitter'] == '1' ) {
-                    echo 'checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_icon_twitter" value="1"
-                <?php
-                  if ( $pun_config['o_spl_icon_twitter'] == '1' ) {
-                    echo 'checked="checked"';
                   }
                 ?> />
               </td>
@@ -189,26 +131,10 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['youtube'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_prof_youtube" value="1" 
+                <input type="checkbox" name="o_spl_youtube" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_prof_youtube'] == '1' ) {
+                  if ( $pun_config['o_spl_youtube'] == '1' ) {
                     echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_view_youtube" value="1"
-                <?php
-                  if ( $pun_config['o_spl_view_youtube'] == '1' ) {
-                    echo 'checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_icon_youtube" value="1"
-                <?php
-                  if ( $pun_config['o_spl_icon_youtube'] == '1' ) {
-                    echo 'checked="checked"';
                   }
                 ?> />
               </td>
@@ -216,26 +142,10 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['google+'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_prof_googleplus" value="1" 
+                <input type="checkbox" name="o_spl_googleplus" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_prof_googleplus'] == '1' ) {
+                  if ( $pun_config['o_spl_googleplus'] == '1' ) {
                     echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_view_googleplus" value="1"
-                <?php
-                  if ( $pun_config['o_spl_view_googleplus'] == '1' ) {
-                    echo 'checked="checked"';
-                  }
-                ?> />
-              </td>
-              <td>
-                <input type="checkbox" name="o_spl_icon_googleplus" value="1"
-                <?php
-                  if ( $pun_config['o_spl_icon_googleplus'] == '1' ) {
-                    echo 'checked="checked"';
                   }
                 ?> />
               </td>
@@ -243,6 +153,44 @@ if ( isset( $_POST['set_options'] ) )
           </table>
 
           <table class="aligntop" cellspacing="0">
+            <tr>
+              <th scope="col"></th>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <th scope="col"><?php echo $lang_spl['show in users profile'] ?></th>
+              <td>
+                <input type="checkbox" name="o_spl_show_in_profile" value="1" 
+                <?php
+                  if ( $pun_config['o_spl_show_in_profile'] == '1' ) {
+                    echo ' checked="checked"';
+                  }
+                ?> />
+              </td>
+            </tr>
+            <tr>
+              <th scope="col"><?php echo $lang_spl['show in viewtopic'] ?></th>
+              <td>
+                <input type="checkbox" name="o_spl_show_in_viewtopic" value="1" 
+                <?php
+                  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' ) {
+                    echo ' checked="checked"';
+                  }
+                ?> />
+              </td>
+            </tr>
+            <tr>
+              <th scope="col"><?php echo $lang_spl['use icon'] ?></th>
+              <td>
+                <input type="checkbox" name="o_spl_use_icon" value="1" 
+                <?php
+                  if ( $pun_config['o_spl_use_icon'] == '1' ) {
+                    echo ' checked="checked"';
+                  }
+                ?> />
+              </td>
+            </tr>
             <tr>
               <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
               <td>

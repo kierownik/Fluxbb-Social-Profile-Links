@@ -16,9 +16,9 @@ $lang_spl = array(
 'show guests info'      =>  'If you enable this, your guests can also see the links of the users',
 
 'options'               =>  'Options',
-'profile.php'           =>  'profile.php',
-'viewtopic.php'         =>  'viewtopic.php',
-'use icon'              =>  'Use icon',
+'show in users profile' =>  'Show on users profile',
+'show in viewtopic'     =>  'Show in viewtopic',
+'use icon'              =>  'Use Icon',
 
 'bad facebook'          =>  'You entered an invalid Facebook username. Please go back and correct.',
 'bad github'            =>  'You entered an invalid GitHub username. Please go back and correct.',
