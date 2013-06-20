@@ -9,15 +9,15 @@ $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
 
 // Versions of FluxBB this mod was created for. A warning will be displayed, if versions do not match
-$fluxbb_versions= array('1.5.3');
+$fluxbb_versions= array( '1.5.3' );
 
 // Set this to false if you haven't implemented the restore function (see below)
 $mod_restore  = true;
 
 
 // We want the complete error message if the script fails
-if (!defined('PUN_DEBUG'))
-  define('PUN_DEBUG', 1);
+if ( !defined( 'PUN_DEBUG' ) )
+  define( 'PUN_DEBUG', 1 );
 
 // This following function will be called when the user presses the "Install" button
 function install()
@@ -49,13 +49,8 @@ function install()
 
     if ( !$db->num_rows( $query ) )
     {
-      $db->query("INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape($value)."') ") or error('Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error());
+      $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape( $value )."') " ) or error( 'Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error() );
     }
-    
-    /*if ( $db->index_exists( 'config', $key ) == true )
-    {
-      $db->query("INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape($value)."') ") or error('Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error());
-    }*/
   }
 
   $spl_users = array(
@@ -70,9 +65,9 @@ function install()
   $default_value = '';
   $after_field = 'yahoo';
 
-  foreach($spl_users AS $key => $value)
+  foreach( $spl_users AS $key => $value )
   {
-    $db->add_field('users', ''.$key.'', 'varchar(200)', $allow_null, $default_value, $after_field) or error('Unable to add column "'.$key.'" to table "users"', __FILE__, __LINE__, $db->error());
+    $db->add_field( 'users', ''.$key.'', 'varchar(200)', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "'.$key.'" to table "users"', __FILE__, __LINE__, $db->error() );
   }
 
     // Regenerate the config cache
@@ -104,9 +99,9 @@ function restore()
     'o_spl_show_guest'        => '0',
   );
 
-  foreach($spl_config as $key => $value)
+  foreach( $spl_config as $key => $value )
   {
-    $db->query('DELETE FROM '.$db->prefix.'config WHERE conf_name = "'.$key.'"') or error('Unable to delete "'.$key.'" from config table', __FILE__, __LINE__, $db->error());
+    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "'.$key.'"' ) or error( 'Unable to delete "'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
   }
 
   $spl_users = array(
@@ -117,9 +112,9 @@ function restore()
     'spl_googleplus'  => '',
   );
 
-  foreach($spl_users as $key => $value)
+  foreach( $spl_users as $key => $value )
   {
-    $db->drop_field('users', ''.$key.'', true) or error('Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error());;
+    $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
   }
 
     // Regenerate the config cache
@@ -133,18 +128,18 @@ function restore()
 
 
 // Circumvent maintenance mode
-define('PUN_TURN_OFF_MAINT', 1);
-define('PUN_ROOT', './');
+define( 'PUN_TURN_OFF_MAINT', 1 );
+define( 'PUN_ROOT', './' );
 require PUN_ROOT.'include/common.php';
 
 // We want the complete error message if the script fails
-if (!defined('PUN_DEBUG'))
-  define('PUN_DEBUG', 1);
+if ( !defined('PUN_DEBUG' ) )
+  define( 'PUN_DEBUG', 1 );
 
 // Make sure we are running a FluxBB version that this mod works with
-$version_warning = !in_array($pun_config['o_cur_version'], $fluxbb_versions);
+$version_warning = !in_array( $pun_config['o_cur_version'], $fluxbb_versions );
 
-$style = (isset($pun_user)) ? $pun_user['style'] : $pun_config['o_default_style'];
+$style = ( isset( $pun_user ) ) ? $pun_user['style'] : $pun_config['o_default_style'];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -161,11 +156,11 @@ $style = (isset($pun_user)) ? $pun_user['style'] : $pun_config['o_default_style'
 
 <?php
 
-if (isset($_POST['form_sent']))
+if ( isset( $_POST['form_sent'] ) )
 {
-  if (isset($_POST['install']))
+  if ( isset( $_POST['install'] ) )
   {
-    // Run the install function (defined above)
+    // Run the install function ( defined above )
     install();
 
 ?>
@@ -173,7 +168,7 @@ if (isset($_POST['form_sent']))
   <h2><span>Installation successful</span></h2>
   <div class="box">
     <div class="inbox">
-      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars($mod_title) ?>. See install.txt for further instructions.</p>
+      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars( $mod_title ) ?>. See install.txt for further instructions.</p>
     </div>
   </div>
 </div>
@@ -182,7 +177,7 @@ if (isset($_POST['form_sent']))
   }
   else
   {
-    // Run the restore function (defined above)
+    // Run the restore function ( defined above )
     restore();
 
 ?>
@@ -209,17 +204,17 @@ else
       <div><input type="hidden" name="form_sent" value="1" /></div>
       <div class="inform">
         <p>This script will update your database to work with the following modification:</p>
-        <p><strong>Mod title:</strong> <?php echo pun_htmlspecialchars($mod_title.' '.$mod_version) ?></p>
-        <p><strong>Author:</strong> <?php echo pun_htmlspecialchars($author) ?> (<a href="mailto:<?php echo pun_htmlspecialchars($author_email) ?>"><?php echo pun_htmlspecialchars($author_email) ?></a>)</p>
+        <p><strong>Mod title:</strong> <?php echo pun_htmlspecialchars( $mod_title.' '.$mod_version ) ?></p>
+        <p><strong>Author:</strong> <?php echo pun_htmlspecialchars( $author ) ?> (<a href="mailto:<?php echo pun_htmlspecialchars( $author_email ) ?>"><?php echo pun_htmlspecialchars( $author_email ) ?></a>)</p>
         <p><strong>Disclaimer:</strong> Mods are not officially supported by FluxBB. Mods generally can't be uninstalled without running SQL queries manually against the database. Make backups of all data you deem necessary before installing.</p>
-<?php if ($mod_restore): ?>
+<?php if ( $mod_restore ): ?>
         <p>If you've previously installed this mod and would like to uninstall it, you can click the Restore button below to restore the database.</p>
 <?php endif; ?>
-<?php if ($version_warning): ?>
-        <p style="color: #a00"><strong>Warning:</strong> The mod you are about to install was not made specifically to support your current version of FluxBB (<?php echo $pun_config['o_cur_version']; ?>). This mod supports FluxBB versions: <?php echo pun_htmlspecialchars(implode(', ', $fluxbb_versions)); ?>. If you are uncertain about installing the mod due to this potential version conflict, contact the mod author.</p>
+<?php if ( $version_warning ): ?>
+        <p style="color: #a00"><strong>Warning:</strong> The mod you are about to install was not made specifically to support your current version of FluxBB (<?php echo $pun_config['o_cur_version']; ?>). This mod supports FluxBB versions: <?php echo pun_htmlspecialchars( implode( ', ', $fluxbb_versions ) ); ?>. If you are uncertain about installing the mod due to this potential version conflict, contact the mod author.</p>
 <?php endif; ?>
       </div>
-      <p class="buttons"><input type="submit" name="install" value="Install" /><?php if ($mod_restore): ?><input type="submit" name="restore" value="Restore" /><?php endif; ?></p>
+      <p class="buttons"><input type="submit" name="install" value="Install" /><?php if ( $mod_restore ): ?><input type="submit" name="restore" value="Restore" /><?php endif; ?></p>
     </form>
   </div>
 </div>
@@ -239,5 +234,5 @@ else
 // End the transaction
 $db->end_transaction();
 
-// Close the db connection (and free up any result data)
+// Close the db connection ( and free up any result data )
 $db->close();
