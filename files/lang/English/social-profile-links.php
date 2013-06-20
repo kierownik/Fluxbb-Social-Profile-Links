@@ -16,7 +16,7 @@ $lang_spl = array(
 'show guests info'      =>  'If you enable this, your guests can also see the links of the users',
 
 'options'               =>  'Options',
-'show in users profile' =>  'Show on users profile',
+'show in users profile' =>  'Show in users profile',
 'show in viewtopic'     =>  'Show in viewtopic',
 'use icon'              =>  'Use Icon',
 
