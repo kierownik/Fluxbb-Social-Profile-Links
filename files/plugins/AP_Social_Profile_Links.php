@@ -151,59 +151,58 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
           </table>
-
-          <table class="aligntop" cellspacing="0">
-            <tr>
-              <th scope="col"></th>
-              <td>
-              </td>
-            </tr>
-            <tr>
-              <th scope="col"><?php echo $lang_spl['show in users profile'] ?></th>
-              <td>
-                <input type="checkbox" name="o_spl_show_in_profile" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_show_in_profile'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-            </tr>
-            <tr>
-              <th scope="col"><?php echo $lang_spl['show in viewtopic'] ?></th>
-              <td>
-                <input type="checkbox" name="o_spl_show_in_viewtopic" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-            </tr>
-            <tr>
-              <th scope="col"><?php echo $lang_spl['use icon'] ?></th>
-              <td>
-                <input type="checkbox" name="o_spl_use_icon" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_use_icon'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> />
-              </td>
-            </tr>
-            <tr>
-              <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
-              <td>
-                <input type="checkbox" name="o_spl_show_guest" value="1" 
-                <?php
-                  if ( $pun_config['o_spl_show_guest'] == '1' ) {
-                    echo ' checked="checked"';
-                  }
-                ?> /> <?php echo $lang_spl['show guests info'] ?>
-              </td>
-            </tr>
-          </table>
         </div>	<!-- end class="infldset" -->
+      </fieldset>
+      <fieldset>
+        <legend><?php echo $lang_spl['display'] ?></legend>
+          <div class="infldset">
+            <table class="aligntop" cellspacing="0">
+              <tr>
+                <th scope="col"><?php echo $lang_spl['show in users profile'] ?></th>
+                <td>
+                  <input type="checkbox" name="o_spl_show_in_profile" value="1" 
+                  <?php
+                    if ( $pun_config['o_spl_show_in_profile'] == '1' ) {
+                      echo ' checked="checked"';
+                    }
+                  ?> />
+                </td>
+              </tr>
+              <tr>
+                <th scope="col"><?php echo $lang_spl['show in viewtopic'] ?></th>
+                <td>
+                  <input type="checkbox" name="o_spl_show_in_viewtopic" value="1" 
+                  <?php
+                    if ( $pun_config['o_spl_show_in_viewtopic'] == '1' ) {
+                      echo ' checked="checked"';
+                    }
+                  ?> />
+                </td>
+              </tr>
+              <tr>
+                <th scope="col"><?php echo $lang_spl['use icon'] ?></th>
+                <td>
+                  <input type="checkbox" name="o_spl_use_icon" value="1" 
+                  <?php
+                    if ( $pun_config['o_spl_use_icon'] == '1' ) {
+                      echo ' checked="checked"';
+                    }
+                  ?> />
+                </td>
+              </tr>
+              <tr>
+                <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
+                <td>
+                  <input type="checkbox" name="o_spl_show_guest" value="1" 
+                  <?php
+                    if ( $pun_config['o_spl_show_guest'] == '1' ) {
+                      echo ' checked="checked"';
+                    }
+                  ?> /> <?php echo $lang_spl['show guests info'] ?>
+                </td>
+              </tr>
+            </table>
+          </div>	<!-- end class="infldset" -->
         </fieldset>
         <p class="submittop">
           <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
