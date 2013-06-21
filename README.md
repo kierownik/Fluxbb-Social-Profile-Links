@@ -7,9 +7,7 @@ Social-Profile-Links
 **Release date:**     2013-06-15  
 **Author:**           Daniël Rokven ( rokven@gmail.com )  
 **Description:**  Adds Social links to the profile and viewtopic pages where users can add there usernames.  
-  
 **Repository URL:**  https://fluxbb.org/resources/mods/social-profile-links/  
-
 **Affected files:**  
 
 *   include/functions.php  
