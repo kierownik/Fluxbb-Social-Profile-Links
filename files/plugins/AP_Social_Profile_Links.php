@@ -102,7 +102,8 @@ if ( isset( $_POST['set_options'] ) )
             <td>
               <input type="checkbox" name="o_spl_github" value="1" 
               <?php
-                if ( $pun_config['o_spl_github'] == '1' ) {
+                if ( $pun_config['o_spl_github'] == '1' )
+                {
                   echo ' checked="checked"';
                 }
               ?> />
@@ -113,7 +114,8 @@ if ( isset( $_POST['set_options'] ) )
             <td>
               <input type="checkbox" name="o_spl_facebook" value="1" 
               <?php
-                if ( $pun_config['o_spl_facebook'] == '1' ) {
+                if ( $pun_config['o_spl_facebook'] == '1' )
+                {
                   echo ' checked="checked"';
                 }
               ?> />
@@ -124,7 +126,8 @@ if ( isset( $_POST['set_options'] ) )
             <td>
               <input type="checkbox" name="o_spl_twitter" value="1" 
               <?php
-                if ( $pun_config['o_spl_twitter'] == '1' ) {
+                if ( $pun_config['o_spl_twitter'] == '1' )
+                {
                   echo ' checked="checked"';
                 }
               ?> />
@@ -135,7 +138,8 @@ if ( isset( $_POST['set_options'] ) )
             <td>
               <input type="checkbox" name="o_spl_youtube" value="1" 
               <?php
-                if ( $pun_config['o_spl_youtube'] == '1' ) {
+                if ( $pun_config['o_spl_youtube'] == '1' )
+                {
                   echo ' checked="checked"';
                 }
               ?> />
@@ -146,7 +150,8 @@ if ( isset( $_POST['set_options'] ) )
             <td>
               <input type="checkbox" name="o_spl_googleplus" value="1" 
               <?php
-                if ( $pun_config['o_spl_googleplus'] == '1' ) {
+                if ( $pun_config['o_spl_googleplus'] == '1' )
+                {
                   echo ' checked="checked"';
                 }
               ?> />
@@ -164,7 +169,8 @@ if ( isset( $_POST['set_options'] ) )
               <td>
                 <input type="checkbox" name="o_spl_show_in_profile" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_in_profile'] == '1' ) {
+                  if ( $pun_config['o_spl_show_in_profile'] == '1' )
+                  {
                     echo ' checked="checked"';
                   }
                 ?> />
@@ -175,7 +181,8 @@ if ( isset( $_POST['set_options'] ) )
               <td>
                 <input type="checkbox" name="o_spl_show_in_viewtopic" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' ) {
+                  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' )
+                  {
                     echo ' checked="checked"';
                   }
                 ?> />
@@ -186,7 +193,8 @@ if ( isset( $_POST['set_options'] ) )
               <td>
                 <input type="checkbox" name="o_spl_use_icon" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_use_icon'] == '1' ) {
+                  if ( $pun_config['o_spl_use_icon'] == '1' )
+                  {
                     echo ' checked="checked"';
                   }
                 ?> />
@@ -197,7 +205,8 @@ if ( isset( $_POST['set_options'] ) )
               <td>
                 <input type="checkbox" name="o_spl_show_guest" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_guest'] == '1' ) {
+                  if ( $pun_config['o_spl_show_guest'] == '1' )
+                  {
                     echo ' checked="checked"';
                   }
                 ?> /> <?php echo $lang_spl['show guests info'] ?>
@@ -207,28 +216,28 @@ if ( isset( $_POST['set_options'] ) )
               <th scope="col"><?php echo $lang_spl['link target'] ?></th>
               <td>
               <select name="o_spl_link_target">
-                <?php
-                  if ( $pun_config['o_spl_link_target'] == '1' )
-                  {
-                    echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
-                  }
-                  else
-                  {
-                    echo '<option value="1" >'.$lang_spl['link target external'].'</option>';
-                  }
-                  if ( $pun_config['o_spl_link_target'] == '0' )
-                  {
-                    echo '<option value="0" selected="selected">'.$lang_spl['link target internal'].'</option>';
-                  }
-                  else
-                  {
-                    echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
-                  }
-                ?>
-                </select>
-              </td>
-            </tr>
-          </table>
+              <?php
+                if ( $pun_config['o_spl_link_target'] == '1' )
+                {
+                  echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
+                }
+                else
+                {
+                  echo '<option value="1" >'.$lang_spl['link target external'].'</option>';
+                }
+                if ( $pun_config['o_spl_link_target'] == '0' )
+                {
+                  echo '<option value="0" selected="selected">'.$lang_spl['link target internal'].'</option>';
+                }
+                else
+                {
+                  echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
+                }
+              ?>
+              </select>
+            </td>
+          </tr>
+        </table>
         </div>	<!-- end class="infldset" -->
         </fieldset>
         <p class="submittop">
