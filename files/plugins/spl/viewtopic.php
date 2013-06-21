@@ -11,10 +11,10 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
     $user_contacts[] = '<br /><br />';
   }
 
+  $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
+
   if ( $cur_post['spl_github'] != '' )
   {
-    $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
-
     $cur_post['spl_github'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_github'] ) : $cur_post['spl_github'] );
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
@@ -29,8 +29,6 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
   if ( $cur_post['spl_facebook'] != '' )
   {
-    $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
-
     $cur_post['spl_facebook'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words($cur_post['spl_facebook'] ) : $cur_post['spl_facebook'] );
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
@@ -45,8 +43,6 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
   if ( $cur_post['spl_twitter'] != '' )
   {
-    $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
-
     $cur_post['spl_twitter'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_twitter']) : $cur_post['spl_twitter'] );
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
@@ -61,8 +57,6 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
   if ( $cur_post['spl_youtube'] != '' )
   {
-    $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
-
     $cur_post['spl_youtube'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_youtube'] ) : $cur_post['spl_youtube'] );
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
@@ -77,8 +71,6 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
   if ( $cur_post['spl_googleplus'] != '' )
   {
-    $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
-
     $cur_post['spl_googleplus'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_googleplus'] ) : $cur_post['spl_googleplus'] );
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
