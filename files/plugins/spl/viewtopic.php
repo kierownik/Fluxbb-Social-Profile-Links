@@ -1,6 +1,6 @@
 ﻿<?php
 
-if ( ($pun_config['o_spl_show_guest'] == '1' AND $pun_config['o_spl_show_in_viewtopic'] == '1' ) OR ( !$pun_user['is_guest'] AND $pun_config['o_spl_show_in_viewtopic'] == '1' ) )
+if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   // Load the social-profile-links.php language file
   require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';

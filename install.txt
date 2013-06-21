@@ -25,6 +25,8 @@
 ##                    your own risk. Backup your forum database and any and
 ##                    all applicable files before proceeding.
 ##
+##          Notes 2:  If you do not use the lang/Dutch or lang/English then do not copie them
+##
 ##
 
 #
