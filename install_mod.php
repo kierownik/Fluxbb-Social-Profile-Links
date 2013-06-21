@@ -34,6 +34,7 @@ function install()
     'o_spl_show_in_profile'   => '0',
     'o_spl_show_in_viewtopic' => '0',
     'o_spl_show_guest'        => '0',
+    'o_spl_link_target'       => '0',
   );
 
   foreach( $spl_config AS $key => $value )
@@ -83,6 +84,7 @@ function restore()
     'o_spl_show_in_profile'   => '0',
     'o_spl_show_in_viewtopic' => '0',
     'o_spl_show_guest'        => '0',
+    'o_spl_link_target'       => '0',
     // old residue from V0.2
     'o_spl_prof_github'       => '0',
     'o_spl_prof_facebook'     => '0',

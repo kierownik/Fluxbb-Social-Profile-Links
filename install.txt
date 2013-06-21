@@ -102,11 +102,11 @@ profile.php
       require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
 
       $form = array(
-        'spl_github'      => pun_trim( $_POST['form']['spl_github'] ),
-        'spl_facebook'    => pun_trim( $_POST['form']['spl_facebook'] ),
-        'spl_youtube'     => pun_trim( $_POST['form']['spl_youtube'] ),
-        'spl_twitter'     => pun_trim( $_POST['form']['spl_twitter'] ),
-        'spl_googleplus'  => pun_trim( $_POST['form']['spl_googleplus'] ),
+        'spl_github'      => $pun_config['o_spl_github'] == '1' && isset( $_POST['form']['spl_github'] ) ? pun_trim( $_POST['form']['spl_github'] ) : '',
+        'spl_facebook'    => $pun_config['o_spl_facebook'] == '1' && isset( $_POST['form']['spl_facebook'] ) ? pun_trim( $_POST['form']['spl_facebook'] ) : '',
+        'spl_youtube'     => $pun_config['o_spl_youtube'] == '1' && isset( $_POST['form']['spl_youtube'] ) ? pun_trim( $_POST['form']['spl_youtube'] ) : '',
+        'spl_twitter'     => $pun_config['o_spl_twitter'] == '1' && isset( $_POST['form']['spl_twitter'] ) ? pun_trim( $_POST['form']['spl_twitter'] ) : '',
+        'spl_googleplus'  => $pun_config['o_spl_googleplus'] == '1' && isset( $_POST['form']['spl_googleplus'] ) ? pun_trim( $_POST['form']['spl_googleplus'] ) : '',
       );
 
       // If the GitHub username contains anything other than alphanumeric and period it's invalid

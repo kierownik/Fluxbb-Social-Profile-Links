@@ -17,6 +17,9 @@ $lang_spl = array(
 
 'options'               =>  'Opties',
 'display'               =>  'Scherm',
+'link target'           =>  'Link doel',
+'link target external'  =>  'Nieuw venster/tab',
+'link target internal'  =>  'Zelfde venster',
 'show in users profile' =>  'Laat zien in gebruikers profiel',
 'show in viewtopic'     =>  'Laat zien in viewtopic',
 'use icon'              =>  'Gebruik icoon',

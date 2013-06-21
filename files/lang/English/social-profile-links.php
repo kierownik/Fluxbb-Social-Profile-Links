@@ -17,6 +17,9 @@ $lang_spl = array(
 
 'options'               =>  'Options',
 'display'               =>  'Display',
+'link target'           =>  'Link target',
+'link target external'  =>  'New window/tab',
+'link target internal'  =>  'Same window',
 'show in users profile' =>  'Show in users profile',
 'show in viewtopic'     =>  'Show in viewtopic',
 'use icon'              =>  'Use Icon',
