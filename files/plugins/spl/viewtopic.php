@@ -75,11 +75,11 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'" rel="nofollow" title="'.$lang_spl['google+'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/Google+.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow" title="'.$lang_spl['google+'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/Google+.png" alt="" /></a></span>';
     }
     else
     {
-      $user_contacts[] = '<span class="website"><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'" rel="nofollow"'.$target.'>'.$lang_spl['google+'].'</a></span>';
+      $user_contacts[] = '<span class="website"><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow"'.$target.'>'.$lang_spl['google+'].'</a></span>';
     }
   }
 }
