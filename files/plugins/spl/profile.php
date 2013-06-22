@@ -48,7 +48,7 @@ if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_g
     }
     else
     {
-      $user_personal[] = '<dd><span class="website"><a href="https://twitter.com/'.$user['spl_twitter'].'" title="'.$lang_spl['twitter'].' "rel="nofollow"'.$target.'>'.$user['spl_twitter'].'</a></span></dd>';
+      $user_personal[] = '<dd><span class="website"><a href="https://twitter.com/'.$user['spl_twitter'].'" title="'.$lang_spl['twitter'].'" rel="nofollow"'.$target.'>'.$user['spl_twitter'].'</a></span></dd>';
     }
   }
 
@@ -63,7 +63,7 @@ if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_g
     }
     else
     {
-      $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_youtube'].'" title="'.$lang_spl['youtube'].' "rel="nofollow"'.$target.'>'.$user['spl_youtube'].'</a></span></dd>';
+      $user_personal[] = '<dd><span class="website"><a href="https://youtube.com/user/'.$user['spl_youtube'].'" title="'.$lang_spl['youtube'].'" rel="nofollow"'.$target.'>'.$user['spl_youtube'].'</a></span></dd>';
     }
   }
 
