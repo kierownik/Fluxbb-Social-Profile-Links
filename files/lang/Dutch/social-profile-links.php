@@ -11,6 +11,7 @@ $lang_spl = array(
 'twitter'               =>  'Twitter',
 'youtube'               =>  'YouTube',
 'google+'               =>  'Google+',
+'instagram'             =>  'Instagram',
 
 'show guests'           =>  'Laat Gasten Zien',
 'show guests info'      =>  'Als je dit aanzet kunnen je gasten de links van je gebruikers zien',
@@ -29,6 +30,7 @@ $lang_spl = array(
 'bad twitter'           =>  'Je gaf een ongeldige Twitter gebruikersnaam in. Ga terug en herstel de fout.',
 'bad google+'           =>  'Je gaf een ongeldige Google+ gebruikers id in. Ga terug en herstel de fout.',
 'bad youtube'           =>  'Je gaf een ongeldige YouTube gebruikersnaam in. Ga terug en herstel de fout.',
+'bad instagram'         =>  'Je gaf een ongeldige Instagram gebruikersnaam in. Ga terug en herstel de fout.',
 
 'save options'          =>  'Opties Opslaan',
 'data saved'            =>  'Je opties zijn opgeslagen',

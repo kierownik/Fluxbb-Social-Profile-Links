@@ -12,6 +12,7 @@
     'spl_youtube'     => $pun_config['o_spl_youtube'] == '1' && isset( $_POST['form']['spl_youtube'] ) ? pun_trim( $_POST['form']['spl_youtube'] ) : '',
     'spl_twitter'     => $pun_config['o_spl_twitter'] == '1' && isset( $_POST['form']['spl_twitter'] ) ? pun_trim( $_POST['form']['spl_twitter'] ) : '',
     'spl_googleplus'  => $pun_config['o_spl_googleplus'] == '1' && isset( $_POST['form']['spl_googleplus'] ) ? pun_trim( $_POST['form']['spl_googleplus'] ) : '',
+    'spl_instagram'   => $pun_config['o_spl_instagram'] == '1' && isset( $_POST['form']['spl_instagram'] ) ? pun_trim( $_POST['form']['spl_instagram'] ) : '',
   );
 
   // If the GitHub username contains anything other than alphanumeric and period it's invalid
@@ -33,3 +34,7 @@
   // If the Google+ user id contains anything other than digits it's invalid
   if ( preg_match( '%[^0-9]%', $form['spl_googleplus'] ) )
     message( $lang_spl['bad google+'] );
+
+  // If the instagram username is over 30 characters and contains anything other than alphanumeric or underscore it is invalid
+  if ( preg_match( '/^[^A-Za-z0-9_]{5,30}$/', $form['spl_instagram'] ) )
+    message( $lang_spl['bad instagram'] );

@@ -84,5 +84,20 @@ if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_g
       $user_personal[] = '<dd><span class="website"><a href="https://profiles.google.com/'.$user['spl_googleplus'].'/posts" title="'.$lang_spl['google+'].'" rel="nofollow"'.$target.'>'.$user['spl_googleplus'].'</a></span></dd>';
     }
   }
+
+  if ( $user['spl_instagram'] != '' )
+  {
+    $user['spl_instagram'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_instagram'] ) : $user['spl_instagram'] );
+    $user_personal[] = '<dt>'.$lang_spl['instagram'].'</dt>';
+
+    if ( $pun_config['o_spl_use_icon'] == '1' )
+    {
+      $user_personal[] = '<dd><span><a href="http://instagram.com/'.$user['spl_instagram'].'" title="'.$lang_spl['instagram'].'" rel="nofollow"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Instagram.png" width="16" height="16" alt="'.$lang_spl['instagram'].'" /></a></span></dd>';
+    }
+    else
+    {
+      $user_personal[] = '<dd><span class="website"><a href="http://instagram.com/'.$user['spl_instagram'].'" title="'.$lang_spl['instagram'].'" rel="nofollow"'.$target.'>'.$user['spl_instagram'].'</a></span></dd>';
+    }
+  }
 }
 ?>

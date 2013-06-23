@@ -46,6 +46,11 @@ generate_profile_menu( 'spl' );
             if ( $pun_config['o_spl_googleplus'] == '1' )
             {
               echo '<label>'.$lang_spl['google+'].'<br /><input id="spl_googleplus" type="text" name="form[spl_googleplus]" value="'.pun_htmlspecialchars( $user['spl_googleplus'] ).'" size="40" maxlength="21" placeholder="'.$lang_spl['user id'].'"/><br /></label>';
+            }
+
+            if ( $pun_config['o_spl_instagram'] == '1' )
+            {
+              echo '<label>'.$lang_spl['instagram'].'<br /><input id="spl_instagram" type="text" name="form[spl_instagram]" value="'.pun_htmlspecialchars( $user['spl_instagram'] ).'" size="40" maxlength="30" placeholder="'.$lang_spl['username'].'"/><br /></label>';
             } ?>
             </div>
           </fieldset>

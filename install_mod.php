@@ -30,6 +30,7 @@ function install()
     'o_spl_twitter'           => '0',
     'o_spl_youtube'           => '0',
     'o_spl_googleplus'        => '0',
+    'o_spl_instagram'         => '0',
     'o_spl_use_icon'          => '0',
     'o_spl_show_in_profile'   => '0',
     'o_spl_show_in_viewtopic' => '0',
@@ -53,6 +54,7 @@ function install()
     'spl_twitter'     => '',
     'spl_youtube'     => '',
     'spl_googleplus'  => '',
+    'spl_instagram'   => '',
   );
 
   $allow_null = false;
@@ -80,6 +82,7 @@ function restore()
     'o_spl_twitter'           => '0',
     'o_spl_youtube'           => '0',
     'o_spl_googleplus'        => '0',
+    'o_spl_instagram'         => '0',
     'o_spl_use_icon'          => '0',
     'o_spl_show_in_profile'   => '0',
     'o_spl_show_in_viewtopic' => '0',
@@ -121,6 +124,7 @@ function restore()
     'spl_twitter'     => '',
     'spl_youtube'     => '',
     'spl_googleplus'  => '',
+    'spl_instagram'   => '',
   );
 
   foreach( $spl_users as $key => $value )

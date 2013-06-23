@@ -85,5 +85,19 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
       $user_contacts[] = '<span class="website"><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow"'.$target.'>'.$lang_spl['google+'].'</a></span>';
     }
   }
+
+  if ( $cur_post['spl_instagram'] != '' )
+  {
+    $cur_post['spl_instagram'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_instagram'] ) : $cur_post['spl_instagram'] );
+
+    if ( $pun_config['o_spl_use_icon'] == '1' )
+    {
+      $user_contacts[] = '<span><a href="http://instagram.com/'.$cur_post['spl_instagram'].'" rel="nofollow" title="'.$lang_spl['instagram'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Instagram.png" width="16" height="16" alt="'.$lang_spl['instagram'].'" /></a></span>';
+    }
+    else
+    {
+      $user_contacts[] = '<span class="website"><a href="http://instagram.com/'.$cur_post['spl_instagram'].'" rel="nofollow"'.$target.'>'.$lang_spl['instagram'].'</a></span>';
+    }
+  }
 }
 ?>

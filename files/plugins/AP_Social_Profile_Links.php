@@ -45,6 +45,8 @@ if ( isset( $_POST['set_options'] ) )
 
     'o_spl_googleplus'        => ''.isset( $_POST['o_spl_googleplus'] ) ? '1' : '0',
 
+    'o_spl_instagram'         => ''.isset( $_POST['o_spl_instagram'] ) ? '1' : '0',
+
     'o_spl_show_in_profile'   => ''.isset( $_POST['o_spl_show_in_profile'] ) ? '1' : '0',
 
     'o_spl_show_in_viewtopic' => ''.isset( $_POST['o_spl_show_in_viewtopic'] ) ? '1' : '0',
@@ -155,6 +157,18 @@ if ( isset( $_POST['set_options'] ) )
               <input type="checkbox" name="o_spl_googleplus" value="1" 
               <?php
                 if ( $pun_config['o_spl_googleplus'] == '1' )
+                {
+                  echo ' checked="checked"';
+                }
+              ?> />
+            </td>
+          </tr>
+          <tr>
+            <th scope="col"><?php echo $lang_spl['instagram'] ?></th>
+            <td>
+              <input type="checkbox" name="o_spl_instagram" value="1" 
+              <?php
+                if ( $pun_config['o_spl_instagram'] == '1' )
                 {
                   echo ' checked="checked"';
                 }

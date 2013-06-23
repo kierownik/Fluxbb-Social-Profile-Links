@@ -11,6 +11,7 @@ $lang_spl = array(
 'twitter'               =>  'Twitter',
 'youtube'               =>  'YouTube',
 'google+'               =>  'Google+',
+'instagram'             =>  'Instagram',
 
 'show guests'           =>  'Show Guests',
 'show guests info'      =>  'If you enable this, your guests can also see the links of the users',
@@ -29,6 +30,7 @@ $lang_spl = array(
 'bad twitter'           =>  'You entered an invalid Twitter username. Please go back and correct.',
 'bad google+'           =>  'You entered an invalid Google+ user id. Please go back and correct.',
 'bad youtube'           =>  'You entered an invalid YouTube username. Please go back and correct.',
+'bad instagram'         =>  'You entered an invalid Instagram username. Please go back and correct.',
 
 'save options'          =>  'Save Options',
 'data saved'            =>  'Your data has been saved',
