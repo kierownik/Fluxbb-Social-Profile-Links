@@ -131,45 +131,13 @@ else
 
     case 'spl':
     {
-      // Load the social-profile-links.php language file
-      if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
-        require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
-      else
-        require PUN_ROOT.'lang/English/social-profile-links.php';
-
-      $form = array(
-        'spl_github'      => $pun_config['o_spl_github'] == '1' && isset( $_POST['form']['spl_github'] ) ? pun_trim( $_POST['form']['spl_github'] ) : '',
-        'spl_facebook'    => $pun_config['o_spl_facebook'] == '1' && isset( $_POST['form']['spl_facebook'] ) ? pun_trim( $_POST['form']['spl_facebook'] ) : '',
-        'spl_youtube'     => $pun_config['o_spl_youtube'] == '1' && isset( $_POST['form']['spl_youtube'] ) ? pun_trim( $_POST['form']['spl_youtube'] ) : '',
-        'spl_twitter'     => $pun_config['o_spl_twitter'] == '1' && isset( $_POST['form']['spl_twitter'] ) ? pun_trim( $_POST['form']['spl_twitter'] ) : '',
-        'spl_googleplus'  => $pun_config['o_spl_googleplus'] == '1' && isset( $_POST['form']['spl_googleplus'] ) ? pun_trim( $_POST['form']['spl_googleplus'] ) : '',
-      );
-
-      // If the GitHub username contains anything other than alphanumeric and period it's invalid
-      if ( $form['spl_github'] != '' && !preg_match( '%^[A-Za-z0-9\.]{5,50}$%', $form['spl_github'] ) )
-        message( $lang_spl['bad github'] );
-
-      // If the Facebook username contains anything other than alphanumeric and period it's invalid
-      if ( $form['spl_facebook'] != '' && !preg_match( '%^[A-Za-z0-9\.]{5,50}$%', $form['spl_facebook'] ) )
-        message( $lang_spl['bad facebook'] );
-
-      // If the YouTube username contains anything other than alphanumeric, underscore, dash, apostrophe, period it's invalid
-      if ( $form['spl_youtube'] != '' && !preg_match( '%^[A-Za-z0-9_\-.]{6,20}$%', $form['spl_youtube'] ) )
-        message( $lang_spl['bad youtube'] );
-
-      // If the Twitter username contains anything other than alphanumeric and dashes it's invalid
-      if ( $form['spl_twitter'] != '' && !preg_match( '%^[A-Za-z0-9_]{1,15}$%', $form['spl_twitter'] ) )
-        message( $lang_spl['bad twitter'] );
-
-      // If the Google+ user id contains anything other than digits it's invalid
-      if ( preg_match( '%[^0-9]%', $form['spl_googleplus'] ) )
-        message( $lang_spl['bad google+'] );
+      include( PUN_ROOT.'plugins/spl/profile-case.php' );
 
       break;
     }
 
 #
-#---------[ 10. FIND (line: 1036) ]-------------------------------------------
+#---------[ 10. FIND (line: 1000) ]-------------------------------------------
 #
 
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
@@ -181,7 +149,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
  u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus,
 
 #
-#---------[ 12. Find (line: 1080 ]--------------------------------------------
+#---------[ 12. Find (line: 1044 ]--------------------------------------------
 #
 
 	if ($user['url'] != '')
@@ -198,7 +166,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
       include( PUN_ROOT.'plugins/spl/profile.php' );
 
 #
-#---------[ 14. Find (line: 1536 ]--------------------------------------------
+#---------[ 14. Find (line: 1500 ]--------------------------------------------
 #
 
 	else if ($section == 'personality')
