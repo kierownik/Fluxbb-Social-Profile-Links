@@ -56,6 +56,22 @@ install_mod.php
 include/functions.php
 
 #
+#---------[ 5. FIND (line: 510) ]---------------------------------------------
+#
+
+function generate_profile_menu($page = '')
+{
+	global $lang_profile, $pun_config, $pun_user, $id;
+
+#
+#---------[ 6. REPLACE WITH ]-------------------------------------------------
+#
+
+function generate_profile_menu($page = '')
+{
+	global $lang_profile, $pun_config, $pun_user, $id, $lang_spl;
+
+#
 #---------[ 5. FIND (line: 522) ]---------------------------------------------
 #
 
@@ -77,6 +93,21 @@ profile.php
 #---------[ 8. FIND (line: 810) ]---------------------------------------------
 #
 
+require PUN_ROOT.'lang/'.$pun_user['language'].'/profile.php';
+
+#
+#---------[ 9. AFTER, ADD ]---------------------------------------------------
+#
+
+if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+  require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+else
+  require PUN_ROOT.'lang/English/social-profile-links.php';
+
+#
+#---------[ 8. FIND (line: 814) ]---------------------------------------------
+#
+
 		case 'messaging':
 		{
 			$form = array(
@@ -93,7 +124,6 @@ profile.php
 
 			break;
 		}
-
 
 #
 #---------[ 9. AFTER, ADD ]---------------------------------------------------
@@ -139,7 +169,7 @@ profile.php
     }
 
 #
-#---------[ 10. FIND (line: 1027) ]-------------------------------------------
+#---------[ 10. FIND (line: 1036) ]-------------------------------------------
 #
 
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
@@ -151,7 +181,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
  u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus,
 
 #
-#---------[ 12. Find (line: 1071 ]--------------------------------------------
+#---------[ 12. Find (line: 1080 ]--------------------------------------------
 #
 
 	if ($user['url'] != '')
@@ -168,7 +198,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
       include( PUN_ROOT.'plugins/spl/profile.php' );
 
 #
-#---------[ 14. Find (line: 1527 ]--------------------------------------------
+#---------[ 14. Find (line: 1536 ]--------------------------------------------
 #
 
 	else if ($section == 'personality')
