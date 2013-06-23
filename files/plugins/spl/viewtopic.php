@@ -16,88 +16,55 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
   $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
 
-  if ( $cur_post['spl_github'] != '' )
+  $spl_array = array(
+    'github' => array(
+      'config'    =>  $pun_config['o_spl_github'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_github'] ) : $cur_post['spl_github'] ),
+      'url'       => 'https://github.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_github'] ) : $cur_post['spl_github'] ),
+      'lang'      =>  $lang_spl['github'],
+      'icon'      =>  'GitHub.png',
+    ),
+    'facebook' => array(
+      'config'    =>  $pun_config['o_spl_facebook'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_facebook'] ) : $cur_post['spl_facebook'] ),
+      'url'       => 'https://facebook.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_facebook'] ) : $cur_post['spl_facebook'] ),
+      'lang'      =>  $lang_spl['facebook'],
+      'icon'      =>  'Facebook.png',
+    ),
+    'twitter' => array(
+      'config'    =>  $pun_config['o_spl_twitter'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_twitter'] ) : $cur_post['spl_twitter'] ),
+      'url'       => 'https://twitter.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_twitter'] ) : $cur_post['spl_twitter'] ),
+      'lang'      =>  $lang_spl['twitter'],
+      'icon'      =>  'Twitter.png',
+    ),
+    'youtube' => array(
+      'config'    =>  $pun_config['o_spl_youtube'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_youtube'] ) : $cur_post['spl_youtube'] ),
+      'url'       => 'https://youtube.com/user/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_youtube'] ) : $cur_post['spl_youtube'] ),
+      'lang'      =>  $lang_spl['youtube'],
+      'icon'      =>  'YouTube.png',
+    ),
+    'google+' => array(
+      'config'    =>  $pun_config['o_spl_googleplus'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_googleplus'] ) : $cur_post['spl_googleplus'] ),
+      'url'       => 'https://profiles.google.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_googleplus'] ) : $cur_post['spl_googleplus'] ).'/posts',
+      'lang'      =>  $lang_spl['google+'],
+      'icon'      =>  'Google+.png',
+    ),
+  );
+
+  // Here is where the magic is
+  foreach ( $spl_array as $key )
   {
-    $cur_post['spl_github'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_github'] ) : $cur_post['spl_github'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
+    if ( $key['username'] != '' AND $pun_config['o_spl_use_icon'] == '1' AND $key['config'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://github.com/'. $cur_post['spl_github'].'" rel="nofollow" title="'.$lang_spl['github'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/GitHub.png" width="16" height="16" alt="'.$lang_spl['github'].'" /></a></span>';
+      $user_contacts[] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
     }
-    else
+    elseif ($key['username'] != '' AND $pun_config['o_spl_use_icon'] == '0' AND $key['config'] == '1' )
     {
-      $user_contacts[] = '<span class="website"><a href="https://github.com/'.$cur_post['spl_github'].'" rel="nofollow"'.$target.'>'.$lang_spl['github'].'</a></span>';
+      $user_contacts[] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
     }
-  }
-
-  if ( $cur_post['spl_facebook'] != '' )
-  {
-    $cur_post['spl_facebook'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words($cur_post['spl_facebook'] ) : $cur_post['spl_facebook'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
-    {
-      $user_contacts[] = '<span><a href="https://www.facebook.com/'.$cur_post['spl_facebook'].'" rel="nofollow" title="'.$lang_spl['facebook'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Facebook.png" width="16" height="16" alt="'.$lang_spl['facebook'].'" /></a></span>';
-    }
-    else
-    {
-      $user_contacts[] = '<span class="website"><a href="https://www.facebook.com/'.$cur_post['spl_facebook'].'" rel="nofollow"'.$target.'>'.$lang_spl['facebook'].'</a></span>';
-    }
-  }
-
-  if ( $cur_post['spl_twitter'] != '' )
-  {
-    $cur_post['spl_twitter'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_twitter']) : $cur_post['spl_twitter'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
-    {
-      $user_contacts[] = '<span><a href="https://twitter.com/'.$cur_post['spl_twitter'].'" rel="nofollow" title="'.$lang_spl['twitter'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Twitter.png" width="16" height="16" alt="'.$lang_spl['twitter'].'" /></a></span>';
-    }
-    else
-    {
-      $user_contacts[] = '<span class="website"><a href="https://twitter.com/'.$cur_post['spl_twitter'].'" rel="nofollow"'.$target.'>'.$lang_spl['twitter'].'</a></span>';
-    }
-  }
-
-  if ( $cur_post['spl_youtube'] != '' )
-  {
-    $cur_post['spl_youtube'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_youtube'] ) : $cur_post['spl_youtube'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
-    {
-      $user_contacts[] = '<span><a href="https://youtube.com/user/'.$cur_post['spl_youtube'].'" rel="nofollow" title="'.$lang_spl['youtube'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/YouTube.png" width="16" height="16" alt="'.$lang_spl['youtube'].'" /></a></span>';
-    }
-    else
-    {
-      $user_contacts[] = '<span class="website"><a href="https://youtube.com/user/'.$cur_post['spl_youtube'].'" rel="nofollow"'.$target.'>'.$lang_spl['youtube'].'</a></span>';
-    }
-  }
-
-  if ( $cur_post['spl_googleplus'] != '' )
-  {
-    $cur_post['spl_googleplus'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_googleplus'] ) : $cur_post['spl_googleplus'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
-    {
-      $user_contacts[] = '<span><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow" title="'.$lang_spl['google+'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Google+.png" width="16" height="16" alt="'.$lang_spl['google+'].'" /></a></span>';
-    }
-    else
-    {
-      $user_contacts[] = '<span class="website"><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow"'.$target.'>'.$lang_spl['google+'].'</a></span>';
-    }
-  }
-
-  if ( $cur_post['spl_instagram'] != '' )
-  {
-    $cur_post['spl_instagram'] = pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $cur_post['spl_instagram'] ) : $cur_post['spl_instagram'] );
-
-    if ( $pun_config['o_spl_use_icon'] == '1' )
-    {
-      $user_contacts[] = '<span><a href="http://instagram.com/'.$cur_post['spl_instagram'].'" rel="nofollow" title="'.$lang_spl['instagram'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Instagram.png" width="16" height="16" alt="'.$lang_spl['instagram'].'" /></a></span>';
-    }
-    else
-    {
-      $user_contacts[] = '<span class="website"><a href="http://instagram.com/'.$cur_post['spl_instagram'].'" rel="nofollow"'.$target.'>'.$lang_spl['instagram'].'</a></span>';
-    }
-  }
+  };
 }
 ?>
