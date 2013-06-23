@@ -179,7 +179,7 @@ if ( isset( $_POST['form_sent'] ) )
   <h2><span>Installation successful</span></h2>
   <div class="box">
     <div class="inbox">
-      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars( $mod_title ) ?>. See install.txt for further instructions.</p>
+      <p>Your database has been successfully prepared for <?php echo pun_htmlspecialchars( $mod_title ) ?>. See readme.txt for further instructions.</p>
     </div>
   </div>
 </div>
