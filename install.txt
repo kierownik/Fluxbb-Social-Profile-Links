@@ -9,7 +9,7 @@
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages
 ##                    where users can add there usernames like, GitHub, Facebook, Twitter,
-##                    Youtube and Google+.
+##                    YouTube and Google+.
 ##
 ##   Repository URL:  https://fluxbb.org/resources/mods/social-profile-links/
 ##
@@ -102,7 +102,10 @@ profile.php
     case 'spl':
     {
       // Load the social-profile-links.php language file
-      require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+      if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+        require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+      else
+        require PUN_ROOT.'lang/English/social-profile-links.php';
 
       $form = array(
         'spl_github'      => $pun_config['o_spl_github'] == '1' && isset( $_POST['form']['spl_github'] ) ? pun_trim( $_POST['form']['spl_github'] ) : '',
@@ -162,7 +165,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 #---------[ 13. AFTER, ADD ]--------------------------------------------------
 #
 
-      include('plugins/spl/profile.php');
+      include( PUN_ROOT.'plugins/spl/profile.php' );
 
 #
 #---------[ 14. Find (line: 1527 ]--------------------------------------------
@@ -176,7 +179,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 
   else if ($section == 'spl')
   {
-    include('plugins/spl/profile-section.php');
+    include( PUN_ROOT.'plugins/spl/profile-section.php' );
   }
 
 #
@@ -213,7 +216,7 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 #---------[ 20. AFTER, ADD ]--------------------------------------------------
 #
 
-			include('plugins/spl/viewtopic.php');
+			include( PUN_ROOT.'plugins/spl/viewtopic.php' );
 
 #
 #---------[ 21. SAVE/UPLOAD ]-------------------------------------------------

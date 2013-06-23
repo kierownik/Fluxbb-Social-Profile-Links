@@ -3,7 +3,10 @@
 if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   // Load the social-profile-links.php language file
-  require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+    require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  else
+    require PUN_ROOT.'lang/English/social-profile-links.php';
 
   $target = ( $pun_config['o_spl_link_target'] ) ? ' target="_blank"' : '';
 

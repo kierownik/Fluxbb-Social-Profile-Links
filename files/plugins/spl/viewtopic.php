@@ -3,7 +3,10 @@
 if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   // Load the social-profile-links.php language file
-  require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+    require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  else
+    require PUN_ROOT.'lang/English/social-profile-links.php';
 
   // If there are links to display we need to add 2 empty newlines
   if ( !empty($user_contacts) AND ( $cur_post['spl_github'] != '' OR $cur_post['spl_facebook'] != '' OR $cur_post['spl_twitter'] != '' OR $cur_post['spl_youtube'] != '' OR $cur_post['spl_googleplus'] != '' ) )
