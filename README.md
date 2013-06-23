@@ -1,8 +1,7 @@
-Social-Profile-Links
-====================
+# Social-Profile-Links
 
 **Mod title:**  Social Profile Links  
-**Mod version:**      0.2  
+**Mod version:**      1.0  
 **Works on FluxBB:**  1.5.3  
 **Release date:**     2013-06-15  
 **Author:**           Daniël Rokven ( rokven@gmail.com )  
@@ -20,12 +19,27 @@ Social-Profile-Links
 **DISCLAIMER:**  
 Please note that "mods" are not officially supported by
 FluxBB. Installation of this modification is done at 
-your own risk. Backup your forum database and any and
+your own risk. Backup your forum database and any
 all applicable files before proceeding.
 
-## install ##
+## Features
+* GitHub
+* Facebook
+* Twitter
+* YouTube
+* Google+
+* View in profile
+* View in viewtopic
+* Use icons
+* Show guests
+* Open links new window/tab
+
+## Install ##
 How to install read install.txt  
-  
+
+## Feature Requests
+If you have an idea let me know, together we can make this mod better.
+
 ![screenshot 1](http://imageshack.us/a/img845/4345/jr51.png)
 ![screenshot 1](http://imageshack.us/a/img707/9809/2qxi.png)
 ![screenshot 1](http://imageshack.us/a/img593/2908/hox.png)
