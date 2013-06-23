@@ -22,7 +22,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://github.com/'. $cur_post['spl_github'].'" rel="nofollow" title="'.$lang_spl['github'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/GitHub.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://github.com/'. $cur_post['spl_github'].'" rel="nofollow" title="'.$lang_spl['github'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/GitHub.png" width="16" height="16" alt="'.$lang_spl['github'].'" /></a></span>';
     }
     else
     {
@@ -36,7 +36,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://www.facebook.com/'.$cur_post['spl_facebook'].'" rel="nofollow" title="'.$lang_spl['facebook'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/Facebook.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://www.facebook.com/'.$cur_post['spl_facebook'].'" rel="nofollow" title="'.$lang_spl['facebook'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Facebook.png" width="16" height="16" alt="'.$lang_spl['facebook'].'" /></a></span>';
     }
     else
     {
@@ -50,7 +50,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://twitter.com/'.$cur_post['spl_twitter'].'" rel="nofollow" title="'.$lang_spl['twitter'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/Twitter.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://twitter.com/'.$cur_post['spl_twitter'].'" rel="nofollow" title="'.$lang_spl['twitter'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Twitter.png" width="16" height="16" alt="'.$lang_spl['twitter'].'" /></a></span>';
     }
     else
     {
@@ -64,7 +64,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://youtube.com/user/'.$cur_post['spl_youtube'].'" rel="nofollow" title="'.$lang_spl['youtube'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/YouTube.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://youtube.com/user/'.$cur_post['spl_youtube'].'" rel="nofollow" title="'.$lang_spl['youtube'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/YouTube.png" width="16" height="16" alt="'.$lang_spl['youtube'].'" /></a></span>';
     }
     else
     {
@@ -78,7 +78,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
 
     if ( $pun_config['o_spl_use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow" title="'.$lang_spl['google+'].'"'.$target.'><img src="'.$pun_config['o_base_url'].'/img/spl/Google+.png" alt="" /></a></span>';
+      $user_contacts[] = '<span><a href="https://profiles.google.com/'.$cur_post['spl_googleplus'].'/posts" rel="nofollow" title="'.$lang_spl['google+'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/Google+.png" width="16" height="16" alt="'.$lang_spl['google+'].'" /></a></span>';
     }
     else
     {
