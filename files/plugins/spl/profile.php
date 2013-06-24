@@ -45,15 +45,18 @@ if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_g
   // Here is where the magic is
   foreach ( $spl_array as $key )
   {
-    if ( $key['username'] != '' AND $pun_config['o_spl_use_icon'] == '1' AND $key['config'] == '1' )
+    if ( $key['config'] == '1' AND $key['username'] != '' )
     {
       $user_personal[] = '<dt>'.$key['lang'].'</dt>';
-      $user_personal[] = '<dd><span><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span></dd>';
-    }
-    elseif ($key['username'] != '' AND $pun_config['o_spl_use_icon'] == '0' AND $key['config'] == '1' )
-    {
-      $user_personal[] = '<dt>'.$key['lang'].'</dt>';
-      $user_personal[] = '<dd><span class="website"><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'>'.$key['username'].'</a></span></dd>';
+
+      if ( $pun_config['o_spl_use_icon'] == '1' )
+      {
+        $user_personal[] = '<dd><span><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span></dd>';
+      }
+      else
+      {
+        $user_personal[] = '<dd><span class="website"><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'>'.$key['username'].'</a></span></dd>';
+      }
     }
   };
 }
