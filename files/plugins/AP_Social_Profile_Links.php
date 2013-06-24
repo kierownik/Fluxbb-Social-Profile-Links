@@ -84,7 +84,7 @@ if ( isset( $_POST['set_options'] ) )
 
 ?>
 <div id="exampleplugin" class="plugin blockform">
-  <h2><span><?php echo $lang_spl['social profile links'] ?> - V 1.0.1</span></h2>
+  <h2><span><?php echo $lang_spl['social profile links'] ?> - V 1.0.2</span></h2>
   <div class="box">
     <div class="inbox">
       <p>This plugin is used to place links in the profile and/or viewtopic page of the user.</p>
