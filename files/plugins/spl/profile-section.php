@@ -54,6 +54,12 @@ generate_profile_menu( 'spl' );
             } ?>
             </div>
           </fieldset>
+          <?php $test = array( 'github' => $user['spl_github'], 'facebook' => $user['spl_facebook'], 'twitter' => $user['spl_twitter'], 'youtube' => $user['spl_youtube'], 'google+' => $user['spl_googleplus'], 'instagram' => $user['spl_instagram'] ); ?>
+          <?php echo serialize($test); ?>
+          <?php $test = serialize($test); echo '<pre>';
+          echo print_r( unserialize( $test ) );
+          echo '</pre>';
+          ?>
         </div>
         <p class="buttons"><input type="submit" name="update" value="<?php echo $lang_common['Submit'] ?>" /> <?php echo $lang_profile['Instructions'] ?></p>
       </form>

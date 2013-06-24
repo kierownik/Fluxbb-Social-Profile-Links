@@ -187,7 +187,24 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 viewtopic.php
 
 #
-#---------[ 17. FIND (line: 211) ]--------------------------------------------
+#---------[ 17. FIND (line: 23) ]---------------------------------------------
+#
+
+// Load the viewtopic.php language file
+require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
+
+#
+#---------[ 20. AFTER, ADD ]--------------------------------------------------
+#
+
+  // Load the social-profile-links.php language file
+  if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+    require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  else
+    require PUN_ROOT.'lang/English/social-profile-links.php';
+
+#
+#---------[ 17. FIND (line: 216) ]--------------------------------------------
 #
 
 $result = $db->query('SELECT u.email, u.title, u.url,
@@ -199,7 +216,7 @@ $result = $db->query('SELECT u.email, u.title, u.url,
  u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus, u.spl_instagram,
 
 #
-#---------[ 19. FIND (line: 268) ]--------------------------------------------
+#---------[ 19. FIND (line: 273) ]--------------------------------------------
 #
 
 			if ($cur_post['url'] != '')

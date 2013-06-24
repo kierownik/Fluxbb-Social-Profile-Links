@@ -1,11 +1,5 @@
 ﻿<?php
 
-  // Load the social-profile-links.php language file
-  if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
-    require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
-  else
-    require PUN_ROOT.'lang/English/social-profile-links.php';
-
   $form = array(
     'spl_github'      => $pun_config['o_spl_github'] == '1' && isset( $_POST['form']['spl_github'] ) ? pun_trim( $_POST['form']['spl_github'] ) : '',
     'spl_facebook'    => $pun_config['o_spl_facebook'] == '1' && isset( $_POST['form']['spl_facebook'] ) ? pun_trim( $_POST['form']['spl_facebook'] ) : '',
