@@ -40,6 +40,13 @@ if ( $pun_config['o_spl_show_in_profile'] == '1' AND ( $pun_config['o_spl_show_g
       'lang'      =>  $lang_spl['google+'],
       'icon'      =>  'Google+.png',
     ),
+    'instagram' => array(
+      'config'    =>  $pun_config['o_spl_instagram'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_instagram'] ) : $user['spl_instagram'] ),
+      'url'       => 'http://instagram.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $user['spl_instagram'] ) : $user['spl_instagram'] ),
+      'lang'      =>  $lang_spl['instagram'],
+      'icon'      =>  'Instagram.png',
+    ),
   );
 
   // Here is where the magic is
