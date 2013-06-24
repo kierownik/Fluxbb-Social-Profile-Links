@@ -57,7 +57,7 @@ if ( $pun_config['o_spl_show_in_viewtopic'] == '1' AND ( $pun_config['o_spl_show
     }
     elseif ($key['username'] != '' AND $pun_config['o_spl_use_icon'] == '0' AND $key['config'] == '1' )
     {
-      $user_contacts[] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
+      $user_contacts[] = '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
     }
   };
 }
