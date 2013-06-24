@@ -72,31 +72,31 @@ function generate_profile_menu($page = '')
 	global $lang_profile, $pun_config, $pun_user, $id, $lang_spl;
 
 #
-#---------[ 5. FIND (line: 522) ]---------------------------------------------
+#---------[ 7. FIND (line: 522) ]---------------------------------------------
 #
 
 					<li<?php if ($page == 'personal') echo ' class="isactive"'; ?>><a href="profile.php?section=personal&amp;id=<?php echo $id ?>"><?php echo $lang_profile['Section personal'] ?></a></li>
 
 #
-#---------[ 6. AFTER ADD ]---------------------------------------------------
+#---------[ 8. AFTER ADD ]---------------------------------------------------
 #
 
 					<li<?php if ($page == 'spl') echo ' class="isactive"'; ?>><a href="profile.php?section=spl&amp;id=<?php echo $id ?>"><?php echo $lang_spl['social profile links'] ?></a></li>
 
 #
-#---------[ 7. OPEN ]---------------------------------------------------------
+#---------[ 9. OPEN ]---------------------------------------------------------
 #
 
 profile.php
 
 #
-#---------[ 8. FIND (line: 810) ]---------------------------------------------
+#---------[ 10. FIND (line: 810) ]--------------------------------------------
 #
 
 require PUN_ROOT.'lang/'.$pun_user['language'].'/profile.php';
 
 #
-#---------[ 9. AFTER, ADD ]---------------------------------------------------
+#---------[ 11. AFTER, ADD ]--------------------------------------------------
 #
 
 if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
@@ -105,7 +105,7 @@ else
   require PUN_ROOT.'lang/English/social-profile-links.php';
 
 #
-#---------[ 8. FIND (line: 814) ]---------------------------------------------
+#---------[ 12. FIND (line: 814) ]--------------------------------------------
 #
 
 		case 'messaging':
@@ -126,7 +126,7 @@ else
 		}
 
 #
-#---------[ 9. AFTER, ADD ]---------------------------------------------------
+#---------[ 13. AFTER, ADD ]--------------------------------------------------
 #
 
     case 'spl':
@@ -137,19 +137,19 @@ else
     }
 
 #
-#---------[ 10. FIND (line: 1000) ]-------------------------------------------
+#---------[ 14. FIND (line: 1000) ]-------------------------------------------
 #
 
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
 
 #
-#---------[ 11. INLINE, ADD ]--------------------------------------------------
+#---------[ 15. INLINE, ADD ]--------------------------------------------------
 #
 
  u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus, u.spl_instagram,
 
 #
-#---------[ 12. Find (line: 1044 ]--------------------------------------------
+#---------[ 16. Find (line: 1044 ]--------------------------------------------
 #
 
 	if ($user['url'] != '')
@@ -160,19 +160,19 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 	}
 
 #
-#---------[ 13. AFTER, ADD ]--------------------------------------------------
+#---------[ 17. AFTER, ADD ]--------------------------------------------------
 #
 
       include( PUN_ROOT.'plugins/spl/profile.php' );
 
 #
-#---------[ 14. Find (line: 1500 ]--------------------------------------------
+#---------[ 18. Find (line: 1500 ]--------------------------------------------
 #
 
 	else if ($section == 'personality')
 
 #
-#---------[ 15. BEFORE, ADD ]-------------------------------------------------
+#---------[ 19. BEFORE, ADD ]-------------------------------------------------
 #
 
   else if ($section == 'spl')
@@ -181,20 +181,20 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
   }
 
 #
-#---------[ 16. OPEN ]--------------------------------------------------------
+#---------[ 20. OPEN ]--------------------------------------------------------
 #
 
 viewtopic.php
 
 #
-#---------[ 17. FIND (line: 23) ]---------------------------------------------
+#---------[ 21. FIND (line: 23) ]---------------------------------------------
 #
 
 // Load the viewtopic.php language file
 require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 
 #
-#---------[ 20. AFTER, ADD ]--------------------------------------------------
+#---------[ 22. AFTER, ADD ]--------------------------------------------------
 #
 
   // Load the social-profile-links.php language file
@@ -204,19 +204,19 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
     require PUN_ROOT.'lang/English/social-profile-links.php';
 
 #
-#---------[ 17. FIND (line: 216) ]--------------------------------------------
+#---------[ 23. FIND (line: 216) ]--------------------------------------------
 #
 
 $result = $db->query('SELECT u.email, u.title, u.url,
 
 #
-#---------[ 18. INLINE, ADD ]-------------------------------------------------
+#---------[ 24. INLINE, ADD ]-------------------------------------------------
 #
 
  u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus, u.spl_instagram,
 
 #
-#---------[ 19. FIND (line: 273) ]--------------------------------------------
+#---------[ 25. FIND (line: 273) ]--------------------------------------------
 #
 
 			if ($cur_post['url'] != '')
@@ -228,11 +228,11 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 			}
 
 #
-#---------[ 20. AFTER, ADD ]--------------------------------------------------
+#---------[ 26. AFTER, ADD ]--------------------------------------------------
 #
 
 			include( PUN_ROOT.'plugins/spl/viewtopic.php' );
 
 #
-#---------[ 21. SAVE/UPLOAD ]-------------------------------------------------
+#---------[ 27. SAVE/UPLOAD ]-------------------------------------------------
 #

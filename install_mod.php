@@ -25,29 +25,47 @@ function install()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'o_spl_github'            => '0',
-    'o_spl_facebook'          => '0',
-    'o_spl_twitter'           => '0',
-    'o_spl_youtube'           => '0',
-    'o_spl_googleplus'        => '0',
-    'o_spl_instagram'         => '0',
-    'o_spl_use_icon'          => '0',
-    'o_spl_show_in_profile'   => '0',
-    'o_spl_show_in_viewtopic' => '0',
-    'o_spl_show_guest'        => '0',
-    'o_spl_link_target'       => '0',
+    'github'            => ( $pun_config['o_spl_github'] == '') ? '0' : $pun_config['o_spl_github'],
+    'facebook'          => ( $pun_config['o_spl_facebook'] == '') ? '0' : $pun_config['o_spl_facebook'],
+    'twitter'           => ( $pun_config['o_spl_twitter'] == '') ? '0' : $pun_config['o_spl_twitter'],
+    'youtube'           => ( $pun_config['o_spl_youtube'] == '') ? '0' : $pun_config['o_spl_youtube'],
+    'googleplus'        => ( $pun_config['o_spl_googleplus'] == '') ? '0' : $pun_config['o_spl_googleplus'],
+    'instagram'         => ( $pun_config['o_spl_instagram'] == '') ? '0' : $pun_config['o_spl_instagram'],
+    'use_icon'          => ( $pun_config['o_spl_use_icon'] == '') ? '0' : $pun_config['o_spl_use_icon'],
+    'show_in_profile'   => ( $pun_config['o_spl_show_in_profile'] == '') ? '0' : $pun_config['o_spl_show_in_profile'],
+    'show_in_viewtopic' => ( $pun_config['o_spl_show_in_viewtopic'] == '') ? '0' : $pun_config['o_spl_show_in_viewtopic'],
+    'show_guest'        => ( $pun_config['o_spl_show_guest'] == '') ? '0' : $pun_config['o_spl_show_guest'],
+    'link_target'       => ( $pun_config['o_spl_link_target'] == '') ? '0' : $pun_config['o_spl_link_target'],
   );
 
-  foreach( $spl_config AS $key => $value )
-  {
-    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = '".$key."'");
+  $spl_config = serialize( $spl_config );
 
-    if ( !$db->num_rows( $query ) )
-    {
-      $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ('$key', '".$db->escape( $value )."') " ) or error( 'Unable to add "'.$key.'" to config table', __FILE__, __LINE__, $db->error() );
-    }
+  $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = 'o_social_profile_links'");
+
+  if ( !$db->num_rows( $query ) )
+  {
+    $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
   }
 
+  // Delete old stuff from V-1.0.2
+  foreach( unserialize( $spl_config ) as $key => $value )
+  {
+    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = 'o_spl_".$key."'");
+
+    if ( $db->num_rows( $query ) )
+    {
+      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "o_spl_'.$key.'"' ) or error( 'Unable to delete "o_spl_'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
+    }
+  }
+  // End old stuff from V-1.0.2
+
+  $allow_null = false;
+  $default_value = '';
+  $after_field = 'yahoo';
+
+  $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
+
+  // Delete old users stuff from V-1.0.2
   $spl_users = array(
     'spl_github'      => '',
     'spl_facebook'    => '',
@@ -57,14 +75,11 @@ function install()
     'spl_instagram'   => '',
   );
 
-  $allow_null = false;
-  $default_value = '';
-  $after_field = 'yahoo';
-
-  foreach( $spl_users AS $key => $value )
+  foreach( $spl_users as $key => $value )
   {
-    $db->add_field( 'users', ''.$key.'', 'varchar(200)', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "'.$key.'" to table "users"', __FILE__, __LINE__, $db->error() );
+    $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
   }
+  // END old users stuff from V-1.0.2
 
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
@@ -77,6 +92,7 @@ function restore()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
+    'o_social_profile_links'  => '0',
     'o_spl_github'            => '0',
     'o_spl_facebook'          => '0',
     'o_spl_twitter'           => '0',
@@ -119,17 +135,21 @@ function restore()
   }
 
   $spl_users = array(
-    'spl_github'      => '',
-    'spl_facebook'    => '',
-    'spl_twitter'     => '',
-    'spl_youtube'     => '',
-    'spl_googleplus'  => '',
-    'spl_instagram'   => '',
+    'social_profile_links'  => '',
+    'spl_github'            => '',
+    'spl_facebook'          => '',
+    'spl_twitter'           => '',
+    'spl_youtube'           => '',
+    'spl_googleplus'        => '',
+    'spl_instagram'         => '',
   );
 
   foreach( $spl_users as $key => $value )
   {
-    $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
+    if ( $db->field_exists( 'users', ''.$key.'', true ) )
+    {
+      $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
+    }
   }
 
     // Regenerate the config cache

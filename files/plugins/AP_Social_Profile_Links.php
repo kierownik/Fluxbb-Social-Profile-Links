@@ -70,6 +70,35 @@ if ( isset( $_POST['set_options'] ) )
     }
   }
 
+  $spl_new_options = array(
+    'github'            => ''.isset( $_POST['github'] ) ? '1' : '0',
+
+    'facebook'          => ''.isset( $_POST['facebook'] ) ? '1' : '0',
+
+    'twitter'           => ''.isset( $_POST['twitter'] ) ? '1' : '0',
+
+    'youtube'           => ''.isset( $_POST['youtube'] ) ? '1' : '0',
+
+    'googleplus'        => ''.isset( $_POST['googleplus'] ) ? '1' : '0',
+
+    'instagram'         => ''.isset( $_POST['instagram'] ) ? '1' : '0',
+
+    'show_in_profile'   => ''.isset( $_POST['show_in_profile'] ) ? '1' : '0',
+
+    'show_in_viewtopic' => ''.isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
+
+    'use_icon'          => ''.isset( $_POST['use_icon'] ) ? '1' : '0',
+
+    'show_guest'        => ''.isset( $_POST['show_guest'] ) ? '1' : '0',
+
+    'link_target'       => pun_htmlspecialchars( $_POST['link_target'] ),
+  );
+
+  $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$db->escape( serialize( $spl_new_options ) )."' WHERE `conf_name` = 'o_social_profile_links'";
+
+  $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
+  $updated = true;
+
   if ( $updated )
   {
     // Regenerate the config cache
@@ -82,6 +111,7 @@ if ( isset( $_POST['set_options'] ) )
   // Display the admin navigation menu
   generate_admin_menu( $plugin );
 
+  $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 ?>
 <div id="exampleplugin" class="plugin blockform">
   <h2><span><?php echo $lang_spl['social profile links'] ?> - V 1.0.2</span></h2>
@@ -106,9 +136,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['github'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_github" value="1" 
+              <input type="checkbox" name="github" value="1" 
               <?php
-                if ( $pun_config['o_spl_github'] == '1' )
+                if ( $spl_config['github'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -118,9 +148,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['facebook'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_facebook" value="1" 
+              <input type="checkbox" name="facebook" value="1" 
               <?php
-                if ( $pun_config['o_spl_facebook'] == '1' )
+                if ( $spl_config['facebook'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -130,9 +160,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['twitter'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_twitter" value="1" 
+              <input type="checkbox" name="twitter" value="1" 
               <?php
-                if ( $pun_config['o_spl_twitter'] == '1' )
+                if ( $spl_config['twitter'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -142,9 +172,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['youtube'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_youtube" value="1" 
+              <input type="checkbox" name="youtube" value="1" 
               <?php
-                if ( $pun_config['o_spl_youtube'] == '1' )
+                if ( $spl_config['youtube'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -154,9 +184,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['google+'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_googleplus" value="1" 
+              <input type="checkbox" name="googleplus" value="1" 
               <?php
-                if ( $pun_config['o_spl_googleplus'] == '1' )
+                if ( $spl_config['googleplus'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -166,9 +196,9 @@ if ( isset( $_POST['set_options'] ) )
           <tr>
             <th scope="col"><?php echo $lang_spl['instagram'] ?></th>
             <td>
-              <input type="checkbox" name="o_spl_instagram" value="1" 
+              <input type="checkbox" name="instagram" value="1" 
               <?php
-                if ( $pun_config['o_spl_instagram'] == '1' )
+                if ( $spl_config['instagram'] == '1' )
                 {
                   echo ' checked="checked"';
                 }
@@ -185,9 +215,9 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['show in users profile'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_show_in_profile" value="1" 
+                <input type="checkbox" name="show_in_profile" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_in_profile'] == '1' )
+                  if ( $spl_config['show_in_profile'] == '1' )
                   {
                     echo ' checked="checked"';
                   }
@@ -197,9 +227,9 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['show in viewtopic'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_show_in_viewtopic" value="1" 
+                <input type="checkbox" name="show_in_viewtopic" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_in_viewtopic'] == '1' )
+                  if ( $spl_config['show_in_viewtopic'] == '1' )
                   {
                     echo ' checked="checked"';
                   }
@@ -209,9 +239,9 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['use icon'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_use_icon" value="1" 
+                <input type="checkbox" name="use_icon" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_use_icon'] == '1' )
+                  if ( $spl_config['use_icon'] == '1' )
                   {
                     echo ' checked="checked"';
                   }
@@ -221,9 +251,9 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
               <td>
-                <input type="checkbox" name="o_spl_show_guest" value="1" 
+                <input type="checkbox" name="show_guest" value="1" 
                 <?php
-                  if ( $pun_config['o_spl_show_guest'] == '1' )
+                  if ( $spl_config['show_guest'] == '1' )
                   {
                     echo ' checked="checked"';
                   }
@@ -233,9 +263,9 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><?php echo $lang_spl['link target'] ?></th>
               <td>
-              <select name="o_spl_link_target">
+              <select name="link_target">
               <?php
-                if ( $pun_config['o_spl_link_target'] == '1' )
+                if ( $spl_config['link_target'] == '1' )
                 {
                   echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
                 }
@@ -243,7 +273,7 @@ if ( isset( $_POST['set_options'] ) )
                 {
                   echo '<option value="1" >'.$lang_spl['link target external'].'</option>';
                 }
-                if ( $pun_config['o_spl_link_target'] == '0' )
+                if ( $spl_config['link_target'] == '0' )
                 {
                   echo '<option value="0" selected="selected">'.$lang_spl['link target internal'].'</option>';
                 }
