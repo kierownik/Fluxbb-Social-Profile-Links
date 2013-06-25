@@ -38,10 +38,10 @@ if ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest'] == 
         'lang'      =>  $lang_spl['youtube'],
         'icon'      =>  'YouTube.png',
       ),
-      'googleplus' => array(
-        'config'    =>  $spl_config['googleplus'],
-        'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_cur_post['googleplus'] ) : $spl_cur_post['googleplus'] ),
-        'url'       => 'https://profiles.google.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_cur_post['googleplus'] ) : $spl_cur_post['googleplus'] ).'/posts',
+      'google+' => array(
+        'config'    =>  $spl_config['google+'],
+        'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_cur_post['google+'] ) : $spl_cur_post['google+'] ),
+        'url'       => 'https://profiles.google.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_cur_post['google+'] ) : $spl_cur_post['google+'] ).'/posts',
         'lang'      =>  $lang_spl['google+'],
         'icon'      =>  'Google+.png',
       ),

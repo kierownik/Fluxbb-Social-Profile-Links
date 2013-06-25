@@ -17,7 +17,8 @@ $lang_spl = array(
 'show guests info'      =>  'If you enable this, your guests can also see the links of the users',
 
 'options'               =>  'Options',
-'display'               =>  'Display',
+'link options'          =>  'Link options',
+'display options'       =>  'Display options',
 'link target'           =>  'Link target',
 'link target external'  =>  'New window/tab',
 'link target internal'  =>  'Same window',

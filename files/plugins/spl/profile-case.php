@@ -2,7 +2,7 @@
 
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
-$available_spl = array( 'github', 'facebook', 'youtube', 'twitter', 'googleplus', 'instagram' );
+$available_spl = array( 'github', 'facebook', 'youtube', 'twitter', 'google+', 'instagram' );
 
 $spl_users = array();
 
@@ -33,7 +33,7 @@ if ( preg_match( '/^[^A-Za-z0-9_]{1,15}$/', $spl_users['twitter'] ) )
   message( $lang_spl['bad twitter'] );
 
 // If the Google+ user id contains anything other than digits it's invalid
-if ( preg_match( '%[^0-9]%', $spl_users['googleplus'] ) )
+if ( preg_match( '%[^0-9]%', $spl_users['google+'] ) )
   message( $lang_spl['bad google+'] );
 
 // If the instagram username is over 30 characters and contains anything other than alphanumeric or underscore it is invalid

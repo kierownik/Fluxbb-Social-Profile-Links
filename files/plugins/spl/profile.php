@@ -37,9 +37,9 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
       'icon'      =>  'YouTube.png',
     ),
     'google+' => array(
-      'config'    =>  $spl_config['googleplus'],
-      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_user['googleplus'] ) : $spl_user['googleplus'] ),
-      'url'       => 'https://profiles.google.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_user['googleplus'] ) : $spl_user['googleplus'] ).'/posts',
+      'config'    =>  $spl_config['google+'],
+      'username'  =>  pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_user['google+'] ) : $spl_user['google+'] ),
+      'url'       => 'https://profiles.google.com/'.pun_htmlspecialchars( ( $pun_config['o_censoring'] == '1' ) ? censor_words( $spl_user['google+'] ) : $spl_user['google+'] ).'/posts',
       'lang'      =>  $lang_spl['google+'],
       'icon'      =>  'Google+.png',
     ),

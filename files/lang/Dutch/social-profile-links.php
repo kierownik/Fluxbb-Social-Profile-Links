@@ -17,7 +17,8 @@ $lang_spl = array(
 'show guests info'      =>  'Als je dit aanzet kunnen je gasten de links van je gebruikers zien',
 
 'options'               =>  'Opties',
-'display'               =>  'Scherm',
+'link options'          =>  'Link opties',
+'display options'       =>  'Scherm opties',
 'link target'           =>  'Link doel',
 'link target external'  =>  'Nieuw venster/tab',
 'link target internal'  =>  'Zelfde venster',

@@ -27,6 +27,8 @@ else
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
 
+$link_options = array( 'github', 'facebook', 'twitter', 'youtube', 'google+', 'instagram');
+
 //
 // The rest is up to you!
 //
@@ -39,7 +41,7 @@ if ( isset( $_POST['set_options'] ) )
     'facebook'          => isset( $_POST['facebook'] ) ? '1' : '0',
     'twitter'           => isset( $_POST['twitter'] ) ? '1' : '0',
     'youtube'           => isset( $_POST['youtube'] ) ? '1' : '0',
-    'googleplus'        => isset( $_POST['googleplus'] ) ? '1' : '0',
+    'google+'           => isset( $_POST['google+'] ) ? '1' : '0',
     'instagram'         => isset( $_POST['instagram'] ) ? '1' : '0',
     'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
     'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
@@ -88,86 +90,31 @@ if ( isset( $_POST['set_options'] ) )
           <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
         </p>
       <fieldset>
-      <legend><?php echo $lang_spl['options'] ?></legend>
+      <legend><?php echo $lang_spl['link options'] ?></legend>
       <div class="infldset">
         <table class="aligntop" cellspacing="0">
-          <tr>
-            <th scope="col"><?php echo $lang_spl['github'] ?></th>
+        <?php
+          foreach ( $link_options AS $key )
+          {
+            if ( $spl_config[$key] == '1' )
+            {
+              $checked = ' checked="checked"';
+            }
+            ?>
+            <tr>
+              <th scope="col"><?php echo $lang_spl[$key] ?></th>
             <td>
-              <input type="checkbox" name="github" value="1" 
-              <?php
-                if ( $spl_config['github'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
+              <input type="checkbox" name="<?php echo $key ?>" value="1" <?php echo $checked ?> />
             </td>
           </tr>
-          <tr>
-            <th scope="col"><?php echo $lang_spl['facebook'] ?></th>
-            <td>
-              <input type="checkbox" name="facebook" value="1" 
-              <?php
-                if ( $spl_config['facebook'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
-            </td>
-          </tr>
-          <tr>
-            <th scope="col"><?php echo $lang_spl['twitter'] ?></th>
-            <td>
-              <input type="checkbox" name="twitter" value="1" 
-              <?php
-                if ( $spl_config['twitter'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
-            </td>
-          </tr>
-          <tr>
-            <th scope="col"><?php echo $lang_spl['youtube'] ?></th>
-            <td>
-              <input type="checkbox" name="youtube" value="1" 
-              <?php
-                if ( $spl_config['youtube'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
-            </td>
-          </tr>
-          <tr>
-            <th scope="col"><?php echo $lang_spl['google+'] ?></th>
-            <td>
-              <input type="checkbox" name="googleplus" value="1" 
-              <?php
-                if ( $spl_config['googleplus'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
-            </td>
-          </tr>
-          <tr>
-            <th scope="col"><?php echo $lang_spl['instagram'] ?></th>
-            <td>
-              <input type="checkbox" name="instagram" value="1" 
-              <?php
-                if ( $spl_config['instagram'] == '1' )
-                {
-                  echo ' checked="checked"';
-                }
-              ?> />
-            </td>
-          </tr>
+          <?php
+          }
+          ?>
         </table>
-      </div>	<!-- end class="infldset" -->
+      </div>  <!-- end class="infldset" -->
       </fieldset>
       <fieldset>
-        <legend><?php echo $lang_spl['display'] ?></legend>
+        <legend><?php echo $lang_spl['display options'] ?></legend>
         <div class="infldset">
           <table class="aligntop" cellspacing="0">
             <tr>

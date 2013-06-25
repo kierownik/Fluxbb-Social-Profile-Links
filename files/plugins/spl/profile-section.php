@@ -39,9 +39,9 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
               echo '<label>'.$lang_spl['youtube'].'<br /><input id="youtube" type="text" name="form[youtube]" value="'.pun_htmlspecialchars( $spl_user['youtube'] ).'" size="40" maxlength="20" placeholder="'.$lang_spl['username'].'" /><br /></label>';
             }
 
-            if ( $spl_config['googleplus'] == '1' )
+            if ( $spl_config['google+'] == '1' )
             {
-              echo '<label>'.$lang_spl['google+'].'<br /><input id="googleplus" type="text" name="form[googleplus]" value="'.pun_htmlspecialchars( $spl_user['googleplus'] ).'" size="40" maxlength="21" placeholder="'.$lang_spl['user id'].'"/><br /></label>';
+              echo '<label>'.$lang_spl['google+'].'<br /><input id="google+" type="text" name="form[google+]" value="'.pun_htmlspecialchars( $spl_user['google+'] ).'" size="40" maxlength="21" placeholder="'.$lang_spl['user id'].'"/><br /></label>';
             }
 
             if ( $spl_config['instagram'] == '1' )
