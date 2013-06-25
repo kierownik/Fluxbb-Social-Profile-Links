@@ -29,7 +29,7 @@ function install()
     'facebook'          => ( $pun_config['o_spl_facebook'] == '') ? '0' : $pun_config['o_spl_facebook'],
     'twitter'           => ( $pun_config['o_spl_twitter'] == '') ? '0' : $pun_config['o_spl_twitter'],
     'youtube'           => ( $pun_config['o_spl_youtube'] == '') ? '0' : $pun_config['o_spl_youtube'],
-    'googleplus'        => ( $pun_config['o_spl_googleplus'] == '') ? '0' : $pun_config['o_spl_googleplus'],
+    'google+'           => ( $pun_config['o_spl_googleplus'] == '') ? '0' : $pun_config['o_spl_googleplus'],
     'instagram'         => ( $pun_config['o_spl_instagram'] == '') ? '0' : $pun_config['o_spl_instagram'],
     'use_icon'          => ( $pun_config['o_spl_use_icon'] == '') ? '0' : $pun_config['o_spl_use_icon'],
     'show_in_profile'   => ( $pun_config['o_spl_show_in_profile'] == '') ? '0' : $pun_config['o_spl_show_in_profile'],

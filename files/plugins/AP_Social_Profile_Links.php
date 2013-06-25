@@ -96,10 +96,7 @@ if ( isset( $_POST['set_options'] ) )
         <?php
           foreach ( $link_options AS $key )
           {
-            if ( $spl_config[$key] == '1' )
-            {
-              $checked = ' checked="checked"';
-            }
+            $checked = ( $spl_config[$key] == '1' ) ? ' checked="checked"' : '';
             ?>
             <tr>
               <th scope="col"><?php echo $lang_spl[$key] ?></th>
