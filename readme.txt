@@ -146,7 +146,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 #---------[ 15. INLINE, ADD ]--------------------------------------------------
 #
 
- u.spl_github, u.spl_facebook, u.spl_twitter, u.spl_youtube, u.spl_googleplus, u.spl_instagram,
+ u.social_profile_links,
 
 #
 #---------[ 16. Find (line: 1044 ]--------------------------------------------
@@ -213,7 +213,7 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 #---------[ 24. INLINE, ADD ]-------------------------------------------------
 #
 
- u.spl_github, u.spl_youtube, u.spl_twitter, u.spl_facebook, u.spl_googleplus, u.spl_instagram,
+ u.social_profile_links,
 
 #
 #---------[ 25. FIND (line: 273) ]--------------------------------------------
