@@ -5,7 +5,6 @@ $spl_config   = unserialize( $pun_config['o_social_profile_links'] );
 
 if ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
-  // If there are links to display we need to add 2 empty newlines
   if ( !empty($user_contacts) AND ( $spl_cur_post['github'] != '' OR $spl_cur_post['facebook'] != '' OR $spl_cur_post['twitter'] != '' OR $spl_cur_post['youtube'] != '' OR $spl_cur_post['googleplus'] != '' OR $spl_cur_post['instagram'] != '' ) )
   {
     $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';

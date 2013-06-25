@@ -35,69 +35,27 @@ if ( isset( $_POST['set_options'] ) )
   $updated = false;
 
   $spl_options = array(
-    'o_spl_github'            => ''.isset( $_POST['o_spl_github'] ) ? '1' : '0',
-
-    'o_spl_facebook'          => ''.isset( $_POST['o_spl_facebook'] ) ? '1' : '0',
-
-    'o_spl_twitter'           => ''.isset( $_POST['o_spl_twitter'] ) ? '1' : '0',
-
-    'o_spl_youtube'           => ''.isset( $_POST['o_spl_youtube'] ) ? '1' : '0',
-
-    'o_spl_googleplus'        => ''.isset( $_POST['o_spl_googleplus'] ) ? '1' : '0',
-
-    'o_spl_instagram'         => ''.isset( $_POST['o_spl_instagram'] ) ? '1' : '0',
-
-    'o_spl_show_in_profile'   => ''.isset( $_POST['o_spl_show_in_profile'] ) ? '1' : '0',
-
-    'o_spl_show_in_viewtopic' => ''.isset( $_POST['o_spl_show_in_viewtopic'] ) ? '1' : '0',
-
-    'o_spl_use_icon'          => ''.isset( $_POST['o_spl_use_icon'] ) ? '1' : '0',
-
-    'o_spl_show_guest'        => ''.isset( $_POST['o_spl_show_guest'] ) ? '1' : '0',
-
-    'o_spl_link_target'       => pun_htmlspecialchars( $_POST['o_spl_link_target'] ),
-  );
-
-  foreach ( $spl_options AS $key => $value )
-  {
-    if ( $spl_options[$key] != $pun_config[$key] )
-    {
-      $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$value."' WHERE `conf_name` = '".$key."'";
-
-      $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
-
-      $updated = true;
-    }
-  }
-
-  $spl_new_options = array(
-    'github'            => ''.isset( $_POST['github'] ) ? '1' : '0',
-
-    'facebook'          => ''.isset( $_POST['facebook'] ) ? '1' : '0',
-
-    'twitter'           => ''.isset( $_POST['twitter'] ) ? '1' : '0',
-
-    'youtube'           => ''.isset( $_POST['youtube'] ) ? '1' : '0',
-
-    'googleplus'        => ''.isset( $_POST['googleplus'] ) ? '1' : '0',
-
-    'instagram'         => ''.isset( $_POST['instagram'] ) ? '1' : '0',
-
-    'show_in_profile'   => ''.isset( $_POST['show_in_profile'] ) ? '1' : '0',
-
-    'show_in_viewtopic' => ''.isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
-
-    'use_icon'          => ''.isset( $_POST['use_icon'] ) ? '1' : '0',
-
-    'show_guest'        => ''.isset( $_POST['show_guest'] ) ? '1' : '0',
-
+    'github'            => isset( $_POST['github'] ) ? '1' : '0',
+    'facebook'          => isset( $_POST['facebook'] ) ? '1' : '0',
+    'twitter'           => isset( $_POST['twitter'] ) ? '1' : '0',
+    'youtube'           => isset( $_POST['youtube'] ) ? '1' : '0',
+    'googleplus'        => isset( $_POST['googleplus'] ) ? '1' : '0',
+    'instagram'         => isset( $_POST['instagram'] ) ? '1' : '0',
+    'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
+    'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
+    'use_icon'          => isset( $_POST['use_icon'] ) ? '1' : '0',
+    'show_guest'        => isset( $_POST['show_guest'] ) ? '1' : '0',
     'link_target'       => pun_htmlspecialchars( $_POST['link_target'] ),
   );
 
-  $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$db->escape( serialize( $spl_new_options ) )."' WHERE `conf_name` = 'o_social_profile_links'";
+  if ( serialize( $spl_options ) != $pun_config['o_social_profile_links'] )
+  {
+    $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$db->escape( serialize( $spl_options ) )."' WHERE `conf_name` = 'o_social_profile_links'";
 
-  $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
-  $updated = true;
+    $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
+
+    $updated = true;
+  }
 
   if ( $updated )
   {
