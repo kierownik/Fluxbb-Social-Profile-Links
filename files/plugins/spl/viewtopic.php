@@ -5,7 +5,7 @@ $spl_config   = unserialize( $pun_config['o_social_profile_links'] );
 
 if ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
-  if ( !empty($user_contacts) AND ( $spl_cur_post['github'] != '' OR $spl_cur_post['facebook'] != '' OR $spl_cur_post['twitter'] != '' OR $spl_cur_post['youtube'] != '' OR $spl_cur_post['googleplus'] != '' OR $spl_cur_post['instagram'] != '' ) )
+  if (  $spl_cur_post['github'] != '' OR $spl_cur_post['facebook'] != '' OR $spl_cur_post['twitter'] != '' OR $spl_cur_post['youtube'] != '' OR $spl_cur_post['googleplus'] != '' OR $spl_cur_post['instagram'] != '' )
   {
     $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
 
@@ -54,7 +54,10 @@ if ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest'] == 
       ),
     );
 
-    $user_contacts[] = '<br /><br />';
+    if ( !empty($user_contacts) )
+    {
+      $user_contacts[] = '<br /><br />';
+    }
 
     // Here is where the magic is
     foreach ( $spl_array as $key )
