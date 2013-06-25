@@ -94,19 +94,19 @@ if ( isset( $_POST['set_options'] ) )
       <div class="infldset">
         <table class="aligntop" cellspacing="0">
         <?php
-          foreach ( $link_options AS $key )
-          {
-            $checked = ( $spl_config[$key] == '1' ) ? ' checked="checked"' : '';
-            ?>
-            <tr>
-              <th scope="col"><?php echo $lang_spl[$key] ?></th>
-            <td>
-              <input type="checkbox" name="<?php echo $key ?>" value="1" <?php echo $checked ?> />
-            </td>
-          </tr>
-          <?php
-          }
+        foreach ( $link_options AS $key )
+        {
+          $checked = ( $spl_config[$key] == '1' ) ? ' checked="checked"' : '';
           ?>
+          <tr>
+            <th scope="col"><?php echo $lang_spl[$key] ?></th>
+          <td>
+            <input type="checkbox" name="<?php echo $key ?>" value="1" <?php echo $checked ?> />
+          </td>
+        </tr>
+        <?php
+        }
+        ?>
         </table>
       </div>  <!-- end class="infldset" -->
       </fieldset>
