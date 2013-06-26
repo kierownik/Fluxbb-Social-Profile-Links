@@ -3,9 +3,9 @@
 $lang_spl = array(
 
 'social profile links'  =>  'Social Profile Links',
-'username of user id'   =>  'Vul je `Gebruikersnaam` of `Gebruikers Id` in',
+'username of user id'   =>  'Vul je `Gebruikersnaam` of `Gebruikers id` in',
 'username'              =>  'Gebruikersnaam',
-'user id'               =>  'Gebruikers Id',
+'user id'               =>  'Gebruikers id',
 'github'                =>  'GitHub',
 'facebook'              =>  'Facebook',
 'twitter'               =>  'Twitter',
@@ -13,7 +13,7 @@ $lang_spl = array(
 'google+'               =>  'Google+',
 'instagram'             =>  'Instagram',
 
-'show guests'           =>  'Laat Gasten Zien',
+'show guests'           =>  'Laat gasten zien',
 'show guests info'      =>  'Als je dit aanzet kunnen je gasten de links van je gebruikers zien',
 
 'options'               =>  'Opties',
@@ -33,7 +33,7 @@ $lang_spl = array(
 'bad youtube'           =>  'Je gaf een ongeldige YouTube gebruikersnaam in. Ga terug en herstel de fout.',
 'bad instagram'         =>  'Je gaf een ongeldige Instagram gebruikersnaam in. Ga terug en herstel de fout.',
 
-'save options'          =>  'Opties Opslaan',
+'save options'          =>  'Opties opslaan',
 'data saved'            =>  'Je opties zijn opgeslagen',
 
 );
