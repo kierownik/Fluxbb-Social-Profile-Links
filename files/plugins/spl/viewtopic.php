@@ -3,7 +3,16 @@
 $spl_cur_post = ( $cur_post['social_profile_links'] != '') ? unserialize( $cur_post['social_profile_links'] ) : array();
 $spl_config   = unserialize( $pun_config['o_social_profile_links'] );
 
-if ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_post ) AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
+// Are there cache links to display, we display them instead of going through the array
+if ( isset( $spl_cache_links[$cur_post['poster_id']] ) )
+{
+  if ( !empty( $user_contacts ) )
+  {
+    $user_contacts[] = '<br /><br />';
+  }
+  $user_contacts[] = $spl_cache_links[$cur_post['poster_id']];
+}
+elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_post ) AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
 
@@ -52,10 +61,13 @@ if ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_post ) AND ( $s
     ),
   );
 
-  if ( !empty($user_contacts) )
+  if ( !empty( $user_contacts ) )
   {
     $user_contacts[] = '<br /><br />';
   }
+
+  // Set the cache link
+  $spl_cache_links[$cur_post['poster_id']] = '';
 
   // Here is where the magic is
   foreach ( $spl_array as $key )
@@ -64,10 +76,16 @@ if ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_post ) AND ( $s
     {
       if ( $spl_config['use_icon'] == '1' )
       {
+        // add link and icon to the cache link
+        $spl_cache_links[$cur_post['poster_id']] .= '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span> ';
+
         $user_contacts[] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
       }
       else
       {
+        // add link to the cache link
+        $spl_cache_links[$cur_post['poster_id']] .= '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span> ';
+
         $user_contacts[] = '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
       }
     }
