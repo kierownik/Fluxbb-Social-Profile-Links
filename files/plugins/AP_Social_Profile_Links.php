@@ -27,7 +27,8 @@ else
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
 
-$link_options = array( 'github', 'facebook', 'twitter', 'youtube', 'google+', 'instagram');
+// Link options we use to show the checkboxes
+$link_options = array( 'github', 'facebook', 'twitter', 'youtube', 'google+', 'instagram' );
 
 //
 // The rest is up to you!
@@ -71,6 +72,7 @@ if ( isset( $_POST['set_options'] ) )
   // Display the admin navigation menu
   generate_admin_menu( $plugin );
 
+  // We need all the config unserialized
   $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 ?>
 <div id="exampleplugin" class="plugin blockform">
