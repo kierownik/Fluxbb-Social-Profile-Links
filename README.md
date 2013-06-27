@@ -28,6 +28,7 @@ all applicable files before proceeding.
 * Twitter
 * YouTube
 * Google+
+* Instagram
 * View in profile
 * View in viewtopic
 * Use icons
