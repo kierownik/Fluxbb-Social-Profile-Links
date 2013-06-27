@@ -6,7 +6,7 @@ $spl_config   = isset( $spl_config ) ? $spl_config : unserialize( $pun_config['o
 // Are there cache links to display, we display them instead of going through the array
 if ( isset( $spl_cache_links[$cur_post['poster_id']] ) )
 {
-  $user_contacts[] = $spl_cache_links[$cur_post['poster_id']];
+  $user_contacts[] = implode(' ', $spl_cache_links[$cur_post['poster_id']]);
 }
 elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_user ) AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
@@ -100,13 +100,12 @@ elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_user ) AND 
   }
 
   // Set the cache link
-  $spl_cache_links[$cur_post['poster_id']] = '';
+  $spl_cache_links[$cur_post['poster_id']] = array();
 
   // If the user_contacts is not empty we need two new lines
   if ( !empty( $user_contacts ) )
   {
-    $spl_cache_links[$cur_post['poster_id']] .= '<br /><br />';
-    $user_contacts[] = '<br /><br />';
+    $user_contacts[] = $spl_cache_links[$cur_post['poster_id']][] = '<br /><br />';
   }
 
   // Here is where the magic is
@@ -114,19 +113,11 @@ elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_user ) AND 
   {
     if ( $spl_config['use_icon'] == '1' )
     {
-      $user_contacts[] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
-      
-      // Add link and icon to the cache link
-      $spl_cache_links[$cur_post['poster_id']] .= '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span> ';
-
-
+      $user_contacts[] = $spl_cache_links[$cur_post['poster_id']][] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
     }
     else
     {
-      $user_contacts[] = '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
-
-      // Add link to the cache link
-      $spl_cache_links[$cur_post['poster_id']] .= '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span> ';
+      $user_contacts[] = $spl_cache_links[$cur_post['poster_id']][] = '<span class="website"><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'>'.$key['lang'].'</a></span>';
     }
   }
 }
