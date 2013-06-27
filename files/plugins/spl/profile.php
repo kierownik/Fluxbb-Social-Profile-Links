@@ -7,66 +7,105 @@ if ( $spl_config['show_in_profile'] == '1' AND count( $spl_cur_user ) AND ( $spl
 {
   $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
 
-  $spl_array = array(
-    'github' => array(
-      'config'    =>  $spl_config['github'],
-      'username'  =>  isset( $spl_cur_user['github'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) ) : '',
-      'url'       => 'https://github.com/'.( isset( $spl_cur_user['github'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) ) : '' ),
+  // This is the array we are going to use to build our links
+  $spl_links = array();
+
+  if ( $spl_config['github'] == '1' AND isset( $spl_cur_user['github'] ) AND $spl_cur_user['github'] != '' )
+  {
+    // Set the spl_username for github
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) );
+
+    // Fill the spl_links array for github
+    $spl_links['github'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'https://github.com/'.$spl_username,
       'lang'      =>  $lang_spl['github'],
       'icon'      =>  'GitHub.png',
-    ),
-    'facebook' => array(
-      'config'    =>  $spl_config['facebook'],
-      'username'  =>  isset( $spl_cur_user['facebook'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['facebook'] ) ) : pun_htmlspecialchars( $spl_cur_user['facebook'] ) ) : '',
-      'url'       => 'https://facebook.com/'.( isset( $spl_cur_user['facebook'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['facebook'] ) ) : pun_htmlspecialchars( $spl_cur_user['facebook'] ) ) : '' ),
+    );
+  }
+
+  if ( $spl_config['facebook'] == '1' AND isset( $spl_cur_user['facebook'] ) AND $spl_cur_user['facebook'] != '' )
+  {
+    // Set the spl_username for facebook
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['facebook'] ) ) : pun_htmlspecialchars( $spl_cur_user['facebook'] ) );
+
+    // Fill the spl_links array for facebook
+    $spl_links['facebook'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'https://facebook.com/'.$spl_username,
       'lang'      =>  $lang_spl['facebook'],
       'icon'      =>  'Facebook.png',
-    ),
-    'twitter' => array(
-      'config'    =>  $spl_config['twitter'],
-      'username'  =>  isset( $spl_cur_user['twitter'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) ) : '',
-      'url'       => 'https://twitter.com/'.( isset( $spl_cur_user['twitter'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) ) : '' ),
+    );
+  }
+
+  if ( $spl_config['twitter'] == '1' AND isset( $spl_cur_user['twitter'] ) AND $spl_cur_user['twitter'] != '' )
+  {
+    // Set the spl_username for twitter
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) );
+
+    // Fill the spl_links array for twitter
+    $spl_links['twitter'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'https://twitter.com/'.$spl_username,
       'lang'      =>  $lang_spl['twitter'],
       'icon'      =>  'Twitter.png',
-    ),
-    'youtube' => array(
-      'config'    =>  $spl_config['youtube'],
-      'username'  =>  isset( $spl_cur_user['youtube'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) ) : '',
-      'url'       => 'https://youtube.com/user/'.( isset( $spl_cur_user['youtube'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) ) : '' ),
+    );
+  }
+
+  if ( $spl_config['youtube'] == '1' AND isset( $spl_cur_user['youtube'] ) AND $spl_cur_user['youtube'] != '' )
+  {
+    // Set the spl_username for youtube
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) );
+
+    // Fill the spl_links array for youtube
+    $spl_links['youtube'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'https://youtube.com/user/'.$spl_username,
       'lang'      =>  $lang_spl['youtube'],
       'icon'      =>  'YouTube.png',
-    ),
-    'google+' => array(
-      'config'    =>  $spl_config['google+'],
-      'username'  =>  isset( $spl_cur_user['google+'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['google+'] ) ) : pun_htmlspecialchars( $spl_cur_user['google+'] ) ) : '',
-      'url'       => 'https://profiles.google.com/'.( isset( $spl_cur_user['google+'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['google+'] ) ) : pun_htmlspecialchars( $spl_cur_user['google+'] ) ) : '' ).'/posts',
+    );
+  }
+
+  if ( $spl_config['google+'] == '1' AND isset( $spl_cur_user['google+'] ) AND $spl_cur_user['google+'] != '' )
+  {
+    // Set the spl_username for google+
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['google+'] ) ) : pun_htmlspecialchars( $spl_cur_user['google+'] ) );
+
+    // Fill the spl_links array for google+
+    $spl_links['google+'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'https://profiles.google.com/'.$spl_username.'/posts',
       'lang'      =>  $lang_spl['google+'],
       'icon'      =>  'Google+.png',
-    ),
-    'instagram' => array(
-      'config'    =>  $spl_config['instagram'],
-      'username'  =>  isset( $spl_cur_user['instagram'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['instagram'] ) ) : pun_htmlspecialchars( $spl_cur_user['instagram'] ) ) : '',
-      'url'       => 'http://instagram.com/'.( isset( $spl_cur_user['instagram'] ) ? ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['instagram'] ) ) : pun_htmlspecialchars( $spl_cur_user['instagram'] ) ) : '' ),
+    );
+  }
+
+  if ( $spl_config['instagram'] == '1' AND isset( $spl_cur_user['instagram'] ) AND $spl_cur_user['instagram'] != '' )
+  {
+    // Set the spl_username for instagram
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['instagram'] ) ) : pun_htmlspecialchars( $spl_cur_user['instagram'] ) );
+
+    // Fill the spl_links array for instagram
+    $spl_links['instagram'] = array(
+      'username'  =>  $spl_username,
+      'url'       =>  'http://instagram.com/'.$spl_username,
       'lang'      =>  $lang_spl['instagram'],
       'icon'      =>  'Instagram.png',
-    ),
-  );
+    );
+  }
 
   // Here is where the magic is
-  foreach ( $spl_array as $key )
+  foreach ( $spl_links as $key )
   {
-    if ( $key['config'] == '1' AND $key['username'] != '' )
-    {
-      $user_personal[] = '<dt>'.$key['lang'].'</dt>';
+    $user_personal[] = '<dt>'.$key['lang'].'</dt>';
 
-      if ( $spl_config['use_icon'] == '1' )
-      {
-        $user_personal[] = '<dd><span><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span></dd>';
-      }
-      else
-      {
-        $user_personal[] = '<dd><span class="website"><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'>'.$key['username'].'</a></span></dd>';
-      }
+    if ( $spl_config['use_icon'] == '1' )
+    {
+      $user_personal[] = '<dd><span><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span></dd>';
+    }
+    else
+    {
+      $user_personal[] = '<dd><span class="website"><a href="'.$key['url'].'" title="'.$key['lang'].'" rel="nofollow"'.$target.'>'.$key['username'].'</a></span></dd>';
     }
   };
 }
