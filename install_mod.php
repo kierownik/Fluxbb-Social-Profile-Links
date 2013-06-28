@@ -3,7 +3,7 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.0.2';
+$mod_version    = '1.1';
 $release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
@@ -25,17 +25,17 @@ function install()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'github'            => ( $pun_config['o_spl_github'] == '') ? '0' : $pun_config['o_spl_github'],
-    'facebook'          => ( $pun_config['o_spl_facebook'] == '') ? '0' : $pun_config['o_spl_facebook'],
-    'twitter'           => ( $pun_config['o_spl_twitter'] == '') ? '0' : $pun_config['o_spl_twitter'],
-    'youtube'           => ( $pun_config['o_spl_youtube'] == '') ? '0' : $pun_config['o_spl_youtube'],
-    'google+'           => ( $pun_config['o_spl_googleplus'] == '') ? '0' : $pun_config['o_spl_googleplus'],
-    'instagram'         => ( $pun_config['o_spl_instagram'] == '') ? '0' : $pun_config['o_spl_instagram'],
-    'use_icon'          => ( $pun_config['o_spl_use_icon'] == '') ? '0' : $pun_config['o_spl_use_icon'],
-    'show_in_profile'   => ( $pun_config['o_spl_show_in_profile'] == '') ? '0' : $pun_config['o_spl_show_in_profile'],
-    'show_in_viewtopic' => ( $pun_config['o_spl_show_in_viewtopic'] == '') ? '0' : $pun_config['o_spl_show_in_viewtopic'],
-    'show_guest'        => ( $pun_config['o_spl_show_guest'] == '') ? '0' : $pun_config['o_spl_show_guest'],
-    'link_target'       => ( $pun_config['o_spl_link_target'] == '') ? '0' : $pun_config['o_spl_link_target'],
+    'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '0' : $pun_config['o_spl_github'],
+    'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '0' : $pun_config['o_spl_facebook'],
+    'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '0' : $pun_config['o_spl_twitter'],
+    'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '0' : $pun_config['o_spl_youtube'],
+    'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '0' : $pun_config['o_spl_googleplus'],
+    'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '0' : $pun_config['o_spl_instagram'],
+    'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '0' : $pun_config['o_spl_use_icon'],
+    'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '0' : $pun_config['o_spl_show_in_profile'],
+    'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '0' : $pun_config['o_spl_show_in_viewtopic'],
+    'show_guest'        => ( !isset( $pun_config['o_spl_show_guest'] ) ) ? '0' : $pun_config['o_spl_show_guest'],
+    'link_target'       => ( !isset( $pun_config['o_spl_link_target'] ) ) ? '0' : $pun_config['o_spl_link_target'],
   );
 
   $spl_config = serialize( $spl_config );
@@ -48,15 +48,7 @@ function install()
   }
 
   // Delete old stuff from V-1.0.2
-  foreach( unserialize( $spl_config ) as $key => $value )
-  {
-    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = 'o_spl_".$key."'");
-
-    if ( $db->num_rows( $query ) )
-    {
-      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "o_spl_'.$key.'"' ) or error( 'Unable to delete "o_spl_'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
-    }
-  }
+  $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
   // End old stuff from V-1.0.2
 
   $allow_null = false;
@@ -65,15 +57,36 @@ function install()
 
   $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
 
-  // Delete old users stuff from V-1.0.2
+  $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+
+  // Delete or move old users stuff from V-1.0.2
   $spl_users = array(
-    'spl_github'      => '',
-    'spl_facebook'    => '',
-    'spl_twitter'     => '',
-    'spl_youtube'     => '',
-    'spl_googleplus'  => '',
-    'spl_instagram'   => '',
+    'spl_github'      =>  'github',
+    'spl_facebook'    =>  'facebook',
+    'spl_twitter'     =>  'twitter',
+    'spl_youtube'     =>  'youtube',
+    'spl_googleplus'  =>  'google+',
+    'spl_instagram'   =>  'instagram',
   );
+
+  $temp_spl_user = array();
+
+  while ( $spl_user_data = $db->fetch_assoc( $result ) )
+  {
+    foreach ( $spl_users AS $key => $value)
+    {
+      if ( $spl_user_data[$key] != '' )
+      {
+        $temp_spl_user[$value] = $spl_user_data[$key];
+      }
+    }
+
+    if ( !empty( $temp_spl_user ) )
+    {
+      $spl_links = serialize( $temp_spl_user );
+      $db->query( 'UPDATE `'.$db->prefix."users` SET `social_profile_links` = '".$db->escape ( $spl_links )."' WHERE `id` = '".$spl_user_data['id']."'" ) or error( 'Unable to update users', __FILE__, __LINE__, $db->error() );
+    }
+  }
 
   foreach( $spl_users as $key => $value )
   {
