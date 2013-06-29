@@ -135,11 +135,13 @@ function restore()
 {
   global $db, $db_type, $pun_config;
 
+  // If o_spl_github exists we are dealing with an old install
   if ( isset( $pun_config['o_spl_github'] ) )
   {
     $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
   }
-  
+  // End if o_spl_github exists we are dealing with an old install
+
   if ( isset( $pun_config['o_social_profile_links'] ) )
   {
     $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "o_social_profile_links"' ) or error( 'Unable to delete "o_social_profile_links" from config table', __FILE__, __LINE__, $db->error() );
@@ -155,6 +157,7 @@ function restore()
     'spl_instagram'         => '',
   );
 
+  // If the fields exist we need to delete them
   foreach( $spl_users as $key => $value )
   {
     if ( $db->field_exists( 'users', ''.$key.'', true ) )
@@ -162,6 +165,7 @@ function restore()
       $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
     }
   }
+  // End if the fields exist we need to delete them
 
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
