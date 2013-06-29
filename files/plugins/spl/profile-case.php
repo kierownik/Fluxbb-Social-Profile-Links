@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 

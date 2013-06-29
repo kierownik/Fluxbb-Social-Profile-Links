@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );

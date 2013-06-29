@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $spl_cur_user = ( $cur_post['social_profile_links'] != '') ? unserialize( $cur_post['social_profile_links'] ) : array();
 $spl_config   = isset( $spl_config ) ? $spl_config : unserialize( $pun_config['o_social_profile_links'] );
