@@ -109,6 +109,7 @@ elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_user ) AND 
   }
 
   // Here is where the magic is
+  ksort($spl_links);
   foreach ( $spl_links as $key )
   {
     if ( $spl_config['use_icon'] == '1' )

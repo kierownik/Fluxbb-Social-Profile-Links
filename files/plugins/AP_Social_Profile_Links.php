@@ -99,6 +99,7 @@ if ( isset( $_POST['set_options'] ) )
       <div class="infldset">
         <table class="aligntop" cellspacing="0">
         <?php
+        asort($link_options);
         foreach ( $link_options AS $key )
         {
           $checked = ( $spl_config[$key] == '1' ) ? ' checked="checked"' : '';

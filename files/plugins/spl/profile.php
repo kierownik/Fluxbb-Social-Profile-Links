@@ -95,6 +95,7 @@ if ( $spl_config['show_in_profile'] == '1' AND count( $spl_cur_user ) AND ( $spl
   }
 
   // Here is where the magic is
+  ksort($spl_links);
   foreach ( $spl_links as $key )
   {
     $user_personal[] = '<dt>'.$key['lang'].'</dt>';
