@@ -27,6 +27,9 @@ else
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
 
+// Plugin version
+define('PLUGIN_VERSION', '1.1.0');
+
 // Link options we use to show the checkboxes
 $link_options = array( 'github', 'facebook', 'twitter', 'youtube', 'google+', 'instagram' );
 
@@ -76,7 +79,7 @@ if ( isset( $_POST['set_options'] ) )
   $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 ?>
 <div id="exampleplugin" class="plugin blockform">
-  <h2><span><?php echo $lang_spl['social profile links'] ?> - V 1.0.2</span></h2>
+  <h2><span><?php echo $lang_spl['social profile links'] ?> - v<?php echo PLUGIN_VERSION ?></span></h2>
   <div class="box">
     <div class="inbox">
       <p>This plugin is used to place links in the profile and/or viewtopic page of the user.</p>
