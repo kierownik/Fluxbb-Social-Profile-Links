@@ -82,7 +82,7 @@ if ( isset( $_POST['set_options'] ) )
   <h2><span><?php echo $lang_spl['social profile links'] ?> - v<?php echo PLUGIN_VERSION ?></span></h2>
   <div class="box">
     <div class="inbox">
-      <p>This plugin is used to place links in the profile and/or viewtopic page of the user.</p>
+      <p><?php echo $lang_spl['social profile links info'] ?></p>
     </div>
   </div>
 </div>
