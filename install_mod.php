@@ -54,12 +54,15 @@ function install()
   }
   // End old stuff from V-1.0.2
 
+  // Add the new social_profile_links field to the users table
   $allow_null = false;
   $default_value = '';
   $after_field = 'yahoo';
 
   $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
+  // End add the new social_profile_links field to the users table
 
+  // Select all the non empty user fields to be moved to the new users field
   if ( $db->field_exists( 'users', 'spl_instagram', true ) )
   {
     $instagram = true;
@@ -70,6 +73,7 @@ function install()
     $instagram = false;
     $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" AND spl_facebook <> "" AND spl_twitter <> "" AND spl_youtube <> "" AND spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
   }
+  // End select all the non empty user fields to be moved to the new users field
 
   $spl_users = array(
     'spl_github'      =>  'github',
@@ -80,7 +84,7 @@ function install()
     'spl_instagram'   =>  'instagram',
   );
 
-  // move the old users usernames into the new users field
+  // Move the old users usernames into the new users field
   while ( $spl_user_data = $db->fetch_assoc( $result ) )
   {
     $temp_spl_user = array();
@@ -109,6 +113,7 @@ function install()
       $db->query( 'UPDATE `'.$db->prefix."users` SET `social_profile_links` = '".$db->escape ( $spl_links )."' WHERE `id` = '".$spl_user_data['id']."'" ) or error( 'Unable to update users', __FILE__, __LINE__, $db->error() );
     }
   }
+  // End move the old users usernames into the new users field
 
   // Delete or move old users stuff from V-1.0.2
   foreach( $spl_users as $key => $value )
