@@ -47,8 +47,11 @@ function install()
     $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
   }
 
-  // Delete old stuff from V-1.0.2
-  $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
+  // Delete old config stuff from V-1.0.2
+  if ( isset( $pun_config['o_spl_github'] ) )
+  {
+    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
+  }
   // End old stuff from V-1.0.2
 
   $allow_null = false;
@@ -57,9 +60,17 @@ function install()
 
   $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
 
-  $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+  if ( $db->field_exists( 'users', 'spl_instagram', true ) )
+  {
+    $instagram = true;
+    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" AND spl_facebook <> "" AND spl_twitter <> "" AND spl_youtube <> "" AND spl_googleplus <> "" AND spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+  }
+  else
+  {
+    $instagram = false;
+    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" AND spl_facebook <> "" AND spl_twitter <> "" AND spl_youtube <> "" AND spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+  }
 
-  // Delete or move old users stuff from V-1.0.2
   $spl_users = array(
     'spl_github'      =>  'github',
     'spl_facebook'    =>  'facebook',
@@ -69,15 +80,26 @@ function install()
     'spl_instagram'   =>  'instagram',
   );
 
-  $temp_spl_user = array();
-
+  // move the old users usernames into the new users field
   while ( $spl_user_data = $db->fetch_assoc( $result ) )
   {
+    $temp_spl_user = array();
+
     foreach ( $spl_users AS $key => $value)
     {
-      if ( $spl_user_data[$key] != '' )
+      if ( $instagram AND $key == 'spl_instagram' )
       {
-        $temp_spl_user[$value] = $spl_user_data[$key];
+        if ( $spl_user_data[$key] != '' )
+        {
+          $temp_spl_user[$value] = $spl_user_data[$key];
+        }
+      }
+      else
+      {
+        if ( $spl_user_data[$key] != '' )
+        {
+          $temp_spl_user[$value] = $spl_user_data[$key];
+        }
       }
     }
 
@@ -88,9 +110,13 @@ function install()
     }
   }
 
+  // Delete or move old users stuff from V-1.0.2
   foreach( $spl_users as $key => $value )
   {
-    $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
+    if ( $db->field_exists( 'users', ''.$key.'', true ) )
+    {
+      $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );
+    }
   }
   // END old users stuff from V-1.0.2
 
@@ -104,47 +130,14 @@ function restore()
 {
   global $db, $db_type, $pun_config;
 
-  $spl_config = array(
-    'o_social_profile_links'  => '0',
-    'o_spl_github'            => '0',
-    'o_spl_facebook'          => '0',
-    'o_spl_twitter'           => '0',
-    'o_spl_youtube'           => '0',
-    'o_spl_googleplus'        => '0',
-    'o_spl_instagram'         => '0',
-    'o_spl_use_icon'          => '0',
-    'o_spl_show_in_profile'   => '0',
-    'o_spl_show_in_viewtopic' => '0',
-    'o_spl_show_guest'        => '0',
-    'o_spl_link_target'       => '0',
-    // old residue from V0.2
-    'o_spl_prof_github'       => '0',
-    'o_spl_prof_facebook'     => '0',
-    'o_spl_prof_twitter'      => '0',
-    'o_spl_prof_youtube'      => '0',
-    'o_spl_prof_googleplus'   => '0',
-    'o_spl_view_github'       => '0',
-    'o_spl_view_facebook'     => '0',
-    'o_spl_view_twitter'      => '0',
-    'o_spl_view_youtube'      => '0',
-    'o_spl_view_googleplus'   => '0',
-    'o_spl_icon_github'       => '0',
-    'o_spl_icon_facebook'     => '0',
-    'o_spl_icon_twitter'      => '0',
-    'o_spl_icon_youtube'      => '0',
-    'o_spl_icon_googleplus'   => '0',
-    'o_spl_show_guest'        => '0',
-    // old residue from V0.2
-  );
-
-  foreach( $spl_config as $key => $value )
+  if ( isset( $pun_config['o_spl_github'] ) )
   {
-    $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = '".$key."'");
-
-    if ( $db->num_rows( $query ) )
-    {
-      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "'.$key.'"' ) or error( 'Unable to delete "'.$key.'" from config table', __FILE__, __LINE__, $db->error() );
-    }
+    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
+  }
+  
+  if ( isset( $pun_config['o_social_profile_links'] ) )
+  {
+    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name = "o_social_profile_links"' ) or error( 'Unable to delete "o_social_profile_links" from config table', __FILE__, __LINE__, $db->error() );
   }
 
   $spl_users = array(
