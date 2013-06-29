@@ -62,4 +62,4 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] == '1' )
     message( $lang_spl['bad instagram'] );
 }
 
-$form = array( 'social_profile_links' => ( !empty( $spl_users ) ) ? serialize( $spl_users ) : '' );
+$form = array( 'social_profile_links' => ( !empty( $spl_users ) ) ? serialize( $spl_users ) : NULL );

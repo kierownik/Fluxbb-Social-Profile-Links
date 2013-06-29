@@ -55,8 +55,8 @@ function install()
   // End old stuff from V-1.0.2
 
   // Add the new social_profile_links field to the users table
-  $allow_null = false;
-  $default_value = '';
+  $allow_null = true;
+  $default_value = NULL;
   $after_field = 'yahoo';
 
   $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
@@ -66,12 +66,12 @@ function install()
   if ( $db->field_exists( 'users', 'spl_instagram', true ) )
   {
     $instagram = true;
-    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" AND spl_facebook <> "" AND spl_twitter <> "" AND spl_youtube <> "" AND spl_googleplus <> "" AND spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> "" OR spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
   }
   else
   {
     $instagram = false;
-    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" AND spl_facebook <> "" AND spl_twitter <> "" AND spl_youtube <> "" AND spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
   }
   // End select all the non empty user fields to be moved to the new users field
 
