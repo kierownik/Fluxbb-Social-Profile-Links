@@ -21,6 +21,20 @@
 ##
 ##            Notes:  Thanks to quy [https://fluxbb.org/forums/profile.php?id=22] for helping
 ##
+##   Plugin options:  All these options can be managed in the administration area
+##                    Github    - Enable / Disable
+##                    Facebook  - Enable / Disable
+##                    Twitter   - Enable / Disable
+##                    YouTube   - Enable / Disable
+##                    Google+   - Enable / Disable
+##                    Instagram - Enable / Disable
+##                    
+##                    Show in users profile - Enable / Disable
+##                    Show in viewtopic     - Enable / Disable
+##                    Use icon              - Enable / Disable
+##                    Show guests           - Enable / Disable
+##                    Target                - Same window / New window/tab
+##
 ##       DISCLAIMER:  Please note that "mods" are not officially supported by
 ##                    FluxBB. Installation of this modification is done at 
 ##                    your own risk. Backup your forum database and any and
@@ -236,3 +250,9 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 #
 #---------[ 27. SAVE/UPLOAD ]-------------------------------------------------
 #
+
+#
+#---------[ 28. GO TO ]----------------------------------------------
+#
+
+Go to the administration page where you can find the plugin options.

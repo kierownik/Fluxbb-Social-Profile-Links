@@ -25,17 +25,17 @@ function install()
   global $db, $db_type, $pun_config;
 
   $spl_config = array(
-    'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '0' : $pun_config['o_spl_github'],
-    'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '0' : $pun_config['o_spl_facebook'],
-    'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '0' : $pun_config['o_spl_twitter'],
-    'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '0' : $pun_config['o_spl_youtube'],
-    'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '0' : $pun_config['o_spl_googleplus'],
-    'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '0' : $pun_config['o_spl_instagram'],
-    'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '0' : $pun_config['o_spl_use_icon'],
-    'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '0' : $pun_config['o_spl_show_in_profile'],
-    'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '0' : $pun_config['o_spl_show_in_viewtopic'],
-    'show_guest'        => ( !isset( $pun_config['o_spl_show_guest'] ) ) ? '0' : $pun_config['o_spl_show_guest'],
-    'link_target'       => ( !isset( $pun_config['o_spl_link_target'] ) ) ? '0' : $pun_config['o_spl_link_target'],
+    'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
+    'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
+    'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
+    'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
+    'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
+    'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '1' : $pun_config['o_spl_instagram'],
+    'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '1' : $pun_config['o_spl_use_icon'],
+    'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '1' : $pun_config['o_spl_show_in_profile'],
+    'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '1' : $pun_config['o_spl_show_in_viewtopic'],
+    'show_guest'        => ( !isset( $pun_config['o_spl_show_guest'] ) ) ? '1' : $pun_config['o_spl_show_guest'],
+    'link_target'       => ( !isset( $pun_config['o_spl_link_target'] ) ) ? '1' : $pun_config['o_spl_link_target'],
   );
 
   $spl_config = serialize( $spl_config );
