@@ -11,6 +11,7 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
 // link options - github => 50 <- is maxlength
 $link_options = array( 'github' => '50', 'facebook' => '50', 'youtube' => '20', 'twitter' => '15', 'google+' => '21', 'instagram' => '30' );
+ksort( $link_options );
 ?>
   <div class="blockform">
     <h2><span><?php echo pun_htmlspecialchars( $user['username'] ).' - '. $lang_spl['social profile links'] ?></span></h2>
