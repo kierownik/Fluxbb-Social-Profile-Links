@@ -177,6 +177,7 @@ $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.
 #---------[ 17. AFTER, ADD ]--------------------------------------------------
 #
 
+    if ( $user['social_profile_links'] != '' )
       include( PUN_ROOT.'plugins/spl/profile.php' );
 
 #
@@ -245,14 +246,15 @@ $result = $db->query('SELECT u.email, u.title, u.url,
 #---------[ 26. AFTER, ADD ]--------------------------------------------------
 #
 
-			include( PUN_ROOT.'plugins/spl/viewtopic.php' );
+    if ( $cur_post['social_profile_links'] != '' )
+      include( PUN_ROOT.'plugins/spl/viewtopic.php' );
 
 #
 #---------[ 27. SAVE/UPLOAD ]-------------------------------------------------
 #
 
 #
-#---------[ 28. GO TO ]----------------------------------------------
+#---------[ 28. GO TO ]-------------------------------------------------------
 #
 
 Go to the administration page where you can find the plugin options.
