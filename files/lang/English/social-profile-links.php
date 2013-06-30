@@ -35,9 +35,8 @@ $lang_spl = array(
 'bad instagram'               =>  'You entered an invalid Instagram username. Please go back and correct.',
 
 'enabled links'               =>  'Enabled links',
-'enabled links info'          =>  'To disable a link just enter a 0 or leave the box empty',
 'disabled links'              =>  'Disabled links',
-'disabled links info'         =>  'To enable a link just enter a number higher than 0.<br />The height of the number will determine in what order the links are shown.<br />1 is higher then 2.',
+'enabled/disabled info'       =>  'To disable a link just enter a 0 or leave the box empty<br />To enable a link just enter a number higher then 0.<br />The height of the number will determine in what order the links are shown.<br />1 is higher then 2.',
 
 'save options'                =>  'Save options',
 'data saved'                  =>  'Your data has been saved',

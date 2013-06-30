@@ -35,9 +35,8 @@ $lang_spl = array(
 'bad instagram'               =>  'Je gaf een ongeldige Instagram gebruikersnaam in. Ga terug en herstel de fout.',
 
 'enabled links'               =>  'Actieve links',
-'enabled links info'          =>  'Om een niet actieve link te hebben geef je een 0 of laat het input-veld leeg',
 'disabled links'              =>  'Niet actieve links',
-'disabled links info'         =>  'Om een actieve link te hebben vul dan een cijfer hoger dan 0.<br />De hoogte van het cijfer bepaalt ook de volgorde waarin ze getoont worden.<br />1 is hoger dan 2',
+'enabled/disable info'        =>  'Om een niet actieve link te hebben geef je een 0 of laat het input-veld leeg<br />Om een actieve link te hebben vul je een cijfer in dat hoger is dan 0.<br />De hoogte van het cijfer bepaalt ook de volgorde waarin ze getoont worden.<br />1 is hoger dan 2',
 
 'save options'                =>  'Opties opslaan',
 'data saved'                  =>  'Je opties zijn opgeslagen',

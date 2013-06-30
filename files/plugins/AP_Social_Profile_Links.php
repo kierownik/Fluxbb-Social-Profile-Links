@@ -118,7 +118,7 @@ if ( isset( $_POST['set_options'] ) )
           <table class="aligntop" cellspacing="0">
             <tr>
               <th scope="col"><strong><?php echo $lang_spl['enabled links'] ?>:</strong></th>
-              <td><?php echo $lang_spl['enabled links info'] ?></td>
+              <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
             </tr>
           <?php
           array_multisort( $link_options );
@@ -158,7 +158,7 @@ if ( isset( $_POST['set_options'] ) )
           <table class="aligntop" cellspacing="0">
             <tr>
               <th scope="col"><strong><?php echo $lang_spl['disabled links'] ?>:</strong></th>
-              <td><?php echo $lang_spl['disabled links info'] ?></td>
+              <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
             </tr>
           <?php
           foreach ( $link_options AS $key => $value )
