@@ -110,16 +110,13 @@ function install()
     // End make an array of the old usernames so they can be moved to the new users field
 
     // Delete old stuff from V-0.1 to V-1.0.2
-    if ( isset( $pun_config['o_spl_github'] ) )
-    {
-      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
+    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
 
-      foreach( $spl_users as $key => $value )
+    foreach( $spl_users as $key => $value )
+    {
+      if ( $db->field_exists( 'users', ''.$key.'', true ) )
       {
-        if ( $db->field_exists( 'users', ''.$key.'', true ) )
-        {
-          $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );
-        }
+        $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );
       }
     }
     // End delete old stuff from V-0.1 to V-1.0.2
