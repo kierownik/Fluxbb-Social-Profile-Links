@@ -24,106 +24,135 @@ function install()
 {
   global $db, $db_type, $pun_config;
 
-  $spl_config = array(
-    'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
-    'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
-    'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
-    'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
-    'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
-    'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '1' : $pun_config['o_spl_instagram'],
-    'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '1' : $pun_config['o_spl_use_icon'],
-    'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '1' : $pun_config['o_spl_show_in_profile'],
-    'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '1' : $pun_config['o_spl_show_in_viewtopic'],
-    'show_guest'        => ( !isset( $pun_config['o_spl_show_guest'] ) ) ? '1' : $pun_config['o_spl_show_guest'],
-    'link_target'       => ( !isset( $pun_config['o_spl_link_target'] ) ) ? '1' : $pun_config['o_spl_link_target'],
-  );
-
-  $spl_config = serialize( $spl_config );
-
-  $query = $db->query( "SELECT * FROM ".$db->prefix."config WHERE `conf_name` = 'o_social_profile_links'");
-
-  if ( !$db->num_rows( $query ) )
+  // old install
+  if ( isset( $pun_config['o_spl_github'] ) OR isset( $pun_config['o_spl_prof_github'] ) )
   {
+    $spl_config = array(
+      'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
+      'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
+      'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
+      'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
+      'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
+      'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '1' : $pun_config['o_spl_instagram'],
+      'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '1' : $pun_config['o_spl_use_icon'],
+      'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '1' : $pun_config['o_spl_show_in_profile'],
+      'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '1' : $pun_config['o_spl_show_in_viewtopic'],
+      'show_guest'        => ( !isset( $pun_config['o_spl_show_guest'] ) ) ? '1' : $pun_config['o_spl_show_guest'],
+      'link_target'       => ( !isset( $pun_config['o_spl_link_target'] ) ) ? '1' : $pun_config['o_spl_link_target'],
+    );
+
+    // Serialize the new config
+    $spl_config = serialize( $spl_config );
+
+    // Insert the new config in the new config field
     $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
-  }
 
-  // Delete old config stuff from V-1.0.2
-  if ( isset( $pun_config['o_spl_github'] ) )
-  {
-    $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
-  }
-  // End old stuff from V-1.0.2
+    // Add the new social_profile_links field to the users table
+    $allow_null = true;
+    $default_value = NULL;
+    $after_field = 'yahoo';
 
-  // Add the new social_profile_links field to the users table
-  $allow_null = true;
-  $default_value = NULL;
-  $after_field = 'yahoo';
+    $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
+    // End add the new social_profile_links field to the users table
 
-  $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
-  // End add the new social_profile_links field to the users table
+    // Select all the non empty user fields to be moved to the new users field
+    if ( $db->field_exists( 'users', 'spl_instagram', true ) )
+    {
+      $instagram = true;
+      $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> "" OR spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    }
+    else
+    {
+      $instagram = false;
+      $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    }
+    // End select all the non empty user fields to be moved to the new users field
 
-  // Select all the non empty user fields to be moved to the new users field
-  if ( $db->field_exists( 'users', 'spl_instagram', true ) )
-  {
-    $instagram = true;
-    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> "" OR spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    $spl_users = array(
+      'spl_github'      =>  'github',
+      'spl_facebook'    =>  'facebook',
+      'spl_twitter'     =>  'twitter',
+      'spl_youtube'     =>  'youtube',
+      'spl_googleplus'  =>  'google+',
+      'spl_instagram'   =>  'instagram',
+    );
+
+    // Make an array of the old usernames so they can be moved to the new users field
+    while ( $spl_user_data = $db->fetch_assoc( $result ) )
+    {
+      $temp_spl_user = array();
+
+      foreach ( $spl_users AS $key => $value)
+      {
+        if ( $instagram AND $key == 'spl_instagram' )
+        {
+          if ( $spl_user_data[$key] != '' )
+          {
+            $temp_spl_user[$value] = $spl_user_data[$key];
+          }
+        }
+        else
+        {
+          if ( $spl_user_data[$key] != '' )
+          {
+            $temp_spl_user[$value] = $spl_user_data[$key];
+          }
+        }
+      }
+
+      // If $temp_spl_user array is not empty we can save it to the database for that user
+      if ( !empty( $temp_spl_user ) )
+      {
+        $spl_links = serialize( $temp_spl_user );
+        $db->query( 'UPDATE `'.$db->prefix."users` SET `social_profile_links` = '".$db->escape ( $spl_links )."' WHERE `id` = '".$spl_user_data['id']."'" ) or error( 'Unable to update users', __FILE__, __LINE__, $db->error() );
+      }
+    }
+    // End make an array of the old usernames so they can be moved to the new users field
+
+    // Delete old stuff from V-0.1 to V-1.0.2
+    if ( isset( $pun_config['o_spl_github'] ) )
+    {
+      $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
+
+      foreach( $spl_users as $key => $value )
+      {
+        if ( $db->field_exists( 'users', ''.$key.'', true ) )
+        {
+          $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );
+        }
+      }
+    }
+    // End delete old stuff from V-0.1 to V-1.0.2
   }
   else
   {
-    $instagram = false;
-    $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
+    // New install
+    $spl_config = array(
+      'github'            => '1',
+      'facebook'          => '1',
+      'twitter'           => '1',
+      'youtube'           => '1',
+      'google+'           => '1',
+      'instagram'         => '1',
+      'use_icon'          => '1',
+      'show_in_profile'   => '1',
+      'show_in_viewtopic' => '1',
+      'show_guest'        => '1',
+      'link_target'       => '1',
+    );
+
+    $spl_config = serialize( $spl_config );
+
+    $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
+
+    // Add the new social_profile_links field to the users table
+    $allow_null = true;
+    $default_value = NULL;
+    $after_field = 'yahoo';
+
+    $db->add_field( 'users', 'social_profile_links', 'text', $allow_null, $default_value, $after_field ) or error( 'Unable to add column "social_profile_links" to table "users"', __FILE__, __LINE__, $db->error() );
+    // End new install
   }
-  // End select all the non empty user fields to be moved to the new users field
-
-  $spl_users = array(
-    'spl_github'      =>  'github',
-    'spl_facebook'    =>  'facebook',
-    'spl_twitter'     =>  'twitter',
-    'spl_youtube'     =>  'youtube',
-    'spl_googleplus'  =>  'google+',
-    'spl_instagram'   =>  'instagram',
-  );
-
-  // Move the old users usernames into the new users field
-  while ( $spl_user_data = $db->fetch_assoc( $result ) )
-  {
-    $temp_spl_user = array();
-
-    foreach ( $spl_users AS $key => $value)
-    {
-      if ( $instagram AND $key == 'spl_instagram' )
-      {
-        if ( $spl_user_data[$key] != '' )
-        {
-          $temp_spl_user[$value] = $spl_user_data[$key];
-        }
-      }
-      else
-      {
-        if ( $spl_user_data[$key] != '' )
-        {
-          $temp_spl_user[$value] = $spl_user_data[$key];
-        }
-      }
-    }
-
-    if ( !empty( $temp_spl_user ) )
-    {
-      $spl_links = serialize( $temp_spl_user );
-      $db->query( 'UPDATE `'.$db->prefix."users` SET `social_profile_links` = '".$db->escape ( $spl_links )."' WHERE `id` = '".$spl_user_data['id']."'" ) or error( 'Unable to update users', __FILE__, __LINE__, $db->error() );
-    }
-  }
-  // End move the old users usernames into the new users field
-
-  // Delete or move old users stuff from V-1.0.2
-  foreach( $spl_users as $key => $value )
-  {
-    if ( $db->field_exists( 'users', ''.$key.'', true ) )
-    {
-      $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );
-    }
-  }
-  // END old users stuff from V-1.0.2
 
     // Regenerate the config cache
     require_once PUN_ROOT.'include/cache.php';
