@@ -143,6 +143,7 @@ if ( isset( $_POST['set_options'] ) )
       }
 
       $disabled = false;
+      ksort( $link_options );
       foreach( $link_options AS $key => $value )
       {
         $disabled = $disabled || ( $value == '0' );
