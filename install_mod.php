@@ -162,7 +162,7 @@ function restore()
   global $db, $db_type, $pun_config;
 
   // If o_spl_github exists we are dealing with an old install
-  if ( isset( $pun_config['o_spl_github'] ) )
+  if ( isset( $pun_config['o_spl_github'] ) OR isset( $pun_config['o_spl_prof_github'] ) )
   {
     $db->query( 'DELETE FROM '.$db->prefix.'config WHERE conf_name LIKE "o_spl_%"' ) or error( 'Unable to delete "o_spl_" from config table', __FILE__, __LINE__, $db->error() );
   }
