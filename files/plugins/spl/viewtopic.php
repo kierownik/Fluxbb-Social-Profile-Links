@@ -1,6 +1,6 @@
 <?php
 
-$spl_cur_user = ( $cur_post['social_profile_links'] != '') ? unserialize( $cur_post['social_profile_links'] ) : array();
+$spl_cur_user = unserialize( $cur_post['social_profile_links'] );
 $spl_config   = isset( $spl_config ) ? $spl_config : unserialize( $pun_config['o_social_profile_links'] );
 
 // Are there cache links to display, we display them instead of going through the array
