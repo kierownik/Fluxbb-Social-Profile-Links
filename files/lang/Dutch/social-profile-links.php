@@ -34,6 +34,9 @@ $lang_spl = array(
 'bad youtube'                 =>  'Je gaf een ongeldige YouTube gebruikersnaam in. Ga terug en herstel de fout.',
 'bad instagram'               =>  'Je gaf een ongeldige Instagram gebruikersnaam in. Ga terug en herstel de fout.',
 
+'enabled links'               =>  'Actieve links',
+'disabled links'              =>  'Niet actieve links',
+
 'save options'                =>  'Opties opslaan',
 'data saved'                  =>  'Je opties zijn opgeslagen',
 

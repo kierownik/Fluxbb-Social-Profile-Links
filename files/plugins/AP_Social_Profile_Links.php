@@ -31,7 +31,15 @@ define( 'PUN_PLUGIN_LOADED', 1 );
 define('PLUGIN_VERSION', '1.1.0');
 
 // Link options we use to show the checkboxes
-$link_options = array( 'github', 'facebook', 'twitter', 'youtube', 'google+', 'instagram' );
+$spl_config = unserialize( $pun_config['o_social_profile_links'] );
+$link_options = array(
+  'github'    =>  $spl_config['github'],
+  'facebook'  =>  $spl_config['facebook'],
+  'twitter'   =>  $spl_config['twitter'],
+  'youtube'   =>  $spl_config['youtube'],
+  'google+'   =>  $spl_config['google+'],
+  'instagram' =>  $spl_config['instagram'],
+);
 
 //
 // The rest is up to you!
@@ -41,12 +49,12 @@ if ( isset( $_POST['set_options'] ) )
   $updated = false;
 
   $spl_options = array(
-    'github'            => isset( $_POST['github'] ) ? '1' : '0',
-    'facebook'          => isset( $_POST['facebook'] ) ? '1' : '0',
-    'twitter'           => isset( $_POST['twitter'] ) ? '1' : '0',
-    'youtube'           => isset( $_POST['youtube'] ) ? '1' : '0',
-    'google+'           => isset( $_POST['google+'] ) ? '1' : '0',
-    'instagram'         => isset( $_POST['instagram'] ) ? '1' : '0',
+    'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
+    'facebook'          => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
+    'twitter'           => !empty( $_POST['twitter'] ) ? intval( $_POST['twitter'] ) : '0',
+    'youtube'           => !empty( $_POST['youtube'] ) ? intval( $_POST['youtube'] ) : '0',
+    'google+'           => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',
+    'instagram'         => !empty( $_POST['instagram'] ) ? intval( $_POST['instagram'] ) : '0',
     'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
     'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
     'use_icon'          => isset( $_POST['use_icon'] ) ? '1' : '0',
@@ -98,19 +106,48 @@ if ( isset( $_POST['set_options'] ) )
       <legend><?php echo $lang_spl['link options'] ?></legend>
       <div class="infldset">
         <table class="aligntop" cellspacing="0">
+          <tr>
+            <td><strong><?php echo $lang_spl['enabled links'] ?></strong></td>
+          </tr>
         <?php
         asort( $link_options );
-        foreach ( $link_options AS $key )
+        foreach ( $link_options AS $key => $value)
         {
-          $checked = ( $spl_config[$key] == '1' ) ? ' checked="checked"' : '';
-          ?>
+          if ( $value != '0' )
+          {
+            ?>
+            <tr>
+              <th scope="col"><?php echo $lang_spl[$key] ?></th>
+              <td>
+                <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+              </td>
+            </tr>
+            <?php
+          }
+        }
+        ?>
+        </table>
+      </div>  <!-- end class="infldset" -->
+      <br />
+      <div class="infldset">
+        <table class="aligntop" cellspacing="0">
           <tr>
-            <th scope="col"><?php echo $lang_spl[$key] ?></th>
-          <td>
-            <input type="checkbox" name="<?php echo $key ?>" value="1" <?php echo $checked ?> />
-          </td>
-        </tr>
+            <td><strong><?php echo $lang_spl['disabled links'] ?></strong></td>
+          </tr>
         <?php
+        foreach ( $link_options AS $key => $value)
+        {
+          if ( $value == '0' )
+          {
+            ?>
+            <tr>
+              <th scope="col"><?php echo $lang_spl[$key] ?></th>
+              <td>
+                <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+              </td>
+            </tr>
+            <?php
+          }
         }
         ?>
         </table>

@@ -9,9 +9,46 @@ generate_profile_menu( 'spl' );
 $spl_user   = unserialize( $user['social_profile_links'] );
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
-// link options - github => 50 <- is maxlength
-$link_options = array( 'github' => '50', 'facebook' => '50', 'youtube' => '20', 'twitter' => '15', 'google+' => '21', 'instagram' => '30' );
-ksort( $link_options );
+// $link_options is used to build the input boxes
+$link_options = array();
+
+$link_options['github'] = array(
+  'position'  =>  $spl_config['github'],
+  'name'      =>  $lang_spl['github'],
+  'maxlength' =>  '50'
+);
+
+$link_options['facebook'] = array(
+  'position'  =>  $spl_config['facebook'],
+  'name'      =>  $lang_spl['facebook'],
+  'maxlength' =>  '50'
+);
+
+$link_options['youtube'] = array(
+  'position'  =>  $spl_config['youtube'],
+  'name'      =>  $lang_spl['youtube'],
+  'maxlength' =>  '20'
+);
+
+$link_options['twitter'] = array(
+  'position'  =>  $spl_config['twitter'],
+  'name'      =>  $lang_spl['twitter'],
+  'maxlength' =>  '15'
+);
+
+$link_options['google+'] = array(
+  'position'  =>  $spl_config['google+'],
+  'name'      =>  $lang_spl['google+'],
+  'maxlength' =>  '21'
+);
+
+$link_options['instagram'] = array(
+  'position'  =>  $spl_config['instagram'],
+  'name'      =>  $lang_spl['instagram'],
+  'maxlength' =>  '30'
+);
+
+array_multisort( $link_options );
 ?>
   <div class="blockform">
     <h2><span><?php echo pun_htmlspecialchars( $user['username'] ).' - '. $lang_spl['social profile links'] ?></span></h2>
@@ -25,17 +62,17 @@ ksort( $link_options );
             <?php
             foreach ( $link_options AS $key => $value)
             {
-              if ( $spl_config[$key] == '1' )
+              if ( !empty( $spl_config[$key] ) AND $spl_config[$key] != '0' )
               {
-                if ( $key == 'google+' )
+                if ( $value['name'] == 'google+' )
                 {
                   $spl_user[$key] = isset( $spl_user[$key] ) ? pun_htmlspecialchars( $spl_user[$key] ) : '';
-                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value.'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
+                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$value['name'].'" type="text" name="form['.$key['name'].']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
                 }
                 else
                 {
                   $spl_user[$key] = isset( $spl_user[$key] ) ? pun_htmlspecialchars( $spl_user[$key] ) : '';
-                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value.'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
+                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$value['name'].'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
                 }
               }
             } ?>

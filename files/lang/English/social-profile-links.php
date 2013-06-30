@@ -34,6 +34,9 @@ $lang_spl = array(
 'bad youtube'                 =>  'You entered an invalid YouTube username. Please go back and correct.',
 'bad instagram'               =>  'You entered an invalid Instagram username. Please go back and correct.',
 
+'enabled links'               =>  'Enabled links',
+'disabled links'              =>  'Disabled links',
+
 'save options'                =>  'Save options',
 'data saved'                  =>  'Your data has been saved',
 
