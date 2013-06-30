@@ -128,9 +128,9 @@ if ( isset( $_POST['set_options'] ) )
             {
               ?>
               <tr>
-                <th scope="col"><?php echo $lang_spl[$key] ?></th>
+                <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
                 <td>
-                  <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                  <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                 </td>
               </tr>
               <?php
@@ -168,9 +168,9 @@ if ( isset( $_POST['set_options'] ) )
             {
               ?>
               <tr>
-                <th scope="col"><?php echo $lang_spl[$key] ?></th>
+                <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
                 <td>
-                  <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                  <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                 </td>
               </tr>
               <?php
@@ -188,9 +188,9 @@ if ( isset( $_POST['set_options'] ) )
         <div class="infldset">
           <table class="aligntop" cellspacing="0">
             <tr>
-              <th scope="col"><?php echo $lang_spl['show in users profile'] ?></th>
+              <th scope="col"><label for="show_in_profile"><?php echo $lang_spl['show in users profile'] ?></label></th>
               <td>
-                <input type="checkbox" name="show_in_profile" value="1" 
+                <input type="checkbox" id="show_in_profile" name="show_in_profile" value="1" 
                 <?php
                   if ( $spl_config['show_in_profile'] == '1' )
                   {
@@ -200,9 +200,9 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col"><?php echo $lang_spl['show in viewtopic'] ?></th>
+              <th scope="col"><label for="show_in_viewtopic"><?php echo $lang_spl['show in viewtopic'] ?></label></th>
               <td>
-                <input type="checkbox" name="show_in_viewtopic" value="1" 
+                <input type="checkbox" id="show_in_viewtopic" name="show_in_viewtopic" value="1" 
                 <?php
                   if ( $spl_config['show_in_viewtopic'] == '1' )
                   {
@@ -212,9 +212,9 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col"><?php echo $lang_spl['use icon'] ?></th>
+              <th scope="col"><label for="use_icon"><?php echo $lang_spl['use icon'] ?></label></th>
               <td>
-                <input type="checkbox" name="use_icon" value="1" 
+                <input type="checkbox" id="use_icon" name="use_icon" value="1" 
                 <?php
                   if ( $spl_config['use_icon'] == '1' )
                   {
@@ -224,9 +224,9 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col"><?php echo $lang_spl['show guests'] ?></th>
+              <th scope="col"><label for="show_guest"><?php echo $lang_spl['show guests'] ?></label></th>
               <td>
-                <input type="checkbox" name="show_guest" value="1" 
+                <input type="checkbox" id="show_guest" name="show_guest" value="1" 
                 <?php
                   if ( $spl_config['show_guest'] == '1' )
                   {
@@ -236,9 +236,9 @@ if ( isset( $_POST['set_options'] ) )
               </td>
             </tr>
             <tr>
-              <th scope="col"><?php echo $lang_spl['link target'] ?></th>
+              <th scope="col"><label for="link_target"><?php echo $lang_spl['link target'] ?></label></th>
               <td>
-              <select name="link_target">
+              <select id="link_target" name="link_target">
               <?php
                 if ( $spl_config['link_target'] == '1' )
                 {
