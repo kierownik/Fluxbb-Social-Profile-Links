@@ -125,12 +125,12 @@ function install()
   {
     // New install
     $spl_config = array(
-      'github'            => '1',
-      'facebook'          => '1',
-      'twitter'           => '1',
-      'youtube'           => '1',
-      'google+'           => '1',
-      'instagram'         => '1',
+      'facebook'          => '10',
+      'github'            => '20',
+      'google+'           => '30',
+      'instagram'         => '40',
+      'twitter'           => '50',
+      'youtube'           => '60',
       'use_icon'          => '1',
       'show_in_profile'   => '1',
       'show_in_viewtopic' => '1',
