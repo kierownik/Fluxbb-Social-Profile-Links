@@ -36,7 +36,7 @@ $lang_spl = array(
 
 'enabled links'               =>  'Enabled links',
 'disabled links'              =>  'Disabled links',
-'enabled/disabled info'       =>  'To <strong>disable</strong> a link just enter a 0 or leave the box empty<br />To <strong>enable</strong> a link just enter a number greather than 0.<br />The value of the number will determine in what order the links are shown.<br />1 is higher than 2.',
+'enabled/disabled info'       =>  'To <strong>disable</strong> a link just enter a 0 or leave the box empty<br />To <strong>enable</strong> a link just enter a number greater than 0.<br />The value of the number will determine in what order the links are shown.<br />1 is higher than 2.',
 
 'save options'                =>  'Save options',
 'data saved'                  =>  'Your data has been saved',
