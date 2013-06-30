@@ -3,7 +3,7 @@
 $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
-if ( $spl_config['show_in_profile'] == '1' AND count( $spl_cur_user ) AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
+if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
 
