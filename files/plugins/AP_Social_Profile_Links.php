@@ -104,54 +104,81 @@ if ( isset( $_POST['set_options'] ) )
         </p>
       <fieldset>
       <legend><?php echo $lang_spl['link options'] ?></legend>
-      <div class="infldset">
-        <table class="aligntop" cellspacing="0">
-          <tr>
-            <td><strong><?php echo $lang_spl['enabled links'] ?></strong></td>
-          </tr>
-        <?php
-        asort( $link_options );
-        foreach ( $link_options AS $key => $value)
-        {
-          if ( $value != '0' )
-          {
-            ?>
-            <tr>
-              <th scope="col"><?php echo $lang_spl[$key] ?></th>
-              <td>
-                <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
-              </td>
-            </tr>
-            <?php
-          }
-        }
+      <?php
+      $enabled = false;
+      foreach( $link_options AS $key => $value )
+      {
+        $enabled = $enabled || ( $value !== '0' );
+      }
+
+      if ( $enabled )
+      {
         ?>
-        </table>
-      </div>  <!-- end class="infldset" -->
-      <br />
-      <div class="infldset">
-        <table class="aligntop" cellspacing="0">
-          <tr>
-            <td><strong><?php echo $lang_spl['disabled links'] ?></strong></td>
-          </tr>
-        <?php
-        foreach ( $link_options AS $key => $value)
-        {
-          if ( $value == '0' )
-          {
-            ?>
+        <div class="infldset">
+          <table class="aligntop" cellspacing="0">
             <tr>
-              <th scope="col"><?php echo $lang_spl[$key] ?></th>
-              <td>
-                <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
-              </td>
+              <td><strong><?php echo $lang_spl['enabled links'] ?></strong></td>
             </tr>
-            <?php
+          <?php
+          array_multisort( $link_options );
+          foreach ( $link_options AS $key => $value )
+          {
+            if ( $value != '0' )
+            {
+              ?>
+              <tr>
+                <th scope="col"><?php echo $lang_spl[$key] ?></th>
+                <td>
+                  <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                </td>
+              </tr>
+              <?php
+            }
           }
-        }
+          ?>
+          </table>
+        </div>  <!-- end class="infldset" -->
+        <?php
+      }
+
+      $disabled = false;
+      foreach( $link_options AS $key => $value )
+      {
+        $disabled = $disabled || ( $value == '0' );
+      }
+
+      if ( $enabled AND $disabled )
+        echo '<br />';
+
+      if ( $disabled )
+      {
         ?>
-        </table>
-      </div>  <!-- end class="infldset" -->
+        <div class="infldset">
+          <table class="aligntop" cellspacing="0">
+            <tr>
+              <td><strong><?php echo $lang_spl['disabled links'] ?></strong></td>
+            </tr>
+          <?php
+          foreach ( $link_options AS $key => $value )
+          {
+            if ( $value == '0' )
+            {
+              ?>
+              <tr>
+                <th scope="col"><?php echo $lang_spl[$key] ?></th>
+                <td>
+                  <input type="text" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                </td>
+              </tr>
+              <?php
+            }
+          }
+          ?>
+          </table>
+        </div>  <!-- end class="infldset" -->
+        <?php
+      }
+      ?>
       </fieldset>
       <fieldset>
         <legend><?php echo $lang_spl['display options'] ?></legend>
