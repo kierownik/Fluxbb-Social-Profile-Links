@@ -8,7 +8,7 @@ if ( isset( $spl_cache_links[$cur_post['poster_id']] ) )
 {
   $user_contacts[] = implode(' ', $spl_cache_links[$cur_post['poster_id']]);
 }
-elseif ( $spl_config['show_in_viewtopic'] == '1' AND count( $spl_cur_user ) AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
+elseif ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
 

@@ -10,7 +10,6 @@ $link_options = array(
   'google+',
   'instagram',
 );
-array_multisort( $link_options );
 
 $spl_users = array();
 
