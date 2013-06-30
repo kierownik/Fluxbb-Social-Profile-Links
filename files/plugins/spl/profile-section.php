@@ -14,37 +14,31 @@ $link_options = array();
 
 $link_options['github'] = array(
   'position'  =>  $spl_config['github'],
-  'name'      =>  $lang_spl['github'],
   'maxlength' =>  '50'
 );
 
 $link_options['facebook'] = array(
   'position'  =>  $spl_config['facebook'],
-  'name'      =>  $lang_spl['facebook'],
   'maxlength' =>  '50'
 );
 
 $link_options['youtube'] = array(
   'position'  =>  $spl_config['youtube'],
-  'name'      =>  $lang_spl['youtube'],
   'maxlength' =>  '20'
 );
 
 $link_options['twitter'] = array(
   'position'  =>  $spl_config['twitter'],
-  'name'      =>  $lang_spl['twitter'],
   'maxlength' =>  '15'
 );
 
 $link_options['google+'] = array(
   'position'  =>  $spl_config['google+'],
-  'name'      =>  $lang_spl['google+'],
   'maxlength' =>  '21'
 );
 
 $link_options['instagram'] = array(
   'position'  =>  $spl_config['instagram'],
-  'name'      =>  $lang_spl['instagram'],
   'maxlength' =>  '30'
 );
 
@@ -66,13 +60,13 @@ array_multisort( $link_options );
 
               if ( !empty( $spl_config[$key] ) AND $spl_config[$key] != '0' )
               {
-                if ( $value['name'] == 'google+' )
+                if ( $key == 'google+' )
                 {
-                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$value['name'].'" type="text" name="form['.$key['name'].']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
+                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
                 }
                 else
                 {
-                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$value['name'].'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
+                  echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
                 }
               }
             } ?>
