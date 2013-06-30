@@ -29,6 +29,7 @@ all applicable files before proceeding.
 * YouTube
 * Google+
 * Instagram
+* Sort the links the way you want
 * View in profile
 * View in viewtopic
 * Use icons
