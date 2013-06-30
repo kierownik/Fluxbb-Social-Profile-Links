@@ -54,12 +54,12 @@ array_multisort( $link_options );
             <div class="infldset">
               <input type="hidden" name="form_sent" value="1" />
             <?php
-            foreach ( $link_options AS $key => $value)
+            foreach ( $link_options AS $key => $value )
             {
-              $spl_user[$key] = isset( $spl_user[$key] ) ? pun_htmlspecialchars( $spl_user[$key] ) : '';
-
               if ( !empty( $spl_config[$key] ) AND $spl_config[$key] != '0' )
               {
+                $spl_user[$key] = isset( $spl_user[$key] ) ? pun_htmlspecialchars( $spl_user[$key] ) : '';
+
                 if ( $key == 'google+' )
                 {
                   echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
