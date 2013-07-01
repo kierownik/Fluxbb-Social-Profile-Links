@@ -157,10 +157,10 @@ else
 $result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo,
 
 #
-#---------[ 15. INLINE, ADD ]--------------------------------------------------
+#---------[ 15. REPLACE WITH ]------------------------------------------------
 #
 
- u.social_profile_links,
+$result = $db->query('SELECT u.username, u.email, u.title, u.realname, u.url, u.jabber, u.icq, u.msn, u.aim, u.yahoo, u.social_profile_links,
 
 #
 #---------[ 16. Find (line: 1044 ]--------------------------------------------
@@ -225,10 +225,10 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 $result = $db->query('SELECT u.email, u.title, u.url,
 
 #
-#---------[ 24. INLINE, ADD ]-------------------------------------------------
+#---------[ 24. REPLACE WITH ]------------------------------------------------
 #
 
- u.social_profile_links,
+$result = $db->query('SELECT u.email, u.title, u.url, u.social_profile_links,
 
 #
 #---------[ 25. FIND (line: 273) ]--------------------------------------------
