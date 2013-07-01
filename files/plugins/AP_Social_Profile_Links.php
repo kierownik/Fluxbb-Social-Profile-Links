@@ -64,7 +64,7 @@ if ( isset( $_POST['set_options'] ) )
 
   if ( serialize( $spl_options ) != $pun_config['o_social_profile_links'] )
   {
-    $query= 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$db->escape( serialize( $spl_options ) )."' WHERE `conf_name` = 'o_social_profile_links'";
+    $query = 'UPDATE `'.$db->prefix."config` SET `conf_value` = '".$db->escape( serialize( $spl_options ) )."' WHERE `conf_name` = 'o_social_profile_links'";
 
     $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
 
@@ -99,89 +99,93 @@ if ( isset( $_POST['set_options'] ) )
   <div class="box">
     <form id="spl" method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
     <div class="inform">
-        <p class="submittop">
-          <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
-        </p>
+      <p class="submittop">
+        <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
+      </p>
       <fieldset>
       <legend><?php echo $lang_spl['link options'] ?></legend>
-      <?php
-      $enabled = false;
-      foreach( $link_options AS $key => $value )
-      {
-        $enabled = $enabled || ( $value !== '0' );
-      }
+        <?php
+        // Are there enabled link options to display
+        $enabled = false;
+        foreach( $link_options AS $key => $value )
+        {
+          $enabled = $enabled || ( $value !== '0' );
+        }
 
-      if ( $enabled )
-      {
-        ?>
-        <div class="infldset">
-          <table class="aligntop" cellspacing="0">
-            <tr>
-              <th scope="col"><strong><?php echo $lang_spl['enabled links'] ?>:</strong></th>
-              <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
-            </tr>
-          <?php
-          array_multisort( $link_options );
-          foreach ( $link_options AS $key => $value )
-          {
-            if ( $value != '0' )
-            {
-              ?>
+        if ( $enabled )
+        {
+          ?>
+          <div class="infldset">
+            <table class="aligntop" cellspacing="0">
               <tr>
-                <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
-                <td>
-                  <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
-                </td>
+                <th scope="col"><strong><?php echo $lang_spl['enabled links'] ?>:</strong></th>
+                <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
               </tr>
               <?php
-            }
-          }
-          ?>
-          </table>
-        </div>  <!-- end class="infldset" -->
-        <?php
-      }
-
-      $disabled = false;
-      ksort( $link_options );
-      foreach( $link_options AS $key => $value )
-      {
-        $disabled = $disabled || ( $value == '0' );
-      }
-
-      if ( $enabled AND $disabled )
-        echo '<br />';
-
-      if ( $disabled )
-      {
-        ?>
-        <div class="infldset">
-          <table class="aligntop" cellspacing="0">
-            <tr>
-              <th scope="col"><strong><?php echo $lang_spl['disabled links'] ?>:</strong></th>
-              <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
-            </tr>
-          <?php
-          foreach ( $link_options AS $key => $value )
-          {
-            if ( $value == '0' )
-            {
+              array_multisort( $link_options );
+              foreach ( $link_options AS $key => $value )
+              {
+                if ( $value != '0' )
+                {
+                  ?>
+                  <tr>
+                    <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
+                    <td>
+                      <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                    </td>
+                  </tr>
+                  <?php
+                }
+              }
               ?>
-              <tr>
-                <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
-                <td>
-                  <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
-                </td>
-              </tr>
-              <?php
-            }
-          }
+            </table>
+          </div>  <!-- end class="infldset" -->
+          <?php
+        }
+        // End are there enabled link options to display
+
+        // Are there disabled link options to display
+        $disabled = false;
+        ksort( $link_options );
+        foreach( $link_options AS $key => $value )
+        {
+          $disabled = $disabled || ( $value == '0' );
+        }
+
+        if ( $enabled AND $disabled )
+          echo '<br />';
+
+        if ( $disabled )
+        {
           ?>
-          </table>
-        </div>  <!-- end class="infldset" -->
-        <?php
-      }
-      ?>
+          <div class="infldset">
+            <table class="aligntop" cellspacing="0">
+              <tr>
+                <th scope="col"><strong><?php echo $lang_spl['disabled links'] ?>:</strong></th>
+                <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
+              </tr>
+            <?php
+            foreach ( $link_options AS $key => $value )
+            {
+              if ( $value == '0' )
+              {
+                ?>
+                <tr>
+                  <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
+                  <td>
+                    <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
+                  </td>
+                </tr>
+                <?php
+              }
+            }
+            ?>
+            </table>
+          </div>  <!-- end class="infldset" -->
+          <?php
+        }
+        // End are there disabled link options to display
+        ?>
       </fieldset>
       <fieldset>
         <legend><?php echo $lang_spl['display options'] ?></legend>
@@ -238,35 +242,35 @@ if ( isset( $_POST['set_options'] ) )
             <tr>
               <th scope="col"><label for="link_target"><?php echo $lang_spl['link target'] ?></label></th>
               <td>
-              <select id="link_target" name="link_target">
-              <?php
-                if ( $spl_config['link_target'] == '1' )
-                {
-                  echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
-                }
-                else
-                {
-                  echo '<option value="1" >'.$lang_spl['link target external'].'</option>';
-                }
-                if ( $spl_config['link_target'] == '0' )
-                {
-                  echo '<option value="0" selected="selected">'.$lang_spl['link target internal'].'</option>';
-                }
-                else
-                {
-                  echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
-                }
-              ?>
-              </select>
-            </td>
-          </tr>
-        </table>
+                <select id="link_target" name="link_target">
+                <?php
+                  if ( $spl_config['link_target'] == '1' )
+                  {
+                    echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
+                  }
+                  else
+                  {
+                    echo '<option value="1" >'.$lang_spl['link target external'].'</option>';
+                  }
+                  if ( $spl_config['link_target'] == '0' )
+                  {
+                    echo '<option value="0" selected="selected">'.$lang_spl['link target internal'].'</option>';
+                  }
+                  else
+                  {
+                    echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
+                  }
+                ?>
+                </select>
+              </td>
+            </tr>
+          </table>
         </div>	<!-- end class="infldset" -->
-        </fieldset>
-        <p class="submittop">
-          <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
-        </p>
-      </div>
+      </fieldset>
+      <p class="submittop">
+        <input type="submit" name="set_options" value="<?php echo $lang_spl['save options'] ?>"/>
+      </p>
+    </div>
     </form>
   </div>      <!-- end class="box" -->
 </div>        <!-- end class="blockform" -->
