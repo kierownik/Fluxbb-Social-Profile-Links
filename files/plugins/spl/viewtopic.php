@@ -120,7 +120,7 @@ elseif ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest']
   {
     if ( $spl_config['use_icon'] == '1' )
     {
-      $user_contacts[] = $spl_cache_links[$cur_post['poster_id']][] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( true ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
+      $user_contacts[] = $spl_cache_links[$cur_post['poster_id']][] = '<span><a href="'.$key['url'].'" rel="nofollow" title="'.$key['lang'].'"'.$target.'><img src="'.pun_htmlspecialchars( get_base_url( TRUE ) ).'/img/spl/'.$key['icon'].'" width="16" height="16" alt="'.$key['lang'].'" /></a></span>';
     }
     else
     {

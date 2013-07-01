@@ -46,7 +46,7 @@ $link_options = array(
 //
 if ( isset( $_POST['set_options'] ) )
 {
-  $updated = false;
+  $updated = FALSE;
 
   $spl_options = array(
     'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
@@ -68,7 +68,7 @@ if ( isset( $_POST['set_options'] ) )
 
     $db->query( $query ) or error( 'Unable to update board config post '. print_r( $db->error() ),__FILE__, __LINE__, $db->error() );
 
-    $updated = true;
+    $updated = TRUE;
   }
 
   if ( $updated )
@@ -106,7 +106,7 @@ if ( isset( $_POST['set_options'] ) )
       <legend><?php echo $lang_spl['link options'] ?></legend>
         <?php
         // Are there enabled link options to display
-        $enabled = false;
+        $enabled = FALSE;
         foreach( $link_options AS $key => $value )
         {
           $enabled = $enabled || ( $value !== '0' );
@@ -145,7 +145,7 @@ if ( isset( $_POST['set_options'] ) )
         // End are there enabled link options to display
 
         // Are there disabled link options to display
-        $disabled = false;
+        $disabled = FALSE;
         ksort( $link_options );
         foreach( $link_options AS $key => $value )
         {

@@ -11,9 +11,8 @@ $author_email   = 'rokven@gmail.com';
 // Versions of FluxBB this mod was created for. A warning will be displayed, if versions do not match
 $fluxbb_versions= array( '1.5.3' );
 
-// Set this to false if you haven't implemented the restore function (see below)
-$mod_restore  = true;
-
+// Set this to FALSE if you haven't implemented the restore function (see below)
+$mod_restore  = TRUE;
 
 // We want the complete error message if the script fails
 if ( !defined( 'PUN_DEBUG' ) )
@@ -48,7 +47,7 @@ function install()
     $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
 
     // Add the new social_profile_links field to the users table
-    $allow_null = true;
+    $allow_null = TRUE;
     $default_value = NULL;
     $after_field = 'yahoo';
 
@@ -56,14 +55,14 @@ function install()
     // End add the new social_profile_links field to the users table
 
     // Select all the non empty user fields to be moved to the new users field
-    if ( $db->field_exists( 'users', 'spl_instagram', true ) )
+    if ( $db->field_exists( 'users', 'spl_instagram', TRUE ) )
     {
-      $instagram = true;
+      $instagram = TRUE;
       $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus, spl_instagram FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> "" OR spl_instagram <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
     }
     else
     {
-      $instagram = false;
+      $instagram = FALSE;
       $result = $db->query( 'SELECT id, spl_github, spl_facebook, spl_twitter, spl_youtube, spl_googleplus FROM '.$db->prefix.'users WHERE spl_github <> "" OR spl_facebook <> "" OR spl_twitter <> "" OR spl_youtube <> "" OR spl_googleplus <> ""' ) or error( 'Unable to fetch user list', __FILE__, __LINE__, $db->error() );
     }
     // End select all the non empty user fields to be moved to the new users field
@@ -82,7 +81,7 @@ function install()
     {
       $temp_spl_user = array();
 
-      foreach ( $spl_users AS $key => $value)
+      foreach ( $spl_users AS $key => $value )
       {
         if ( $instagram AND $key == 'spl_instagram' )
         {
@@ -143,7 +142,7 @@ function install()
     $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
 
     // Add the new social_profile_links field to the users table
-    $allow_null = true;
+    $allow_null = TRUE;
     $default_value = NULL;
     $after_field = 'yahoo';
 
@@ -186,9 +185,9 @@ function restore()
   // If the fields exist we need to delete them
   foreach( $spl_users as $key => $value )
   {
-    if ( $db->field_exists( 'users', ''.$key.'', true ) )
+    if ( $db->field_exists( 'users', ''.$key.'', TRUE ) )
     {
-      $db->drop_field( 'users', ''.$key.'', true ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
+      $db->drop_field( 'users', ''.$key.'', TRUE ) or error( 'Unable to delete column "'.$key.'" from table "users"', __FILE__, __LINE__, $db->error() );;
     }
   }
   // End if the fields exist we need to delete them
