@@ -14,7 +14,7 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.1.1';
+$mod_version    = '1.1.2';
 $release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
@@ -38,13 +38,14 @@ function install()
   if ( isset( $pun_config['o_spl_github'] ) OR isset( $pun_config['o_spl_prof_github'] ) )
   {
     $spl_config = array(
-      'tumblr'            => '0',
-      'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
+      'care2'             => '0',
       'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
-      'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
-      'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
+      'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
       'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
       'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '1' : $pun_config['o_spl_instagram'],
+      'tumblr'            => '0',
+      'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
+      'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
       'use_icon'          => ( !isset( $pun_config['o_spl_use_icon'] ) ) ? '1' : $pun_config['o_spl_use_icon'],
       'show_in_profile'   => ( !isset( $pun_config['o_spl_show_in_profile'] ) ) ? '1' : $pun_config['o_spl_show_in_profile'],
       'show_in_viewtopic' => ( !isset( $pun_config['o_spl_show_in_viewtopic'] ) ) ? '1' : $pun_config['o_spl_show_in_viewtopic'],
@@ -136,13 +137,14 @@ function install()
   {
     // New install
     $spl_config = array(
-      'facebook'          => '10',
-      'github'            => '20',
-      'google+'           => '30',
-      'instagram'         => '40',
-      'tumblr'            => '50',
-      'twitter'           => '60',
-      'youtube'           => '70',
+      'care2'             => '10',
+      'facebook'          => '20',
+      'github'            => '30',
+      'google+'           => '40',
+      'instagram'         => '50',
+      'tumblr'            => '60',
+      'twitter'           => '70',
+      'youtube'           => '80',
       'use_icon'          => '1',
       'show_in_profile'   => '1',
       'show_in_viewtopic' => '1',

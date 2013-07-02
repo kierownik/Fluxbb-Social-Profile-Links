@@ -28,11 +28,12 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.1');
+define('PLUGIN_VERSION', '1.1.2');
 
 // Link options we use to show the checkboxes
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 $link_options = array(
+  'care2'     =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
   'facebook'  =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
   'github'    =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
   'google+'   =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
@@ -50,6 +51,7 @@ if ( isset( $_POST['set_options'] ) )
   $updated = FALSE;
 
   $spl_options = array(
+    'care2'             => !empty( $_POST['care2'] ) ? intval( $_POST['care2'] ) : '0',
     'facebook'          => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
     'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
     'google+'           => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',

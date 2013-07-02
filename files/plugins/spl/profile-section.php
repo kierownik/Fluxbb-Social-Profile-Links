@@ -24,6 +24,13 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 // $link_options is used to build the input boxes
 $link_options = array();
 
+if ( !empty( $spl_config['care2'] ) AND $spl_config['care2'] != '0' )
+{
+  $link_options['care2'] = array(
+    'position'  =>  $spl_config['care2'],
+    'maxlength' =>  '9'
+  );
+}
 
 if ( !empty( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' )
 {
@@ -97,7 +104,7 @@ if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
               {
                 $spl_user[$key] = isset( $spl_user[$key] ) ? pun_htmlspecialchars( $spl_user[$key] ) : '';
 
-                if ( $key == 'google+' )
+                if ( $key == 'google+' OR $key == 'care2')
                 {
                   echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['user id'].'" /><br /></label>';
                 }

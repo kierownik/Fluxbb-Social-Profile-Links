@@ -15,6 +15,7 @@
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
 $link_options = array(
+  'care2',
   'facebook',
   'github',
   'google+',
@@ -36,7 +37,17 @@ foreach ( $link_options AS $key )
 
 $preg_array = array();
 
-// Check if input box of Facebook is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of care2 is not empty and spl_config is set higher than 0 before doing adding regex
+if ( !empty( $spl_users['care2'] ) AND $spl_config['care2'] != '0' )
+{
+  $preg_array['care2'] = array(
+    'position'    => $spl_config['care2'],
+    'preg_match'  => !preg_match( '/[0-9]{3,9}$/', $spl_users['care2'] ),
+    'message'     => $lang_spl['bad care2'],
+  );
+}
+
+// Check if input box of Facebook is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['facebook'] ) AND $spl_config['facebook'] != '0' )
 {
   $preg_array['facebook'] = array(
@@ -46,7 +57,7 @@ if ( !empty( $spl_users['facebook'] ) AND $spl_config['facebook'] != '0' )
   );
 }
 
-// Check if input box of GitHub is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of GitHub is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['github'] ) AND $spl_config['github'] != '0' )
 {
   $preg_array['github'] = array(
@@ -56,7 +67,7 @@ if ( !empty( $spl_users['github'] ) AND $spl_config['github'] != '0' )
   );
 }
 
-// Check if input box of Google+ is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of Google+ is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['google+'] ) AND $spl_config['google+'] != '0' )
 {
   $preg_array['google+'] = array(
@@ -66,7 +77,7 @@ if ( !empty( $spl_users['google+'] ) AND $spl_config['google+'] != '0' )
   );
 }
 
-// Check if input box of Instagram is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of Instagram is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
 {
   $preg_array['instagram'] = array(
@@ -76,7 +87,7 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
   );
 }
 
-// Check if input box of tumblr is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of tumblr is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
 {
   $preg_array['tumblr'] = array(
@@ -86,7 +97,7 @@ if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
   );
 }
 
-// Check if input box of Twitter is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of Twitter is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['twitter'] ) AND $spl_config['twitter'] != '0' )
 {
   $preg_array['twitter'] = array(
@@ -96,7 +107,7 @@ if ( !empty( $spl_users['twitter'] ) AND $spl_config['twitter'] != '0' )
   );
 }
 
-// Check if input box of YouTube is not empty and spl_config is set to 1 before doing adding regex
+// Check if input box of YouTube is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['youtube'] ) AND $spl_config['youtube'] != '0' )
 {
   $preg_array['youtube'] = array(

@@ -2,7 +2,7 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  1.1.1
+##      Mod version:  1.1.2
 ##  Works on FluxBB:  1.5.3
 ##     Release date:  2013-06-16
 ##           Author:  Daniël Rokven (rokven@gmail.com)
@@ -22,6 +22,7 @@
 ##            Notes:  Thanks to quy [https://fluxbb.org/forums/profile.php?id=22] for helping
 ##
 ##   Plugin options:  All these options can be managed in the administration area
+##                    Care2     - Enable / Disable
 ##                    Facebook  - Enable / Disable
 ##                    Github    - Enable / Disable
 ##                    Google+   - Enable / Disable
@@ -43,9 +44,10 @@
 ##
 ##          Notes 2:  If you do not use the lang/Dutch or lang/English then do not copie them
 ##
-##          Notes 3:  If you update from v1.1.0 to v1.1.1 only copy the files, you do not have to do
-##                    these steps below, and visit the administration and press save options and you
-##                    are done. If you update from a version before v1.1.0 follow at the steps below.
+##          Notes 3:  If you update from v1.1.0 or v1.1.1 to v1.1.2 only copy the files, you do not
+##                    have to do these steps below, and visit the administration and press save
+##                    options and you are done. If you update from a version before v1.1.0 follow at
+##                    the steps below.
 ##
 
 #

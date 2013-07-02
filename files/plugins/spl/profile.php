@@ -31,7 +31,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     // Set the spl_username for care2
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['care2'] ) ) : pun_htmlspecialchars( $spl_cur_user['care2'] ) );
 
-    // Fill the spl_links array for facebook
+    // Fill the spl_links array for care2
     $spl_links['care2'] = array(
       'position'  =>  $spl_config['care2'],
       'username'  =>  $spl_username,
