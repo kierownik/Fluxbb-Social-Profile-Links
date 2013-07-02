@@ -1,5 +1,17 @@
 <?php
 
+/**
+************************************************************************
+*  Author: kierownik
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add their usernames.
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*
+************************************************************************
+**/
+
 $page_title = array( pun_htmlspecialchars( $pun_config['o_board_title'] ), $lang_common['Profile'], $lang_spl['social profile links'] );
 define( 'PUN_ACTIVE_PAGE', 'profile' );
 require PUN_ROOT.'header.php';
@@ -12,13 +24,6 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 // $link_options is used to build the input boxes
 $link_options = array();
 
-if ( !empty( $spl_config['github'] ) AND $spl_config['github'] != '0' )
-{
-  $link_options['github'] = array(
-    'position'  =>  $spl_config['github'],
-    'maxlength' =>  '50'
-  );
-}
 
 if ( !empty( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' )
 {
@@ -28,19 +33,11 @@ if ( !empty( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' )
   );
 }
 
-if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
+if ( !empty( $spl_config['github'] ) AND $spl_config['github'] != '0' )
 {
-  $link_options['youtube'] = array(
-    'position'  =>  $spl_config['youtube'],
-    'maxlength' =>  '20'
-  );
-}
-
-if ( !empty( $spl_config['twitter'] ) AND $spl_config['twitter'] != '0' )
-{
-  $link_options['twitter'] = array(
-    'position'  =>  $spl_config['twitter'],
-    'maxlength' =>  '15'
+  $link_options['github'] = array(
+    'position'  =>  $spl_config['github'],
+    'maxlength' =>  '50'
   );
 }
 
@@ -57,6 +54,30 @@ if ( !empty( $spl_config['instagram'] ) AND $spl_config['instagram'] != '0' )
   $link_options['instagram'] = array(
     'position'  =>  $spl_config['instagram'],
     'maxlength' =>  '30'
+  );
+}
+
+if ( !empty( $spl_config['tumblr'] ) AND $spl_config['tumblr'] != '0' )
+{
+  $link_options['tumblr'] = array(
+    'position'  =>  $spl_config['tumblr'],
+    'maxlength' =>  '32'
+  );
+}
+
+if ( !empty( $spl_config['twitter'] ) AND $spl_config['twitter'] != '0' )
+{
+  $link_options['twitter'] = array(
+    'position'  =>  $spl_config['twitter'],
+    'maxlength' =>  '15'
+  );
+}
+
+if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
+{
+  $link_options['youtube'] = array(
+    'position'  =>  $spl_config['youtube'],
+    'maxlength' =>  '20'
   );
 }
 

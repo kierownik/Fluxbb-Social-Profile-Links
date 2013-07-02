@@ -1,5 +1,17 @@
 <?php
 
+/**
+************************************************************************
+*  Author: kierownik
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add their usernames.
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*
+************************************************************************
+**/
+
 $lang_spl = array(
 
 'social profile links'        =>  'Social Profile Links',
@@ -13,6 +25,7 @@ $lang_spl = array(
 'youtube'                     =>  'YouTube',
 'google+'                     =>  'Google+',
 'instagram'                   =>  'Instagram',
+'tumblr'                      =>  'Tumblr',
 
 'show guests'                 =>  'Show guests',
 'show guests info'            =>  'If you enable this, your guests can also see the links of the users',
@@ -33,6 +46,7 @@ $lang_spl = array(
 'bad google+'                 =>  'You entered an invalid Google+ user id. Please go back and correct.',
 'bad youtube'                 =>  'You entered an invalid YouTube username. Please go back and correct.',
 'bad instagram'               =>  'You entered an invalid Instagram username. Please go back and correct.',
+'bad tumblr'                  =>  'You entered an invalid Tumblr username. Please go back and correct.',
 
 'enabled links'               =>  'Enabled links',
 'disabled links'              =>  'Disabled links',

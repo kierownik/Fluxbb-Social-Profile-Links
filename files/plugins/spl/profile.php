@@ -1,5 +1,17 @@
 <?php
 
+/**
+************************************************************************
+*  Author: kierownik
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add their usernames.
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*
+************************************************************************
+**/
+
 $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
@@ -9,21 +21,6 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
 
   // This is the array we are going to use to build our links
   $spl_links = array();
-
-  if ( $spl_config['github'] != '0' AND isset( $spl_cur_user['github'] ) )
-  {
-    // Set the spl_username for github
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) );
-
-    // Fill the spl_links array for github
-    $spl_links['github'] = array(
-      'position'  =>  $spl_config['github'],
-      'username'  =>  $spl_username,
-      'url'       =>  'https://github.com/'.$spl_username,
-      'lang'      =>  $lang_spl['github'],
-      'icon'      =>  'GitHub.png',
-    );
-  }
 
   if ( $spl_config['facebook'] != '0' AND isset( $spl_cur_user['facebook'] ) )
   {
@@ -40,33 +37,18 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['twitter'] != '0' AND isset( $spl_cur_user['twitter'] ) )
+  if ( $spl_config['github'] != '0' AND isset( $spl_cur_user['github'] ) )
   {
-    // Set the spl_username for twitter
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) );
+    // Set the spl_username for github
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) );
 
-    // Fill the spl_links array for twitter
-    $spl_links['twitter'] = array(
-      'position'  =>  $spl_config['twitter'],
+    // Fill the spl_links array for github
+    $spl_links['github'] = array(
+      'position'  =>  $spl_config['github'],
       'username'  =>  $spl_username,
-      'url'       =>  'https://twitter.com/'.$spl_username,
-      'lang'      =>  $lang_spl['twitter'],
-      'icon'      =>  'Twitter.png',
-    );
-  }
-
-  if ( $spl_config['youtube'] != '0' AND isset( $spl_cur_user['youtube'] ) )
-  {
-    // Set the spl_username for youtube
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) );
-
-    // Fill the spl_links array for youtube
-    $spl_links['youtube'] = array(
-      'position'  =>  $spl_config['youtube'],
-      'username'  =>  $spl_username,
-      'url'       =>  'https://youtube.com/user/'.$spl_username,
-      'lang'      =>  $lang_spl['youtube'],
-      'icon'      =>  'YouTube.png',
+      'url'       =>  'https://github.com/'.$spl_username,
+      'lang'      =>  $lang_spl['github'],
+      'icon'      =>  'GitHub.png',
     );
   }
 
@@ -97,6 +79,51 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
       'url'       =>  'http://instagram.com/'.$spl_username,
       'lang'      =>  $lang_spl['instagram'],
       'icon'      =>  'Instagram.png',
+    );
+  }
+
+  if ( $spl_config['tumblr'] != '0' AND isset( $spl_cur_user['tumblr'] ) )
+  {
+    // Set the spl_username for tumblr
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['tumblr'] ) ) : pun_htmlspecialchars( $spl_cur_user['tumblr'] ) );
+
+    // Fill the spl_links array for tumblr
+    $spl_links['tumblr'] = array(
+      'position'  =>  $spl_config['tumblr'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://'.$spl_username.'.tumblr.com',
+      'lang'      =>  $lang_spl['tumblr'],
+      'icon'      =>  'Tumblr.png',
+    );
+  }
+
+  if ( $spl_config['twitter'] != '0' AND isset( $spl_cur_user['twitter'] ) )
+  {
+    // Set the spl_username for twitter
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) );
+
+    // Fill the spl_links array for twitter
+    $spl_links['twitter'] = array(
+      'position'  =>  $spl_config['twitter'],
+      'username'  =>  $spl_username,
+      'url'       =>  'https://twitter.com/'.$spl_username,
+      'lang'      =>  $lang_spl['twitter'],
+      'icon'      =>  'Twitter.png',
+    );
+  }
+
+  if ( $spl_config['youtube'] != '0' AND isset( $spl_cur_user['youtube'] ) )
+  {
+    // Set the spl_username for youtube
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) );
+
+    // Fill the spl_links array for youtube
+    $spl_links['youtube'] = array(
+      'position'  =>  $spl_config['youtube'],
+      'username'  =>  $spl_username,
+      'url'       =>  'https://youtube.com/user/'.$spl_username,
+      'lang'      =>  $lang_spl['youtube'],
+      'icon'      =>  'YouTube.png',
     );
   }
 

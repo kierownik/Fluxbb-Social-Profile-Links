@@ -1,14 +1,27 @@
 <?php
 
+/**
+************************************************************************
+*  Author: kierownik
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add their usernames.
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*
+************************************************************************
+**/
+
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
 $link_options = array(
-  'github',
   'facebook',
-  'twitter',
-  'youtube',
+  'github',
   'google+',
   'instagram',
+  'tumblr',
+  'twitter',
+  'youtube',
 );
 
 $spl_users = array();
@@ -60,6 +73,16 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
     'position'    => $spl_config['instagram'],
     'preg_match'  => !preg_match( '/[A-Za-z0-9_]{5,30}$/', $spl_users['instagram'] ),
     'message'     => $lang_spl['bad instagram'],
+  );
+}
+
+// Check if input box of tumblr is not empty and spl_config is set to 1 before doing adding regex
+if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
+{
+  $preg_array['tumblr'] = array(
+    'position'    => $spl_config['tumblr'],
+    'preg_match'  => !preg_match( '/[A-Za-z0-9_]{3,32}$/', $spl_users['tumblr'] ),
+    'message'     => $lang_spl['bad tumblr'],
   );
 }
 

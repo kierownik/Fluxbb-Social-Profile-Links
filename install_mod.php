@@ -1,9 +1,20 @@
 <?php
-/***********************************************************************/
+
+/**
+************************************************************************
+*  Author: kierownik
+*  Date: 2013-06-15
+*  Description: Adds Social links to the profile and viewtopic pages
+*               where users can add their usernames.
+*  Copyright (C) Daniel Rokven ( rokven@gmail.com )
+*  License: http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+*
+************************************************************************
+**/
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.1.0';
+$mod_version    = '1.1.1';
 $release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
