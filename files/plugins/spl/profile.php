@@ -16,6 +16,7 @@ $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
 // When we upgrade we have not set some $spl_config, we eliminate the error with this
+$spl_config['care2'] = !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'];
 $spl_config['tumblr'] = !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'];
 
 if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
@@ -24,6 +25,21 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
 
   // This is the array we are going to use to build our links
   $spl_links = array();
+
+  if ( $spl_config['care2'] != '0' AND isset( $spl_cur_user['care2'] ) )
+  {
+    // Set the spl_username for care2
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['care2'] ) ) : pun_htmlspecialchars( $spl_cur_user['care2'] ) );
+
+    // Fill the spl_links array for facebook
+    $spl_links['care2'] = array(
+      'position'  =>  $spl_config['care2'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://www.care2.com/c2c/people/profile.html?pid='.$spl_username,
+      'lang'      =>  $lang_spl['care2'],
+      'icon'      =>  'Care2.png',
+    );
+  }
 
   if ( $spl_config['facebook'] != '0' AND isset( $spl_cur_user['facebook'] ) )
   {
