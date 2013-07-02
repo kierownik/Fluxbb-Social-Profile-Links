@@ -42,7 +42,7 @@ How to install read readme.txt
 ## Feature Requests
 If you have an idea let me know, together we can make this mod better.
 
-![screenshot 1](http://imageshack.us/a/img825/847/2sn.png)
-![screenshot 2](http://imageshack.us/a/img707/9809/2qxi.png)
-![screenshot 3](http://imageshack.us/a/img593/2908/hox.png)
-![screenshot 4](http://imageshack.us/a/img163/9092/9s9i.png)
+[![foo](http://s20.postimage.org/pxp5jwi95/Social_Profile_Links_Profile_Fluxbb_Social.png)](http://postimage.org/image/pxp5jwi95/)
+[![foo](http://s20.postimage.org/knk6sly09/kierownik_s_profile_Fluxbb_Social_Profile_Li.png)](http://postimage.org/image/knk6sly09/)
+[![foo](http://s20.postimage.org/ik9rkxy7d/Test_topic_Page_1_Test_forum_Fluxbb_Soci.png)](http://postimage.org/image/ik9rkxy7d/)
+[![foo](http://s20.postimage.org/tl4wpyqg9/Social_Profile_Links_Administration_Fluxbb.png)](http://postimage.org/image/tl4wpyqg9/)
