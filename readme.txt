@@ -8,8 +8,8 @@
 ##           Author:  Daniël Rokven (rokven@gmail.com)
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages
-##                    where users can add their usernames for, GitHub, Facebook, Twitter,
-##                    YouTube, Google+ and Instagram.
+##                    where users can add their usernames for, Care2, Facebook, GitHub, Google+, Instagram,
+##                    Tubmlr, Twitter and YouTube.
 ##
 ##   Repository URL:  https://fluxbb.org/resources/mods/social-profile-links/
 ##
