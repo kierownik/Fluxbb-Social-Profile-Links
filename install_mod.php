@@ -38,6 +38,7 @@ function install()
   if ( isset( $pun_config['o_spl_github'] ) OR isset( $pun_config['o_spl_prof_github'] ) )
   {
     $spl_config = array(
+      'tumblr'            => '0',
       'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
       'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
       'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
