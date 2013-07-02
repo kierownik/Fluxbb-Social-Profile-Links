@@ -37,7 +37,7 @@ all applicable files before proceeding.
 * Open links new window/tab
 
 ## Install ##
-How to install read install.txt  
+How to install read readme.txt  
 
 ## Feature Requests
 If you have an idea let me know, together we can make this mod better.
