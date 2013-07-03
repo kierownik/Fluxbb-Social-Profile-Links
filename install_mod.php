@@ -14,7 +14,7 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.1.2';
+$mod_version    = '1.1.3';
 $release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
@@ -39,6 +39,7 @@ function install()
   {
     $spl_config = array(
       'care2'             => '0',
+      'deviantart'        => '0',
       'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
       'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
       'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
@@ -133,18 +134,24 @@ function install()
     }
     // End delete old stuff from V-0.1 to V-1.0.2
   }
+  elseif ( $db->field_exists( 'users', 'social_profile_links', true ) )
+  {
+    echo '<p style="text-align: center">This was not needed, open readme.txt and read <strong>notes 3</strong>, GOOD LUCK.</p>';
+    exit;
+  }
   else
   {
     // New install
     $spl_config = array(
       'care2'             => '10',
-      'facebook'          => '20',
-      'github'            => '30',
-      'google+'           => '40',
-      'instagram'         => '50',
-      'tumblr'            => '60',
-      'twitter'           => '70',
-      'youtube'           => '80',
+      'deviantart'        => '20',
+      'facebook'          => '30',
+      'github'            => '40',
+      'google+'           => '50',
+      'instagram'         => '60',
+      'tumblr'            => '70',
+      'twitter'           => '80',
+      'youtube'           => '90',
       'use_icon'          => '1',
       'show_in_profile'   => '1',
       'show_in_viewtopic' => '1',

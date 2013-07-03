@@ -21,6 +21,7 @@ $lang_spl = array(
 'user id'                     =>  'Gebruikers id',
 
 'care2'                       =>  'Care2',
+'deviantart'                  =>  'Deviantart',
 'facebook'                    =>  'Facebook',
 'github'                      =>  'GitHub',
 'google+'                     =>  'Google+',
@@ -43,6 +44,7 @@ $lang_spl = array(
 'use icon'                    =>  'Gebruik icoon',
 
 'bad care2'                   =>  'Je gaf een ongeldige Care2 gebruikers id in. Ga terug en herstel de fout.',
+'bad deviantart'              =>  'Je gaf een ongeldige Deviantart gebruikersnaam in. Ga terug en herstel de fout.',
 'bad facebook'                =>  'Je gaf een ongeldige Facebook gebruikersnaam in. Ga terug en herstel de fout.',
 'bad github'                  =>  'Je gaf een ongeldige GitHub gebruikersnaam in. Ga terug en herstel de fout.',
 'bad google+'                 =>  'Je gaf een ongeldige Google+ gebruikers id in. Ga terug en herstel de fout.',

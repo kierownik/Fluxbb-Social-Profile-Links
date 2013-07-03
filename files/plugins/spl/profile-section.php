@@ -32,6 +32,14 @@ if ( !empty( $spl_config['care2'] ) AND $spl_config['care2'] != '0' )
   );
 }
 
+if ( !empty( $spl_config['deviantart'] ) AND $spl_config['deviantart'] != '0' )
+{
+  $link_options['deviantart'] = array(
+    'position'  =>  $spl_config['deviantart'],
+    'maxlength' =>  '20'
+  );
+}
+
 if ( !empty( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' )
 {
   $link_options['facebook'] = array(

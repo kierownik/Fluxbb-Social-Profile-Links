@@ -2,14 +2,14 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  1.1.2
+##      Mod version:  1.1.3
 ##  Works on FluxBB:  1.5.3
 ##     Release date:  2013-06-16
 ##           Author:  Daniël Rokven (rokven@gmail.com)
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages
-##                    where users can add their usernames for, Care2, Facebook, GitHub, Google+, Instagram,
-##                    Tubmlr, Twitter and YouTube.
+##                    where users can add their usernames for, Care2, Deviantart, Facebook, GitHub,
+##                    Google+, Instagram, Tubmlr, Twitter and YouTube.
 ##
 ##   Repository URL:  https://fluxbb.org/resources/mods/social-profile-links/
 ##
@@ -22,14 +22,15 @@
 ##            Notes:  Thanks to quy [https://fluxbb.org/forums/profile.php?id=22] for helping
 ##
 ##   Plugin options:  All these options can be managed in the administration area
-##                    Care2     - Enable / Disable
-##                    Facebook  - Enable / Disable
-##                    Github    - Enable / Disable
-##                    Google+   - Enable / Disable
-##                    Instagram - Enable / Disable
-##                    Tumblr    - Enable / Disable
-##                    Twitter   - Enable / Disable
-##                    YouTube   - Enable / Disable
+##                    Care2       - Enable / Disable
+##                    Deviantart  - Enable / Disable
+##                    Facebook    - Enable / Disable
+##                    Github      - Enable / Disable
+##                    Google+     - Enable / Disable
+##                    Instagram   - Enable / Disable
+##                    Tumblr      - Enable / Disable
+##                    Twitter     - Enable / Disable
+##                    YouTube     - Enable / Disable
 ##                    
 ##                    Show in users profile - Enable / Disable
 ##                    Show in viewtopic     - Enable / Disable
@@ -44,10 +45,10 @@
 ##
 ##          Notes 2:  If you do not use the lang/Dutch or lang/English then do not copie them
 ##
-##          Notes 3:  If you update from v1.1.0 or v1.1.1 to v1.1.2 only copy the files, you do not
-##                    have to do these steps below, and visit the administration and press save
-##                    options and you are done. If you update from a version before v1.1.0 follow at
-##                    the steps below.
+##          Notes 3:  If you update from v1.1.0 or v1.1.1 or v1.1.2 to v1.1.3 only copy the files,
+##                    you do not have to do these steps below, and visit the administration and press 
+##                    save options and you are done. If you update from a version before v1.1.0 
+##                    follow all the steps below.
 ##
 
 #

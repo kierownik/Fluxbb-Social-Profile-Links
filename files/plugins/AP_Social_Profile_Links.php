@@ -28,19 +28,20 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.2');
+define('PLUGIN_VERSION', '1.1.3');
 
 // Link options we use to show the checkboxes
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 $link_options = array(
-  'care2'     =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
-  'facebook'  =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
-  'github'    =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
-  'google+'   =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
-  'instagram' =>  !isset( $spl_config['instagram'] ) ? '0' : $spl_config['instagram'],
-  'tumblr'    =>  !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'],
-  'twitter'   =>  !isset( $spl_config['twitter'] ) ? '0' : $spl_config['twitter'],
-  'youtube'   =>  !isset( $spl_config['youtube'] ) ? '0' : $spl_config['youtube'],
+  'care2'       =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
+  'deviantart'  =>  !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'],
+  'facebook'    =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
+  'github'      =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
+  'google+'     =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
+  'instagram'   =>  !isset( $spl_config['instagram'] ) ? '0' : $spl_config['instagram'],
+  'tumblr'      =>  !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'],
+  'twitter'     =>  !isset( $spl_config['twitter'] ) ? '0' : $spl_config['twitter'],
+  'youtube'     =>  !isset( $spl_config['youtube'] ) ? '0' : $spl_config['youtube'],
 );
 
 //
@@ -52,6 +53,7 @@ if ( isset( $_POST['set_options'] ) )
 
   $spl_options = array(
     'care2'             => !empty( $_POST['care2'] ) ? intval( $_POST['care2'] ) : '0',
+    'deviantart'        => !empty( $_POST['deviantart'] ) ? intval( $_POST['deviantart'] ) : '0',
     'facebook'          => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
     'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
     'google+'           => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',

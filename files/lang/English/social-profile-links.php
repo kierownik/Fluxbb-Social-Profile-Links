@@ -21,6 +21,7 @@ $lang_spl = array(
 'user id'                     =>  'User id',
 
 'care2'                       =>  'Care2',
+'deviantart'                  =>  'Deviantart',
 'facebook'                    =>  'Facebook',
 'github'                      =>  'GitHub',
 'google+'                     =>  'Google+',
@@ -43,6 +44,7 @@ $lang_spl = array(
 'use icon'                    =>  'Use icon',
 
 'bad care2'                   =>  'You entered an invalid Care2 user id. Please go back and correct.',
+'bad deviantart'              =>  'You entered an invalid Deviantart username. Please go back and correct.',
 'bad facebook'                =>  'You entered an invalid Facebook username. Please go back and correct.',
 'bad github'                  =>  'You entered an invalid GitHub username. Please go back and correct.',
 'bad google+'                 =>  'You entered an invalid Google+ user id. Please go back and correct.',

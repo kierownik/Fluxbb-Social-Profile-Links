@@ -17,6 +17,7 @@ $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
 // When we upgrade we have not set some $spl_config, we eliminate the error with this
 $spl_config['care2'] = !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'];
+$spl_config['deviantart'] = !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'];
 $spl_config['tumblr'] = !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'];
 
 if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
@@ -38,6 +39,21 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
       'url'       =>  'http://www.care2.com/c2c/people/profile.html?pid='.$spl_username,
       'lang'      =>  $lang_spl['care2'],
       'icon'      =>  'Care2.png',
+    );
+  }
+
+  if ( $spl_config['deviantart'] != '0' AND isset( $spl_cur_user['deviantart'] ) )
+  {
+    // Set the spl_username for deviantart
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['deviantart'] ) ) : pun_htmlspecialchars( $spl_cur_user['deviantart'] ) );
+
+    // Fill the spl_links array for deviantart
+    $spl_links['deviantart'] = array(
+      'position'  =>  $spl_config['deviantart'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://'.$spl_username.'.deviantart.com',
+      'lang'      =>  $lang_spl['deviantart'],
+      'icon'      =>  'Deviantart.png',
     );
   }
 

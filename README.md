@@ -1,7 +1,7 @@
 # Social-Profile-Links
 
 **Mod title:**  Social Profile Links  
-**Mod version:**      1.1.2  
+**Mod version:**      1.1.3  
 **Works on FluxBB:**  1.5.3  
 **Release date:**     2013-06-15  
 **Author:**           Daniël Rokven ( rokven@gmail.com )  
@@ -23,7 +23,8 @@ your own risk. Backup your forum database and any
 all applicable files before proceeding.
 
 ## Features
-* Care2
+1. Care2
+* Deviantart
 * Facebook
 * GitHub
 * Google+
@@ -43,8 +44,10 @@ How to install read readme.txt
 
 ## Feature Requests
 If you have an idea let me know, together we can make this mod better.
+If you have the regular expression for the username or user id of the link you want to add it goes
+even faster :)
 
-[![foo](http://s20.postimg.org/ebpaurwq1/kierownik_s_profile_Fluxbb_Social_Profile_Li.png)](http://postimg.org/image/ebpaurwq1/)
-[![foo](http://s20.postimg.org/dd8xshje1/Social_Profile_Links_Administration_Fluxbb.png)](http://postimg.org/image/dd8xshje1/)
-[![foo](http://s20.postimg.org/m5pwg64ix/Social_Profile_Links_Profile_Fluxbb_Social.png)](http://postimg.org/image/m5pwg64ix/)
-[![foo](http://s20.postimg.org/up9adxcvd/Test_topic_Page_1_Test_forum_Fluxbb_Soci.png)](http://postimg.org/image/up9adxcvd/)
+[![foo](http://s20.postimg.org/o918ql27d/kierownik_s_profile_Fluxbb_Social_Profile_Li.png)](http://postimg.org/image/o918ql27d/)
+[![foo](http://s20.postimg.org/5hzbgf7mx/Social_Profile_Links_Administration_Fluxbb.png)](http://postimg.org/image/5hzbgf7mx/)
+[![foo](http://s20.postimg.org/5ffftl3zd/Social_Profile_Links_Profile_Fluxbb_Social.png)](http://postimg.org/image/5ffftl3zd/)
+[![foo](http://s20.postimg.org/3z3xbg12h/Test_topic_Page_1_Test_forum_Fluxbb_Soci.png)](http://postimg.org/image/3z3xbg12h/)

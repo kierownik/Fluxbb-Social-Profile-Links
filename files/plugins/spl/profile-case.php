@@ -16,6 +16,7 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
 $link_options = array(
   'care2',
+  'deviantart',
   'facebook',
   'github',
   'google+',
@@ -37,13 +38,23 @@ foreach ( $link_options AS $key )
 
 $preg_array = array();
 
-// Check if input box of care2 is not empty and spl_config is set higher than 0 before doing adding regex
+// Check if input box of Care2 is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['care2'] ) AND $spl_config['care2'] != '0' )
 {
   $preg_array['care2'] = array(
     'position'    => $spl_config['care2'],
     'preg_match'  => !preg_match( '/[0-9]{3,9}$/', $spl_users['care2'] ),
     'message'     => $lang_spl['bad care2'],
+  );
+}
+
+// Check if input box of Deviantart is not empty and spl_config is set higher than 0 before doing adding regex
+if ( !empty( $spl_users['deviantart'] ) AND $spl_config['deviantart'] != '0' )
+{
+  $preg_array['deviantart'] = array(
+    'position'    => $spl_config['deviantart'],
+    'preg_match'  => !preg_match( '/[A-Za-z0-9-]{3,20}$/', $spl_users['deviantart'] ),
+    'message'     => $lang_spl['bad deviantart'],
   );
 }
 
@@ -87,7 +98,7 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
   );
 }
 
-// Check if input box of tumblr is not empty and spl_config is set higher than 0 before doing adding regex
+// Check if input box of Tumblr is not empty and spl_config is set higher than 0 before doing adding regex
 if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
 {
   $preg_array['tumblr'] = array(
