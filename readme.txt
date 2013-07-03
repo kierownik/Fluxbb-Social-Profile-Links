@@ -2,7 +2,7 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  1.1.3
+##      Mod version:  1.1.6
 ##  Works on FluxBB:  1.5.3
 ##     Release date:  2013-06-16
 ##           Author:  Daniël Rokven (rokven@gmail.com)
@@ -23,11 +23,14 @@
 ##
 ##   Plugin options:  All these options can be managed in the administration area
 ##                    Care2       - Enable / Disable
+##                    Delicious   - Enable / Disable
 ##                    Deviantart  - Enable / Disable
 ##                    Facebook    - Enable / Disable
 ##                    Github      - Enable / Disable
 ##                    Google+     - Enable / Disable
 ##                    Instagram   - Enable / Disable
+##                    Pinterest   - Enable / Disable
+##                    Stumbleupon - Enable / Disable
 ##                    Tumblr      - Enable / Disable
 ##                    Twitter     - Enable / Disable
 ##                    YouTube     - Enable / Disable
@@ -45,10 +48,10 @@
 ##
 ##          Notes 2:  If you do not use the lang/Dutch or lang/English then do not copie them
 ##
-##          Notes 3:  If you update from v1.1.0 or v1.1.1 or v1.1.2 to v1.1.3 only copy the files,
-##                    you do not have to do these steps below, and visit the administration and press 
-##                    save options and you are done. If you update from a version before v1.1.0 
-##                    follow all the steps below.
+##          Notes 3:  If you update from v1.1.0 or v1.1.1 or v1.1.2 or v1.1.3 to v1.1.6, only copy
+##                    the files, you do not have to do these steps below, and visit the
+##                    administration and press save options and you are done. If you update from a
+##                    version before v1.1.0 follow all the steps below.
 ##
 
 #

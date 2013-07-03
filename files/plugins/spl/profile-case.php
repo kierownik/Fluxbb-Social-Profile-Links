@@ -16,11 +16,14 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
 $link_options = array(
   'care2',
+  'delicious',
   'deviantart',
   'facebook',
   'github',
   'google+',
   'instagram',
+  'pinterest',
+  'stumbleupon',
   'tumblr',
   'twitter',
   'youtube',
@@ -45,6 +48,16 @@ if ( !empty( $spl_users['care2'] ) AND $spl_config['care2'] != '0' )
     'position'    => $spl_config['care2'],
     'preg_match'  => !preg_match( '/[0-9]{3,9}$/', $spl_users['care2'] ),
     'message'     => $lang_spl['bad care2'],
+  );
+}
+
+// Check if input box of Delicious is not empty and spl_config is set higher than 0 before doing adding regex
+if ( !empty( $spl_users['delicious'] ) AND $spl_config['delicious'] != '0' )
+{
+  $preg_array['delicious'] = array(
+    'position'    => $spl_config['delicious'],
+    'preg_match'  => !preg_match( '/[A-Za-z0-9]{3,20}$/', $spl_users['delicious'] ),
+    'message'     => $lang_spl['bad delicious'],
   );
 }
 
@@ -95,6 +108,26 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
     'position'    => $spl_config['instagram'],
     'preg_match'  => !preg_match( '/[A-Za-z0-9_]{5,30}$/', $spl_users['instagram'] ),
     'message'     => $lang_spl['bad instagram'],
+  );
+}
+
+// Check if input box of Pinterest is not empty and spl_config is set higher than 0 before doing adding regex
+if ( !empty( $spl_users['pinterest'] ) AND $spl_config['pinterest'] != '0' )
+{
+  $preg_array['pinterest'] = array(
+    'position'    => $spl_config['pinterest'],
+    'preg_match'  => !preg_match( '/[A-Za-z0-9]{3,15}$/', $spl_users['pinterest'] ),
+    'message'     => $lang_spl['bad pinterest'],
+  );
+}
+
+// Check if input box of Stumbleupon is not empty and spl_config is set higher than 0 before doing adding regex
+if ( !empty( $spl_users['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' )
+{
+  $preg_array['stumbleupon'] = array(
+    'position'    => $spl_config['stumbleupon'],
+    'preg_match'  => !preg_match( '/[A-Za-z0-9-]{1,15}$/', $spl_users['stumbleupon'] ),
+    'message'     => $lang_spl['bad stumbleupon'],
   );
 }
 

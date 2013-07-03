@@ -32,6 +32,14 @@ if ( !empty( $spl_config['care2'] ) AND $spl_config['care2'] != '0' )
   );
 }
 
+if ( !empty( $spl_config['delicious'] ) AND $spl_config['delicious'] != '0' )
+{
+  $link_options['delicious'] = array(
+    'position'  =>  $spl_config['delicious'],
+    'maxlength' =>  '20'
+  );
+}
+
 if ( !empty( $spl_config['deviantart'] ) AND $spl_config['deviantart'] != '0' )
 {
   $link_options['deviantart'] = array(
@@ -69,6 +77,22 @@ if ( !empty( $spl_config['instagram'] ) AND $spl_config['instagram'] != '0' )
   $link_options['instagram'] = array(
     'position'  =>  $spl_config['instagram'],
     'maxlength' =>  '30'
+  );
+}
+
+if ( !empty( $spl_config['pinterest'] ) AND $spl_config['pinterest'] != '0' )
+{
+  $link_options['pinterest'] = array(
+    'position'  =>  $spl_config['pinterest'],
+    'maxlength' =>  '15'
+  );
+}
+
+if ( !empty( $spl_config['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' )
+{
+  $link_options['stumbleupon'] = array(
+    'position'  =>  $spl_config['stumbleupon'],
+    'maxlength' =>  '15'
   );
 }
 

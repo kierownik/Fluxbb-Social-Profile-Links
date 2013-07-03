@@ -14,7 +14,7 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.1.3';
+$mod_version    = '1.1.6';
 $release_date   = '2013-06-16';
 $author         = 'Daniël Rokven';
 $author_email   = 'rokven@gmail.com';
@@ -39,11 +39,14 @@ function install()
   {
     $spl_config = array(
       'care2'             => '0',
+      'delicious'         => '0',
       'deviantart'        => '0',
       'facebook'          => ( !isset( $pun_config['o_spl_facebook'] ) ) ? '1' : $pun_config['o_spl_facebook'],
       'github'            => ( !isset( $pun_config['o_spl_github'] ) ) ? '1' : $pun_config['o_spl_github'],
       'google+'           => ( !isset( $pun_config['o_spl_googleplus'] ) ) ? '1' : $pun_config['o_spl_googleplus'],
       'instagram'         => ( !isset( $pun_config['o_spl_instagram'] ) ) ? '1' : $pun_config['o_spl_instagram'],
+      'pinterest'         => '0',
+      'stumbleupon'       => '0',
       'tumblr'            => '0',
       'twitter'           => ( !isset( $pun_config['o_spl_twitter'] ) ) ? '1' : $pun_config['o_spl_twitter'],
       'youtube'           => ( !isset( $pun_config['o_spl_youtube'] ) ) ? '1' : $pun_config['o_spl_youtube'],
@@ -144,14 +147,17 @@ function install()
     // New install
     $spl_config = array(
       'care2'             => '10',
-      'deviantart'        => '20',
-      'facebook'          => '30',
-      'github'            => '40',
-      'google+'           => '50',
-      'instagram'         => '60',
-      'tumblr'            => '70',
-      'twitter'           => '80',
-      'youtube'           => '90',
+      'delicious'         => '20',
+      'deviantart'        => '30',
+      'facebook'          => '40',
+      'github'            => '50',
+      'google+'           => '60',
+      'instagram'         => '70',
+      'pinterest'         => '80',
+      'stumbleupon'       => '90',
+      'tumblr'            => '100',
+      'twitter'           => '110',
+      'youtube'           => '120',
       'use_icon'          => '1',
       'show_in_profile'   => '1',
       'show_in_viewtopic' => '1',

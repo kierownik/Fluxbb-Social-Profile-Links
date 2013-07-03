@@ -28,17 +28,20 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.3');
+define('PLUGIN_VERSION', '1.1.6');
 
 // Link options we use to show the checkboxes
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 $link_options = array(
   'care2'       =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
+  'delicious'   =>  !isset( $spl_config['delicious'] ) ? '0' : $spl_config['delicious'],
   'deviantart'  =>  !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'],
   'facebook'    =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
   'github'      =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
   'google+'     =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
   'instagram'   =>  !isset( $spl_config['instagram'] ) ? '0' : $spl_config['instagram'],
+  'pinterest'   =>  !isset( $spl_config['pinterest'] ) ? '0' : $spl_config['pinterest'],
+  'stumbleupon' =>  !isset( $spl_config['stumbleupon'] ) ? '0' : $spl_config['stumbleupon'],
   'tumblr'      =>  !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'],
   'twitter'     =>  !isset( $spl_config['twitter'] ) ? '0' : $spl_config['twitter'],
   'youtube'     =>  !isset( $spl_config['youtube'] ) ? '0' : $spl_config['youtube'],
@@ -53,11 +56,14 @@ if ( isset( $_POST['set_options'] ) )
 
   $spl_options = array(
     'care2'             => !empty( $_POST['care2'] ) ? intval( $_POST['care2'] ) : '0',
+    'delicious'         => !empty( $_POST['delicious'] ) ? intval( $_POST['delicious'] ) : '0',
     'deviantart'        => !empty( $_POST['deviantart'] ) ? intval( $_POST['deviantart'] ) : '0',
     'facebook'          => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
     'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
     'google+'           => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',
     'instagram'         => !empty( $_POST['instagram'] ) ? intval( $_POST['instagram'] ) : '0',
+    'pinterest'         => !empty( $_POST['pinterest'] ) ? intval( $_POST['pinterest'] ) : '0',
+    'stumbleupon'       => !empty( $_POST['stumbleupon'] ) ? intval( $_POST['stumbleupon'] ) : '0',
     'tumblr'            => !empty( $_POST['tumblr'] ) ? intval( $_POST['tumblr'] ) : '0',
     'twitter'           => !empty( $_POST['twitter'] ) ? intval( $_POST['twitter'] ) : '0',
     'youtube'           => !empty( $_POST['youtube'] ) ? intval( $_POST['youtube'] ) : '0',

@@ -16,9 +16,12 @@ $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
 // When we upgrade we have not set some $spl_config, we eliminate the error with this
-$spl_config['care2'] = !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'];
-$spl_config['deviantart'] = !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'];
-$spl_config['tumblr'] = !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'];
+$spl_config['care2']        = !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'];
+$spl_config['delicious']    = !isset( $spl_config['delicious'] ) ? '0' : $spl_config['delicious'];
+$spl_config['deviantart']   = !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'];
+$spl_config['pinterest']    = !isset( $spl_config['pinterest'] ) ? '0' : $spl_config['pinterest'];
+$spl_config['stumbleupon']  = !isset( $spl_config['stumbleupon'] ) ? '0' : $spl_config['stumbleupon'];
+$spl_config['tumblr']       = !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'];
 
 if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
@@ -39,6 +42,21 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
       'url'       =>  'http://www.care2.com/c2c/people/profile.html?pid='.$spl_username,
       'lang'      =>  $lang_spl['care2'],
       'icon'      =>  'Care2.png',
+    );
+  }
+
+  if ( $spl_config['delicious'] != '0' AND isset( $spl_cur_user['delicious'] ) )
+  {
+    // Set the spl_username for delicious
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['delicious'] ) ) : pun_htmlspecialchars( $spl_cur_user['delicious'] ) );
+
+    // Fill the spl_links array for deviantart
+    $spl_links['delicious'] = array(
+      'position'  =>  $spl_config['delicious'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://delicious.com/'.$spl_username,
+      'lang'      =>  $lang_spl['delicious'],
+      'icon'      =>  'Delicious.png',
     );
   }
 
@@ -114,6 +132,36 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
       'url'       =>  'http://instagram.com/'.$spl_username,
       'lang'      =>  $lang_spl['instagram'],
       'icon'      =>  'Instagram.png',
+    );
+  }
+
+  if ( $spl_config['pinterest'] != '0' AND isset( $spl_cur_user['pinterest'] ) )
+  {
+    // Set the spl_username for pinterest
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['pinterest'] ) ) : pun_htmlspecialchars( $spl_cur_user['pinterest'] ) );
+
+    // Fill the spl_links array for pinterest
+    $spl_links['pinterest'] = array(
+      'position'  =>  $spl_config['pinterest'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://pinterest.com/'.$spl_username,
+      'lang'      =>  $lang_spl['pinterest'],
+      'icon'      =>  'Pinterest.png',
+    );
+  }
+
+  if ( $spl_config['stumbleupon'] != '0' AND isset( $spl_cur_user['stumbleupon'] ) )
+  {
+    // Set the spl_username for stumbleupon
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['stumbleupon'] ) ) : pun_htmlspecialchars( $spl_cur_user['stumbleupon'] ) );
+
+    // Fill the spl_links array for stumbleupon
+    $spl_links['stumbleupon'] = array(
+      'position'  =>  $spl_config['stumbleupon'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://www.stumbleupon.com/stumbler/'.$spl_username,
+      'lang'      =>  $lang_spl['stumbleupon'],
+      'icon'      =>  'Stumbleupon.png',
     );
   }
 
