@@ -42,7 +42,7 @@ foreach ( $link_options AS $key )
 $preg_array = array();
 
 // Check if input box of Care2 is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['care2'] ) AND $spl_config['care2'] != '0' )
+if ( !empty( $spl_config['care2'] ) AND isset( $spl_users['care2'] ) )
 {
   $preg_array['care2'] = array(
     'position'    => $spl_config['care2'],
@@ -52,7 +52,7 @@ if ( !empty( $spl_users['care2'] ) AND $spl_config['care2'] != '0' )
 }
 
 // Check if input box of Delicious is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['delicious'] ) AND $spl_config['delicious'] != '0' )
+if ( !empty( $spl_config['delicious'] ) AND isset( $spl_cur_user['delicious'] ) )
 {
   $preg_array['delicious'] = array(
     'position'    => $spl_config['delicious'],
@@ -62,7 +62,7 @@ if ( !empty( $spl_users['delicious'] ) AND $spl_config['delicious'] != '0' )
 }
 
 // Check if input box of Deviantart is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['deviantart'] ) AND $spl_config['deviantart'] != '0' )
+if ( !empty( $spl_config['deviantart'] ) AND isset( $spl_users['deviantart'] ) )
 {
   $preg_array['deviantart'] = array(
     'position'    => $spl_config['deviantart'],
@@ -72,7 +72,7 @@ if ( !empty( $spl_users['deviantart'] ) AND $spl_config['deviantart'] != '0' )
 }
 
 // Check if input box of Facebook is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['facebook'] ) AND $spl_config['facebook'] != '0' )
+if ( !empty( $spl_config['facebook'] ) AND isset( $spl_users['facebook'] ) )
 {
   $preg_array['facebook'] = array(
     'position'    => $spl_config['facebook'],
@@ -82,7 +82,7 @@ if ( !empty( $spl_users['facebook'] ) AND $spl_config['facebook'] != '0' )
 }
 
 // Check if input box of GitHub is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['github'] ) AND $spl_config['github'] != '0' )
+if ( !empty( $spl_config['github'] ) AND isset( $spl_users['github'] ) )
 {
   $preg_array['github'] = array(
     'position'    => $spl_config['github'],
@@ -92,7 +92,7 @@ if ( !empty( $spl_users['github'] ) AND $spl_config['github'] != '0' )
 }
 
 // Check if input box of Google+ is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['google+'] ) AND $spl_config['google+'] != '0' )
+if ( !empty( $spl_config['google+'] ) AND isset( $spl_users['google+'] ) )
 {
   $preg_array['google+'] = array(
     'position'    => $spl_config['google+'],
@@ -102,7 +102,7 @@ if ( !empty( $spl_users['google+'] ) AND $spl_config['google+'] != '0' )
 }
 
 // Check if input box of Instagram is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
+if ( !empty( $spl_config['instagram'] ) AND isset( $spl_users['instagram'] ) )
 {
   $preg_array['instagram'] = array(
     'position'    => $spl_config['instagram'],
@@ -112,7 +112,7 @@ if ( !empty( $spl_users['instagram'] ) AND $spl_config['instagram'] != '0' )
 }
 
 // Check if input box of Pinterest is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['pinterest'] ) AND $spl_config['pinterest'] != '0' )
+if ( !empty( $spl_config['pinterest'] ) AND isset( $spl_users['pinterest'] ) )
 {
   $preg_array['pinterest'] = array(
     'position'    => $spl_config['pinterest'],
@@ -122,7 +122,7 @@ if ( !empty( $spl_users['pinterest'] ) AND $spl_config['pinterest'] != '0' )
 }
 
 // Check if input box of Stumbleupon is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' )
+if ( !empty( $spl_config['stumbleupon'] ) AND isset( $spl_users['stumbleupon'] ) )
 {
   $preg_array['stumbleupon'] = array(
     'position'    => $spl_config['stumbleupon'],
@@ -132,7 +132,7 @@ if ( !empty( $spl_users['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' )
 }
 
 // Check if input box of Tumblr is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
+if ( !empty( $spl_config['tumblr'] ) AND isset( $spl_users['tumblr'] ) )
 {
   $preg_array['tumblr'] = array(
     'position'    => $spl_config['tumblr'],
@@ -142,7 +142,7 @@ if ( !empty( $spl_users['tumblr'] ) AND $spl_config['tumblr'] != '0' )
 }
 
 // Check if input box of Twitter is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['twitter'] ) AND $spl_config['twitter'] != '0' )
+if ( !empty( $spl_config['twitter'] ) AND isset( $spl_users['twitter'] ) )
 {
   $preg_array['twitter'] = array(
     'position'    => $spl_config['twitter'],
@@ -152,7 +152,7 @@ if ( !empty( $spl_users['twitter'] ) AND $spl_config['twitter'] != '0' )
 }
 
 // Check if input box of YouTube is not empty and spl_config is set higher than 0 before doing adding regex
-if ( !empty( $spl_users['youtube'] ) AND $spl_config['youtube'] != '0' )
+if ( !empty( $spl_config['youtube'] ) AND isset( $spl_users['youtube'] ) )
 {
   $preg_array['youtube'] = array(
     'position'    => $spl_config['youtube'],

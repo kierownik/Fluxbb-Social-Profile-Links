@@ -15,14 +15,6 @@
 $spl_cur_user   = unserialize( $user['social_profile_links'] );
 $spl_config     = unserialize( $pun_config['o_social_profile_links'] );
 
-// When we upgrade we have not set some $spl_config, we eliminate the error with this
-$spl_config['care2']        = !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'];
-$spl_config['delicious']    = !isset( $spl_config['delicious'] ) ? '0' : $spl_config['delicious'];
-$spl_config['deviantart']   = !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'];
-$spl_config['pinterest']    = !isset( $spl_config['pinterest'] ) ? '0' : $spl_config['pinterest'];
-$spl_config['stumbleupon']  = !isset( $spl_config['stumbleupon'] ) ? '0' : $spl_config['stumbleupon'];
-$spl_config['tumblr']       = !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'];
-
 if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
   $target = ( $spl_config['link_target'] ) ? ' target="_blank"' : '';
