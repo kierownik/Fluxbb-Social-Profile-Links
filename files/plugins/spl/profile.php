@@ -12,8 +12,8 @@
 ************************************************************************
 **/
 
-$spl_cur_user   = unserialize( $user['social_profile_links'] );
-$spl_config     = unserialize( $pun_config['o_social_profile_links'] );
+$spl_cur_user = unserialize( $user['social_profile_links'] );
+$spl_config   = unserialize( $pun_config['o_social_profile_links'] );
 
 if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1' OR !$pun_user['is_guest'] ) )
 {
@@ -22,7 +22,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
   // This is the array we are going to use to build our links
   $spl_links = array();
 
-  if ( $spl_config['care2'] != '0' AND isset( $spl_cur_user['care2'] ) )
+  if ( ( isset( $spl_config['care2'] ) AND $spl_config['care2'] != '0' ) AND isset( $spl_cur_user['care2'] ) )
   {
     // Set the spl_username for care2
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['care2'] ) ) : pun_htmlspecialchars( $spl_cur_user['care2'] ) );
@@ -37,7 +37,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['delicious'] != '0' AND isset( $spl_cur_user['delicious'] ) )
+  if ( ( isset( $spl_config['delicious'] ) AND $spl_config['delicious'] != '0' ) AND isset( $spl_cur_user['delicious'] ) )
   {
     // Set the spl_username for delicious
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['delicious'] ) ) : pun_htmlspecialchars( $spl_cur_user['delicious'] ) );
@@ -52,7 +52,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['deviantart'] != '0' AND isset( $spl_cur_user['deviantart'] ) )
+  if ( ( isset( $spl_config['deviantart'] ) AND $spl_config['deviantart'] != '0' ) AND isset( $spl_cur_user['deviantart'] ) )
   {
     // Set the spl_username for deviantart
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['deviantart'] ) ) : pun_htmlspecialchars( $spl_cur_user['deviantart'] ) );
@@ -67,7 +67,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['facebook'] != '0' AND isset( $spl_cur_user['facebook'] ) )
+  if ( ( isset( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' ) AND isset( $spl_cur_user['facebook'] ) )
   {
     // Set the spl_username for facebook
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['facebook'] ) ) : pun_htmlspecialchars( $spl_cur_user['facebook'] ) );
@@ -82,7 +82,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['github'] != '0' AND isset( $spl_cur_user['github'] ) )
+  if ( ( isset( $spl_config['github'] ) AND $spl_config['github'] != '0' ) AND isset( $spl_cur_user['github'] ) )
   {
     // Set the spl_username for github
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) );
@@ -97,7 +97,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['google+'] != '0' AND isset( $spl_cur_user['google+'] ) )
+  if ( ( isset( $spl_config['google+'] ) AND $spl_config['google+'] != '0' ) AND isset( $spl_cur_user['google+'] ) )
   {
     // Set the spl_username for google+
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['google+'] ) ) : pun_htmlspecialchars( $spl_cur_user['google+'] ) );
@@ -112,7 +112,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['instagram'] != '0' AND isset( $spl_cur_user['instagram'] ) )
+  if ( ( isset( $spl_config['instagram'] ) AND $spl_config['instagram'] != '0' ) AND isset( $spl_cur_user['instagram'] ) )
   {
     // Set the spl_username for instagram
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['instagram'] ) ) : pun_htmlspecialchars( $spl_cur_user['instagram'] ) );
@@ -127,7 +127,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['pinterest'] != '0' AND isset( $spl_cur_user['pinterest'] ) )
+  if ( ( isset( $spl_config['pinterest'] ) AND $spl_config['pinterest'] != '0' ) AND isset( $spl_cur_user['pinterest'] ) )
   {
     // Set the spl_username for pinterest
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['pinterest'] ) ) : pun_htmlspecialchars( $spl_cur_user['pinterest'] ) );
@@ -142,7 +142,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['stumbleupon'] != '0' AND isset( $spl_cur_user['stumbleupon'] ) )
+  if ( ( isset( $spl_config['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' ) AND isset( $spl_cur_user['stumbleupon'] ) )
   {
     // Set the spl_username for stumbleupon
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['stumbleupon'] ) ) : pun_htmlspecialchars( $spl_cur_user['stumbleupon'] ) );
@@ -157,7 +157,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['tumblr'] != '0' AND isset( $spl_cur_user['tumblr'] ) )
+  if ( ( isset( $spl_config['tumblr'] ) AND $spl_config['tumblr'] != '0' ) AND isset( $spl_cur_user['tumblr'] ) )
   {
     // Set the spl_username for tumblr
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['tumblr'] ) ) : pun_htmlspecialchars( $spl_cur_user['tumblr'] ) );
@@ -172,7 +172,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['twitter'] != '0' AND isset( $spl_cur_user['twitter'] ) )
+  if ( ( isset( $spl_config['twitter'] ) AND $spl_config['twitter'] != '0' ) AND isset( $spl_cur_user['twitter'] ) )
   {
     // Set the spl_username for twitter
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) );
@@ -187,7 +187,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     );
   }
 
-  if ( $spl_config['youtube'] != '0' AND isset( $spl_cur_user['youtube'] ) )
+  if ( ( isset( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' ) AND isset( $spl_cur_user['youtube'] ) )
   {
     // Set the spl_username for youtube
     $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) );
