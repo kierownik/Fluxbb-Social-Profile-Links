@@ -50,6 +50,7 @@ If you have an idea let me know, together we can make this mod better.
 If you have the regular expression for the username or user id of the link you want to add it goes
 even faster :)
 
+## Screenshots
 [![foo](http://s20.postimg.org/vimt9agrt/kierownik_s_profile_Fluxbb_Social_Profile_Li.png)](http://postimg.org/image/vimt9agrt/)
 [![foo](http://s20.postimg.org/d5qtcgvop/Social_Profile_Links_Administration_Fluxbb.png)](http://postimg.org/image/d5qtcgvop/)
 [![foo](http://s20.postimg.org/5lt4wod49/Social_Profile_Links_Profile_Fluxbb_Social.png)](http://postimg.org/image/5lt4wod49/)
