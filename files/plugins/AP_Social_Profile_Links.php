@@ -28,7 +28,7 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.6');
+define('PLUGIN_VERSION', '1.1.7');
 
 // Link options we use to show the checkboxes
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
