@@ -19,33 +19,23 @@ if ( !defined( 'PUN' ) )
 }
 
 // Load the social-profile-links.php language file
-if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
-  require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+if ( file_exists( PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+  require PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php';
 else
-  require PUN_ROOT.'lang/English/social-profile-links.php';
+  require PUN_ROOT.'plugins/spl/lang/English/social-profile-links.php';
 
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.7');
+define('PLUGIN_VERSION', '1.1.8');
 
-// Link options we use to show the checkboxes
-$spl_config = unserialize( $pun_config['o_social_profile_links'] );
-$link_options = array(
-  'care2'       =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
-  'delicious'   =>  !isset( $spl_config['delicious'] ) ? '0' : $spl_config['delicious'],
-  'deviantart'  =>  !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'],
-  'facebook'    =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
-  'github'      =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
-  'google+'     =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
-  'instagram'   =>  !isset( $spl_config['instagram'] ) ? '0' : $spl_config['instagram'],
-  'pinterest'   =>  !isset( $spl_config['pinterest'] ) ? '0' : $spl_config['pinterest'],
-  'stumbleupon' =>  !isset( $spl_config['stumbleupon'] ) ? '0' : $spl_config['stumbleupon'],
-  'tumblr'      =>  !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'],
-  'twitter'     =>  !isset( $spl_config['twitter'] ) ? '0' : $spl_config['twitter'],
-  'youtube'     =>  !isset( $spl_config['youtube'] ) ? '0' : $spl_config['youtube'],
-);
+//
+// Include the arrays.php
+//
+require( PUN_ROOT.'/plugins/spl/arrays.php' );
+$image_array  = image_array();
+$link_options = admin_link_options();
 
 //
 // The rest is up to you!
@@ -54,25 +44,8 @@ if ( isset( $_POST['set_options'] ) )
 {
   $updated = FALSE;
 
-  $spl_options = array(
-    'care2'             => !empty( $_POST['care2'] ) ? intval( $_POST['care2'] ) : '0',
-    'delicious'         => !empty( $_POST['delicious'] ) ? intval( $_POST['delicious'] ) : '0',
-    'deviantart'        => !empty( $_POST['deviantart'] ) ? intval( $_POST['deviantart'] ) : '0',
-    'facebook'          => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
-    'github'            => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
-    'google+'           => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',
-    'instagram'         => !empty( $_POST['instagram'] ) ? intval( $_POST['instagram'] ) : '0',
-    'pinterest'         => !empty( $_POST['pinterest'] ) ? intval( $_POST['pinterest'] ) : '0',
-    'stumbleupon'       => !empty( $_POST['stumbleupon'] ) ? intval( $_POST['stumbleupon'] ) : '0',
-    'tumblr'            => !empty( $_POST['tumblr'] ) ? intval( $_POST['tumblr'] ) : '0',
-    'twitter'           => !empty( $_POST['twitter'] ) ? intval( $_POST['twitter'] ) : '0',
-    'youtube'           => !empty( $_POST['youtube'] ) ? intval( $_POST['youtube'] ) : '0',
-    'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
-    'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
-    'use_icon'          => isset( $_POST['use_icon'] ) ? '1' : '0',
-    'show_guest'        => isset( $_POST['show_guest'] ) ? '1' : '0',
-    'link_target'       => pun_htmlspecialchars( $_POST['link_target'] ),
-  );
+  // get the spl_options from array.php
+  $spl_options = admin_spl_options();
 
   if ( serialize( $spl_options ) != $pun_config['o_social_profile_links'] )
   {
@@ -97,6 +70,7 @@ if ( isset( $_POST['set_options'] ) )
 
   // We need all the config unserialized
   $spl_config = unserialize( $pun_config['o_social_profile_links'] );
+
 ?>
 <div id="exampleplugin" class="plugin blockform">
   <h2><span><?php echo $lang_spl['social profile links'] ?> - v<?php echo PLUGIN_VERSION ?></span></h2>
@@ -117,6 +91,7 @@ if ( isset( $_POST['set_options'] ) )
       <fieldset>
       <legend><?php echo $lang_spl['link options'] ?></legend>
         <?php
+
         // Are there enabled link options to display
         $enabled = FALSE;
         foreach( $link_options AS $key => $value )
@@ -126,6 +101,7 @@ if ( isset( $_POST['set_options'] ) )
 
         if ( $enabled )
         {
+
           ?>
           <div class="infldset">
             <table class="aligntop" cellspacing="0">
@@ -134,25 +110,29 @@ if ( isset( $_POST['set_options'] ) )
                 <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
               </tr>
               <?php
+
               array_multisort( $link_options );
               foreach ( $link_options AS $key => $value )
               {
                 if ( $value != '0' )
                 {
+
                   ?>
                   <tr>
-                    <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
+                    <th scope="col"><label for="<?php echo $key ?>"><img src="<?php echo pun_htmlspecialchars( get_base_url( TRUE ) ).'/plugins/spl/images/'.$image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
                     <td>
                       <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                     </td>
                   </tr>
                   <?php
+
                 }
               }
               ?>
             </table>
           </div>  <!-- end class="infldset" -->
           <?php
+
         }
         // End are there enabled link options to display
 
@@ -169,6 +149,7 @@ if ( isset( $_POST['set_options'] ) )
 
         if ( $disabled )
         {
+
           ?>
           <div class="infldset">
             <table class="aligntop" cellspacing="0">
@@ -177,26 +158,32 @@ if ( isset( $_POST['set_options'] ) )
                 <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
               </tr>
             <?php
+
             foreach ( $link_options AS $key => $value )
             {
               if ( $value == '0' )
               {
+
                 ?>
                 <tr>
-                  <th scope="col"><label for="<?php echo $key ?>"><?php echo $lang_spl[$key] ?></label></th>
+                  <th scope="col"><label for="<?php echo $key ?>"><img src="data:image/png;base64,<?php echo $image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
                   <td>
                     <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                   </td>
                 </tr>
                 <?php
+
               }
             }
+
             ?>
             </table>
           </div>  <!-- end class="infldset" -->
           <?php
+
         }
         // End are there disabled link options to display
+
         ?>
       </fieldset>
       <fieldset>
@@ -256,6 +243,7 @@ if ( isset( $_POST['set_options'] ) )
               <td>
                 <select id="link_target" name="link_target">
                 <?php
+
                   if ( $spl_config['link_target'] == '1' )
                   {
                     echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
@@ -272,6 +260,7 @@ if ( isset( $_POST['set_options'] ) )
                   {
                     echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
                   }
+
                 ?>
                 </select>
               </td>

@@ -2,10 +2,10 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  1.1.7
+##      Mod version:  1.1.8
 ##  Works on FluxBB:  1.5.4, 1.5.3
 ##     Release date:  2013-06-16
-##           Author:  Daniël Rokven (rokven@gmail.com)
+##           Author:  Dani?l Rokven (rokven@gmail.com)
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages
 ##                    where users can add their usernames for, Care2, Deviantart, Facebook, GitHub,
@@ -123,10 +123,10 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/profile.php';
 #---------[ 11. AFTER, ADD ]--------------------------------------------------
 #
 
-if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
-  require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+if ( file_exists( PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+  require PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php';
 else
-  require PUN_ROOT.'lang/English/social-profile-links.php';
+  require PUN_ROOT.'plugins/spl/lang/English/social-profile-links.php';
 
 #
 #---------[ 12. FIND (line: 814) ]--------------------------------------------
@@ -223,10 +223,10 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 #
 
   // Load the social-profile-links.php language file
-  if ( file_exists( PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php' ) )
-    require PUN_ROOT.'lang/'.$pun_user['language'].'/social-profile-links.php';
+  if ( file_exists( PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+    require PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php';
   else
-    require PUN_ROOT.'lang/English/social-profile-links.php';
+    require PUN_ROOT.'plugins/spl/lang/English/social-profile-links.php';
 
 #
 #---------[ 23. FIND (line: 216) ]--------------------------------------------

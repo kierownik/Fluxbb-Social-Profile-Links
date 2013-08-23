@@ -12,6 +12,12 @@
 ************************************************************************
 **/
 
+// Make sure no one attempts to run this script "directly"
+if ( !defined( 'PUN' ) )
+{
+  exit;
+}
+
 $page_title = array( pun_htmlspecialchars( $pun_config['o_board_title'] ), $lang_common['Profile'], $lang_spl['social profile links'] );
 define( 'PUN_ACTIVE_PAGE', 'profile' );
 require PUN_ROOT.'header.php';
@@ -21,104 +27,13 @@ generate_profile_menu( 'spl' );
 $spl_user   = unserialize( $user['social_profile_links'] );
 $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
+//
+// Include the arrays.php
+//
+require( PUN_ROOT.'/plugins/spl/arrays.php' );
+
 // $link_options is used to build the input boxes
-$link_options = array();
-
-if ( !empty( $spl_config['care2'] ) AND $spl_config['care2'] != '0' )
-{
-  $link_options['care2'] = array(
-    'position'  =>  $spl_config['care2'],
-    'maxlength' =>  '9'
-  );
-}
-
-if ( !empty( $spl_config['delicious'] ) AND $spl_config['delicious'] != '0' )
-{
-  $link_options['delicious'] = array(
-    'position'  =>  $spl_config['delicious'],
-    'maxlength' =>  '20'
-  );
-}
-
-if ( !empty( $spl_config['deviantart'] ) AND $spl_config['deviantart'] != '0' )
-{
-  $link_options['deviantart'] = array(
-    'position'  =>  $spl_config['deviantart'],
-    'maxlength' =>  '20'
-  );
-}
-
-if ( !empty( $spl_config['facebook'] ) AND $spl_config['facebook'] != '0' )
-{
-  $link_options['facebook'] = array(
-    'position'  =>  $spl_config['facebook'],
-    'maxlength' =>  '50'
-  );
-}
-
-if ( !empty( $spl_config['github'] ) AND $spl_config['github'] != '0' )
-{
-  $link_options['github'] = array(
-    'position'  =>  $spl_config['github'],
-    'maxlength' =>  '50'
-  );
-}
-
-if ( !empty( $spl_config['google+'] ) AND $spl_config['google+'] != '0' )
-{
-  $link_options['google+'] = array(
-    'position'  =>  $spl_config['google+'],
-    'maxlength' =>  '21'
-  );
-}
-
-if ( !empty( $spl_config['instagram'] ) AND $spl_config['instagram'] != '0' )
-{
-  $link_options['instagram'] = array(
-    'position'  =>  $spl_config['instagram'],
-    'maxlength' =>  '30'
-  );
-}
-
-if ( !empty( $spl_config['pinterest'] ) AND $spl_config['pinterest'] != '0' )
-{
-  $link_options['pinterest'] = array(
-    'position'  =>  $spl_config['pinterest'],
-    'maxlength' =>  '15'
-  );
-}
-
-if ( !empty( $spl_config['stumbleupon'] ) AND $spl_config['stumbleupon'] != '0' )
-{
-  $link_options['stumbleupon'] = array(
-    'position'  =>  $spl_config['stumbleupon'],
-    'maxlength' =>  '15'
-  );
-}
-
-if ( !empty( $spl_config['tumblr'] ) AND $spl_config['tumblr'] != '0' )
-{
-  $link_options['tumblr'] = array(
-    'position'  =>  $spl_config['tumblr'],
-    'maxlength' =>  '32'
-  );
-}
-
-if ( !empty( $spl_config['twitter'] ) AND $spl_config['twitter'] != '0' )
-{
-  $link_options['twitter'] = array(
-    'position'  =>  $spl_config['twitter'],
-    'maxlength' =>  '15'
-  );
-}
-
-if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
-{
-  $link_options['youtube'] = array(
-    'position'  =>  $spl_config['youtube'],
-    'maxlength' =>  '20'
-  );
-}
+$link_options = max_length_username_or_id();
 
 ?>
   <div class="blockform">
@@ -131,6 +46,7 @@ if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
             <div class="infldset">
               <input type="hidden" name="form_sent" value="1" />
               <?php
+
               array_multisort( $link_options );
               foreach ( $link_options AS $key => $value )
               {
@@ -145,6 +61,7 @@ if ( !empty( $spl_config['youtube'] ) AND $spl_config['youtube'] != '0' )
                   echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
                 }
               }
+
               ?>
             </div>
           </fieldset>
