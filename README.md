@@ -6,7 +6,7 @@
 **Release date:**     2013-06-15  
 **Author:**           Daniël Rokven ( rokven@gmail.com )  
 **Description:**  Adds Social links to the profile and/or viewtopic pages where users can add their usernames for, Care2, Delicious, Deviantart, Facebook, GitHub, Google+, Instagram, Pinterest, Stumbleupon, Tumblr, Twitter and YouTube.  
-**Repository URL:**  https://fluxbb.org/resources/mods/social-profile-links/  
+**Repository URL:**  [https://fluxbb.org/resources/mods/social-profile-links/](https://fluxbb.org/resources/mods/social-profile-links/)  
 **Affected files:**  
 
 *   include/functions.php  
@@ -41,6 +41,9 @@ all applicable files before proceeding.
 * Use icons
 * Show guests
 * Open links new window/tab
+
+## Latest stable version ##
+The latest stable version can be found here: [Download](https://github.com/kierownik/Fluxbb-Social-Profile-Links/releases "Download latest stable version")
 
 ## Install ##
 How to install read readme.txt  
