@@ -1,4 +1,4 @@
-# Social-Profile-Links
+# Social-Profile-Links [![Project Status](https://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links.png)](https://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links)
 
 **Mod title:**  Social Profile Links  
 **Mod version:**      1.1.7  
