@@ -1,5 +1,5 @@
 # Social-Profile-Links  
-[![Project Status](http://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links.png)](https://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links)
+[![Project Status](http://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links.png)](https://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links) [![Scrutinizer Continuous Inspections](https://scrutinizer-ci.com/g/kierownik/Fluxbb-Social-Profile-Links/badges/general.png?s=13d441924214a9680b8072ca021de93d9a4b86be)](https://scrutinizer-ci.com/g/kierownik/Fluxbb-Social-Profile-Links/)
 
 **Mod title:**  Social Profile Links  
 **Mod version:**      1.1.7  
