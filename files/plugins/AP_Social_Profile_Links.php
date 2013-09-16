@@ -28,7 +28,7 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define('PLUGIN_VERSION', '1.1.8');
+define( 'PLUGIN_VERSION', '1.1.8' );
 
 //
 // Include the arrays.php

@@ -16,7 +16,7 @@
 $mod_title      = 'Social Profile Links';
 $mod_version    = '1.1.8';
 $release_date   = '2013-06-16';
-$author         = 'Dani?l Rokven';
+$author         = 'Daniel Rokven';
 $author_email   = 'rokven@gmail.com';
 
 // Versions of FluxBB this mod was created for. A warning will be displayed, if versions do not match
