@@ -90,8 +90,8 @@ if ( isset( $_POST['set_options'] ) )
       </p>
       <fieldset>
       <legend><?php echo $lang_spl['link options'] ?></legend>
-        <?php
 
+        <?php
         // Are there enabled link options to display
         $enabled = FALSE;
         foreach( $link_options AS $key => $value )
@@ -101,38 +101,39 @@ if ( isset( $_POST['set_options'] ) )
 
         if ( $enabled )
         {
-
           ?>
+
           <div class="infldset">
-            <table class="aligntop" cellspacing="0">
+            <table class="aligntop" style="border-spacing:0;border-collapse:collapse;">
               <tr>
                 <th scope="col"><strong><?php echo $lang_spl['enabled links'] ?>:</strong></th>
                 <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
               </tr>
-              <?php
 
+              <?php
               array_multisort( $link_options );
               foreach ( $link_options AS $key => $value )
               {
                 if ( $value != '0' )
                 {
-
                   ?>
+
                   <tr>
                     <th scope="col"><label for="<?php echo $key ?>"><img src="<?php echo pun_htmlspecialchars( get_base_url( TRUE ) ).'/plugins/spl/images/'.$image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
                     <td>
                       <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                     </td>
                   </tr>
-                  <?php
 
+                  <?php
                 }
               }
               ?>
+
             </table>
           </div>  <!-- end class="infldset" -->
-          <?php
 
+          <?php
         }
         // End are there enabled link options to display
 
@@ -149,47 +150,47 @@ if ( isset( $_POST['set_options'] ) )
 
         if ( $disabled )
         {
-
           ?>
+
           <div class="infldset">
-            <table class="aligntop" cellspacing="0">
+            <table class="aligntop" style="border-spacing:0;border-collapse:collapse;">
               <tr>
                 <th scope="col"><strong><?php echo $lang_spl['disabled links'] ?>:</strong></th>
                 <td><?php echo $lang_spl['enabled/disabled info'] ?></td>
               </tr>
-            <?php
 
+            <?php
             foreach ( $link_options AS $key => $value )
             {
               if ( $value == '0' )
               {
-
                 ?>
+
                 <tr>
                   <th scope="col"><label for="<?php echo $key ?>"><img src="data:image/png;base64,<?php echo $image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
                   <td>
                     <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                   </td>
                 </tr>
-                <?php
 
+                <?php
               }
             }
-
             ?>
+
             </table>
           </div>  <!-- end class="infldset" -->
-          <?php
 
+          <?php
         }
         // End are there disabled link options to display
-
         ?>
+
       </fieldset>
       <fieldset>
         <legend><?php echo $lang_spl['display options'] ?></legend>
         <div class="infldset">
-          <table class="aligntop" cellspacing="0">
+          <table class="aligntop" style="border-spacing:0;border-collapse:collapse;">
             <tr>
               <th scope="col"><label for="show_in_profile"><?php echo $lang_spl['show in users profile'] ?></label></th>
               <td>
@@ -242,8 +243,8 @@ if ( isset( $_POST['set_options'] ) )
               <th scope="col"><label for="link_target"><?php echo $lang_spl['link target'] ?></label></th>
               <td>
                 <select id="link_target" name="link_target">
-                <?php
 
+                <?php
                   if ( $spl_config['link_target'] == '1' )
                   {
                     echo '<option value="1" selected="selected">'.$lang_spl['link target external'].'</option>';
@@ -260,8 +261,8 @@ if ( isset( $_POST['set_options'] ) )
                   {
                     echo '<option value="0" >'.$lang_spl['link target internal'].'</option>';
                   }
-
                 ?>
+
                 </select>
               </td>
             </tr>

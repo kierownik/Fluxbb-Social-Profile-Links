@@ -34,8 +34,8 @@ require( PUN_ROOT.'/plugins/spl/arrays.php' );
 
 // $link_options is used to build the input boxes
 $link_options = max_length_username_or_id();
-
 ?>
+
   <div class="blockform">
     <h2><span><?php echo pun_htmlspecialchars( $user['username'] ).' - '. $lang_spl['social profile links'] ?></span></h2>
     <div class="box">
@@ -45,8 +45,8 @@ $link_options = max_length_username_or_id();
             <legend><?php echo $lang_spl['username of user id']; ?></legend>
             <div class="infldset">
               <input type="hidden" name="form_sent" value="1" />
-              <?php
 
+              <?php
               array_multisort( $link_options );
               foreach ( $link_options AS $key => $value )
               {
@@ -61,8 +61,8 @@ $link_options = max_length_username_or_id();
                   echo '<label>'.$lang_spl[$key].'<br /><input id="'.$key.'" type="text" name="form['.$key.']" value="'.$spl_user[$key].'" size="40" maxlength="'.$value['maxlength'].'" placeholder="'.$lang_spl['username'].'" /><br /></label>';
                 }
               }
-
               ?>
+
             </div>
           </fieldset>
         </div>

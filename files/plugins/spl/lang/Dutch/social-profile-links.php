@@ -15,7 +15,7 @@
 $lang_spl = array(
 
 'social profile links'        =>  'Social Profile Links',
-'social profile links info'   =>  'Deze plugin word gebruikt om sociale links in het profiel van de bruiker en/of in zijn topic post te plaatsen.',
+'social profile links info'   =>  'Deze plugin word gebruikt om sociale links in het profiel en/of viewtopic van je gebruiker te plaatsen.',
 'username of user id'         =>  'Vul je `Gebruikersnaam` of `Gebruikers id` in',
 'username'                    =>  'Gebruikersnaam',
 'user id'                     =>  'Gebruikers id',
