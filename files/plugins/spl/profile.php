@@ -46,7 +46,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
     {
       $user_personal[] = '<dd><span class="website"><a href="'.$value['url'].'" title="'.$value['lang'].'" rel="nofollow"'.$target.'>'.$value['username'].'</a></span></dd>';
     }
-  };
+  }
 }
 
 ?>
