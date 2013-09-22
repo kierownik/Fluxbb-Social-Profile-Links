@@ -2,7 +2,7 @@
 ##
 ##        Mod title:  Social Profile Links
 ##
-##      Mod version:  1.1.8
+##      Mod version:  1.3.7
 ##  Works on FluxBB:  1.5.4, 1.5.3
 ##     Release date:  2013-06-16
 ##           Author:  Daniel Rokven (rokven@gmail.com)

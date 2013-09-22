@@ -2,11 +2,11 @@
 [![Project Status](http://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links.png)](https://stillmaintained.com/kierownik/Fluxbb-Social-Profile-Links) [![Scrutinizer Continuous Inspections](https://scrutinizer-ci.com/g/kierownik/Fluxbb-Social-Profile-Links/badges/general.png?s=13d441924214a9680b8072ca021de93d9a4b86be)](https://scrutinizer-ci.com/g/kierownik/Fluxbb-Social-Profile-Links/)
 
 **Mod title:**  Social Profile Links  
-**Mod version:**      1.1.7  
+**Mod version:**      1.3.7  
 **Works on FluxBB:**  1.5.4, 1.5.3  
 **Release date:**     2013-06-15  
 **Author:**           Daniël Rokven ( rokven@gmail.com )  
-**Description:**  Adds Social links to the profile and/or viewtopic pages where users can add their usernames for, Care2, Delicious, Deviantart, Facebook, GitHub, Google+, Instagram, Pinterest, Stumbleupon, Tumblr, Twitter and YouTube.  
+**Description:**  Adds Social links to the profile and/or viewtopic pages where users can add their usernames for, Care2, Delicious, Deviantart, Facebook, GitHub, Google+, Hyves, Instagram, MySpace, Pinterest, Stumbleupon, Tumblr, Twitter and YouTube.  
 **Repository URL:**  [https://fluxbb.org/resources/mods/social-profile-links/](https://fluxbb.org/resources/mods/social-profile-links/)  
 **Affected files:**  
 
@@ -30,7 +30,9 @@ all applicable files before proceeding.
 * Facebook
 * GitHub
 * Google+
+* Hyves **New**
 * Instagram
+* MySpace **NEW**
 * Pinterest
 * Stumbleupon
 * Tumblr

@@ -48,7 +48,7 @@
 ##
 ##          Notes 2:  If you do not use the lang/Dutch or lang/English then do not copie them
 ##
-##          Notes 3:  If you update from v1.1.0 or v1.1.1 or v1.1.2 or v1.1.3 to v1.1.6, only copy
+##          Notes 3:  If you update from v1.1.0 or v1.1.1 or v1.1.2 or v1.1.3 to v1.1.7, only copy
 ##                    the files, you do not have to do these steps below, and visit the
 ##                    administration and press save options and you are done. If you update from a
 ##                    version before v1.1.0 follow all the steps below.
