@@ -5,7 +5,7 @@
 ##      Mod version:  1.1.8
 ##  Works on FluxBB:  1.5.4, 1.5.3
 ##     Release date:  2013-06-16
-##           Author:  Dani?l Rokven (rokven@gmail.com)
+##           Author:  Daniel Rokven (rokven@gmail.com)
 ##
 ##      Description:  Adds Social links to the profile and viewtopic pages
 ##                    where users can add their usernames for, Care2, Deviantart, Facebook, GitHub,
@@ -34,7 +34,7 @@
 ##                    Tumblr      - Enable / Disable
 ##                    Twitter     - Enable / Disable
 ##                    YouTube     - Enable / Disable
-##                    
+##
 ##                    Show in users profile - Enable / Disable
 ##                    Show in viewtopic     - Enable / Disable
 ##                    Use icon              - Enable / Disable
