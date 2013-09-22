@@ -14,7 +14,7 @@
 
 // Some info about your mod.
 $mod_title      = 'Social Profile Links';
-$mod_version    = '1.1.8';
+$mod_version    = '1.3.7';
 $release_date   = '2013-06-16';
 $author         = 'Daniel Rokven';
 $author_email   = 'rokven@gmail.com';

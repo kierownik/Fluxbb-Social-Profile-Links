@@ -28,7 +28,7 @@ else
 define( 'PUN_PLUGIN_LOADED', 1 );
 
 // Plugin version
-define( 'PLUGIN_VERSION', '1.1.8' );
+define( 'PLUGIN_VERSION', '1.3.7' );
 
 //
 // Include the arrays.php
@@ -167,7 +167,7 @@ if ( isset( $_POST['set_options'] ) )
                 ?>
 
                 <tr>
-                  <th scope="col"><label for="<?php echo $key ?>"><img src="data:image/png;base64,<?php echo $image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
+                  <th scope="col"><label for="<?php echo $key ?>"><img src="<?php echo pun_htmlspecialchars( get_base_url( TRUE ) ).'/plugins/spl/images/'.$image_array[$key] ?>" /> <?php echo $lang_spl[$key] ?></label></th>
                   <td>
                     <input type="text" id="<?php echo $key ?>" name="<?php echo $key ?>" value="<?php echo $value ?>" />
                   </td>

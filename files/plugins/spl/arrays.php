@@ -27,7 +27,9 @@ function link_options()
     'facebook',
     'github',
     'google+',
+    'hyves',
     'instagram',
+    'myspace',
     'pinterest',
     'stumbleupon',
     'tumblr',
@@ -92,11 +94,27 @@ function max_length_username_or_id()
     );
   }
 
+  if ( !empty( $spl_config['hyves'] ) AND $spl_config['hyves'] != '0' )
+  {
+    $link_options['hyves'] = array(
+      'position'  =>  $spl_config['hyves'],
+      'maxlength' =>  '20'
+    );
+  }
+
   if ( !empty( $spl_config['instagram'] ) AND $spl_config['instagram'] != '0' )
   {
     $link_options['instagram'] = array(
       'position'  =>  $spl_config['instagram'],
       'maxlength' =>  '30'
+    );
+  }
+
+  if ( !empty( $spl_config['myspace'] ) AND $spl_config['myspace'] != '0' )
+  {
+    $link_options['myspace'] = array(
+      'position'  =>  $spl_config['myspace'],
+      'maxlength' =>  '25'
     );
   }
 
@@ -153,18 +171,20 @@ function admin_link_options()
   $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 
   $link_options = array(
-    'care2'       =>  !isset( $spl_config['care2'] ) ? '0' : $spl_config['care2'],
-    'delicious'   =>  !isset( $spl_config['delicious'] ) ? '0' : $spl_config['delicious'],
-    'deviantart'  =>  !isset( $spl_config['deviantart'] ) ? '0' : $spl_config['deviantart'],
-    'facebook'    =>  !isset( $spl_config['facebook'] ) ? '0' : $spl_config['facebook'],
-    'github'      =>  !isset( $spl_config['github'] ) ? '0' : $spl_config['github'],
-    'google+'     =>  !isset( $spl_config['google+'] ) ? '0' : $spl_config['google+'],
-    'instagram'   =>  !isset( $spl_config['instagram'] ) ? '0' : $spl_config['instagram'],
-    'pinterest'   =>  !isset( $spl_config['pinterest'] ) ? '0' : $spl_config['pinterest'],
-    'stumbleupon' =>  !isset( $spl_config['stumbleupon'] ) ? '0' : $spl_config['stumbleupon'],
-    'tumblr'      =>  !isset( $spl_config['tumblr'] ) ? '0' : $spl_config['tumblr'],
-    'twitter'     =>  !isset( $spl_config['twitter'] ) ? '0' : $spl_config['twitter'],
-    'youtube'     =>  !isset( $spl_config['youtube'] ) ? '0' : $spl_config['youtube'],
+    'care2'       =>  !isset( $spl_config['care2'] )        ? '0' : $spl_config['care2'],
+    'delicious'   =>  !isset( $spl_config['delicious'] )    ? '0' : $spl_config['delicious'],
+    'deviantart'  =>  !isset( $spl_config['deviantart'] )   ? '0' : $spl_config['deviantart'],
+    'facebook'    =>  !isset( $spl_config['facebook'] )     ? '0' : $spl_config['facebook'],
+    'github'      =>  !isset( $spl_config['github'] )       ? '0' : $spl_config['github'],
+    'google+'     =>  !isset( $spl_config['google+'] )      ? '0' : $spl_config['google+'],
+    'hyves'       =>  !isset( $spl_config['hyves'] )        ? '0' : $spl_config['hyves'],
+    'instagram'   =>  !isset( $spl_config['instagram'] )    ? '0' : $spl_config['instagram'],
+    'myspace'     =>  !isset( $spl_config['myspace'] )      ? '0' : $spl_config['myspace'],
+    'pinterest'   =>  !isset( $spl_config['pinterest'] )    ? '0' : $spl_config['pinterest'],
+    'stumbleupon' =>  !isset( $spl_config['stumbleupon'] )  ? '0' : $spl_config['stumbleupon'],
+    'tumblr'      =>  !isset( $spl_config['tumblr'] )       ? '0' : $spl_config['tumblr'],
+    'twitter'     =>  !isset( $spl_config['twitter'] )      ? '0' : $spl_config['twitter'],
+    'youtube'     =>  !isset( $spl_config['youtube'] )      ? '0' : $spl_config['youtube'],
   );
 
   return $link_options;
@@ -176,18 +196,20 @@ function admin_link_options()
 function admin_spl_options()
 {
   $spl_options = array(
-    'care2'       => !empty( $_POST['care2'] ) ? intval( $_POST['care2'] ) : '0',
-    'delicious'   => !empty( $_POST['delicious'] ) ? intval( $_POST['delicious'] ) : '0',
-    'deviantart'  => !empty( $_POST['deviantart'] ) ? intval( $_POST['deviantart'] ) : '0',
-    'facebook'    => !empty( $_POST['facebook'] ) ? intval( $_POST['facebook'] ) : '0',
-    'github'      => !empty( $_POST['github'] ) ? intval( $_POST['github'] ) : '0',
-    'google+'     => !empty( $_POST['google+'] ) ? intval( $_POST['google+'] ) : '0',
-    'instagram'   => !empty( $_POST['instagram'] ) ? intval( $_POST['instagram'] ) : '0',
-    'pinterest'   => !empty( $_POST['pinterest'] ) ? intval( $_POST['pinterest'] ) : '0',
-    'stumbleupon' => !empty( $_POST['stumbleupon'] ) ? intval( $_POST['stumbleupon'] ) : '0',
-    'tumblr'      => !empty( $_POST['tumblr'] ) ? intval( $_POST['tumblr'] ) : '0',
-    'twitter'     => !empty( $_POST['twitter'] ) ? intval( $_POST['twitter'] ) : '0',
-    'youtube'     => !empty( $_POST['youtube'] ) ? intval( $_POST['youtube'] ) : '0',
+    'care2'       => !empty( $_POST['care2'] )        ? intval( $_POST['care2'] ) : '0',
+    'delicious'   => !empty( $_POST['delicious'] )    ? intval( $_POST['delicious'] ) : '0',
+    'deviantart'  => !empty( $_POST['deviantart'] )   ? intval( $_POST['deviantart'] ) : '0',
+    'facebook'    => !empty( $_POST['facebook'] )     ? intval( $_POST['facebook'] ) : '0',
+    'github'      => !empty( $_POST['github'] )       ? intval( $_POST['github'] ) : '0',
+    'google+'     => !empty( $_POST['google+'] )      ? intval( $_POST['google+'] ) : '0',
+    'hyves'       => !empty( $_POST['hyves'] )        ? intval( $_POST['hyves'] ) : '0',
+    'instagram'   => !empty( $_POST['instagram'] )    ? intval( $_POST['instagram'] ) : '0',
+    'myspace'     => !empty( $_POST['myspace'] )      ? intval( $_POST['myspace'] ) : '0',
+    'pinterest'   => !empty( $_POST['pinterest'] )    ? intval( $_POST['pinterest'] ) : '0',
+    'stumbleupon' => !empty( $_POST['stumbleupon'] )  ? intval( $_POST['stumbleupon'] ) : '0',
+    'tumblr'      => !empty( $_POST['tumblr'] )       ? intval( $_POST['tumblr'] ) : '0',
+    'twitter'     => !empty( $_POST['twitter'] )      ? intval( $_POST['twitter'] ) : '0',
+    'youtube'     => !empty( $_POST['youtube'] )      ? intval( $_POST['youtube'] ) : '0',
 
     // The options
     'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
@@ -297,6 +319,21 @@ function spl_links()
     );
   }
 
+  if ( !empty( $spl_config['hyves'] ) AND isset( $spl_cur_user['hyves'] ) )
+  {
+    // Set the spl_username for hyves
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['hyves'] ) ) : pun_htmlspecialchars( $spl_cur_user['hyves'] ) );
+
+    // Fill the spl_links array for hyves
+    $spl_links['hyves'] = array(
+      'position'  =>  $spl_config['hyves'],
+      'username'  =>  $spl_username,
+      'url'       =>  'http://'.$spl_username.'.hyves.nl',
+      'lang'      =>  $lang_spl['hyves'],
+      'image'     => 'Hyves.png',
+    );
+  }
+
   if ( !empty( $spl_config['instagram'] ) AND isset( $spl_cur_user['instagram'] ) )
   {
     // Set the spl_username for instagram
@@ -309,6 +346,21 @@ function spl_links()
       'url'       =>  'http://instagram.com/'.$spl_username,
       'lang'      =>  $lang_spl['instagram'],
       'image'     => 'Instagram.png',
+    );
+  }
+
+  if ( !empty( $spl_config['myspace'] ) AND isset( $spl_cur_user['myspace'] ) )
+  {
+    // Set the spl_username for myspace
+    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['myspace'] ) ) : pun_htmlspecialchars( $spl_cur_user['myspace'] ) );
+
+    // Fill the spl_links array for myspace
+    $spl_links['myspace'] = array(
+      'position'  =>  $spl_config['myspace'],
+      'username'  =>  $spl_username,
+      'url'       =>  'https://myspace.com/'.$spl_username,
+      'lang'      =>  $lang_spl['myspace'],
+      'image'     => 'MySpace.png',
     );
   }
 
@@ -402,7 +454,9 @@ function image_array()
     'facebook'    => 'Facebook.png',
     'github'      => 'GitHub.png',
     'google+'     => 'Google+.png',
+    'hyves'       => 'Hyves.png',
     'instagram'   => 'Instagram.png',
+    'myspace'     => 'MySpace.png',
     'pinterest'   => 'Pinterest.png',
     'stumbleupon' => 'Stumbleupon.png',
     'tumblr'      => 'Tumblr.png',
@@ -479,6 +533,16 @@ function profile_case()
     );
   }
 
+  // Check if input box of Hyves is not empty and spl_config is set higher than 0 before doing adding regex
+  if ( !empty( $spl_config['hyves'] ) AND isset( $spl_users['hyves'] ) )
+  {
+    $preg_array['hyves'] = array(
+      'position'    => $spl_config['hyves'],
+      'preg_match'  => !preg_match( '/[A-Za-z0-9-]{3,20}$/', $spl_users['hyves'] ),
+      'message'     => $lang_spl['bad hyves'],
+    );
+  }
+
   // Check if input box of Instagram is not empty and spl_config is set higher than 0 before doing adding regex
   if ( !empty( $spl_config['instagram'] ) AND isset( $spl_users['instagram'] ) )
   {
@@ -486,6 +550,16 @@ function profile_case()
       'position'    => $spl_config['instagram'],
       'preg_match'  => !preg_match( '/[A-Za-z0-9_]{5,30}$/', $spl_users['instagram'] ),
       'message'     => $lang_spl['bad instagram'],
+    );
+  }
+
+  // Check if input box of MySpace is not empty and spl_config is set higher than 0 before doing adding regex
+  if ( !empty( $spl_config['myspace'] ) AND isset( $spl_users['myspace'] ) )
+  {
+    $preg_array['myspace'] = array(
+      'position'    => $spl_config['myspace'],
+      'preg_match'  => !preg_match( '/[A-Za-z0-9\.-]{3,25}$/', $spl_users['myspace'] ),
+      'message'     => $lang_spl['bad myspace'],
     );
   }
 
