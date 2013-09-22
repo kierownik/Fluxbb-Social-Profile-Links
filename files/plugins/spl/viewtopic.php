@@ -36,7 +36,7 @@ elseif ( $spl_config['show_in_viewtopic'] == '1' AND ( $spl_config['show_guest']
   require_once( PUN_ROOT.'/plugins/spl/arrays.php' );
 
   // spl_links holds all the social links
-  $spl_links  = spl_links();
+  $spl_links  = SplLinks();
 
   // Set the cache link
   $spl_cache_links[$cur_post['poster_id']] = array();

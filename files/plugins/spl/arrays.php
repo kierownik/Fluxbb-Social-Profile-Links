@@ -212,10 +212,10 @@ function AdminSplOptions()
     'youtube'     => !empty( $_POST['youtube'] )      ? intval( $_POST['youtube'] )     : '0',
 
     // The options
-    'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',
+    'show_in_profile'   => isset( $_POST['show_in_profile'] ) ?   '1' : '0',
     'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
-    'use_icon'          => isset( $_POST['use_icon'] ) ? '1' : '0',
-    'show_guest'        => isset( $_POST['show_guest'] ) ? '1' : '0',
+    'use_icon'          => isset( $_POST['use_icon'] ) ?          '1' : '0',
+    'show_guest'        => isset( $_POST['show_guest'] ) ?        '1' : '0',
     'link_target'       => pun_htmlspecialchars( $_POST['link_target'] ),
   );
 
