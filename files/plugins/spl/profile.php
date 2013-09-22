@@ -30,7 +30,7 @@ if ( $spl_config['show_in_profile'] == '1' AND ( $spl_config['show_guest'] == '1
   //
   require( PUN_ROOT.'/plugins/spl/arrays.php' );
   //  spl_links holds all the social links
-  $spl_links  = spl_links();
+  $spl_links  = SplLinks();
 
   // Here is where the magic is
   array_multisort( $spl_links );

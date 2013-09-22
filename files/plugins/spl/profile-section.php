@@ -33,7 +33,7 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 require( PUN_ROOT.'/plugins/spl/arrays.php' );
 
 // $link_options is used to build the input boxes
-$link_options = max_length_username_or_id();
+$link_options = MaxLengthUsernameOrId();
 ?>
 
   <div class="blockform">

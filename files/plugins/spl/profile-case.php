@@ -24,7 +24,7 @@ $spl_config = unserialize( $pun_config['o_social_profile_links'] );
 // Include the arrays.php
 //
 require( PUN_ROOT.'/plugins/spl/arrays.php' );
-$link_options = link_options();
+$link_options = LinkOptions();
 
 $spl_users = array();
 
@@ -36,7 +36,7 @@ foreach ( $link_options AS $key )
   }
 }
 
-$preg_array = profile_case();
+$preg_array = ProfileCase();
 
 array_multisort( $preg_array );
 // Here we check if the entered usernames or user id's are valid

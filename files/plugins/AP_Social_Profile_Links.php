@@ -34,8 +34,8 @@ define( 'PLUGIN_VERSION', '1.3.7' );
 // Include the arrays.php
 //
 require( PUN_ROOT.'/plugins/spl/arrays.php' );
-$image_array  = image_array();
-$link_options = admin_link_options();
+$image_array  = ImageArray();
+$link_options = AdminLinkOptions();
 
 //
 // The rest is up to you!
@@ -45,7 +45,7 @@ if ( isset( $_POST['set_options'] ) )
   $updated = FALSE;
 
   // get the spl_options from array.php
-  $spl_options = admin_spl_options();
+  $spl_options = AdminSplOptions();
 
   if ( serialize( $spl_options ) != $pun_config['o_social_profile_links'] )
   {

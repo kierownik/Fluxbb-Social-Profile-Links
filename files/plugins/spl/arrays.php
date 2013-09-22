@@ -18,7 +18,7 @@ if ( !defined( 'PUN' ) )
   exit;
 }
 
-function link_options()
+function LinkOptions()
 {
   $link_options = array(
     'care2',
@@ -40,7 +40,7 @@ function link_options()
   return $link_options;
 }
 
-function max_length_username_or_id()
+function MaxLengthUsernameOrId()
 {
   global $spl_config;
 
@@ -164,7 +164,7 @@ function max_length_username_or_id()
 //
 // Returns all the link options we use in the plugin
 // 
-function admin_link_options()
+function AdminLinkOptions()
 {
   global $pun_config;
 
@@ -193,7 +193,7 @@ function admin_link_options()
 //
 // Returns all the options that we have for this plugin
 // 
-function admin_spl_options()
+function AdminSplOptions()
 {
   $spl_options = array(
     'care2'       => !empty( $_POST['care2'] )        ? intval( $_POST['care2'] ) : '0',
@@ -222,7 +222,7 @@ function admin_spl_options()
   return $spl_options;
 }
 
-function spl_links()
+function SplLinks()
 {
   global $pun_config, $spl_cur_user, $spl_config, $lang_spl;
 
@@ -445,7 +445,7 @@ function spl_links()
 //
 // Returns the array that holds alle the images we use
 // 
-function image_array()
+function ImageArray()
 {
   $image_array = array(
     'care2'       => 'Care2.png',
@@ -467,7 +467,7 @@ function image_array()
   return $image_array;
 }
 
-function profile_case()
+function ProfileCase()
 {
   global $spl_config, $spl_users, $lang_spl;
 
