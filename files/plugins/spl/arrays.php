@@ -196,20 +196,20 @@ function AdminLinkOptions()
 function AdminSplOptions()
 {
   $spl_options = array(
-    'care2'       => !empty( $_POST['care2'] )        ? intval( $_POST['care2'] ) : '0',
-    'delicious'   => !empty( $_POST['delicious'] )    ? intval( $_POST['delicious'] ) : '0',
-    'deviantart'  => !empty( $_POST['deviantart'] )   ? intval( $_POST['deviantart'] ) : '0',
-    'facebook'    => !empty( $_POST['facebook'] )     ? intval( $_POST['facebook'] ) : '0',
-    'github'      => !empty( $_POST['github'] )       ? intval( $_POST['github'] ) : '0',
-    'google+'     => !empty( $_POST['google+'] )      ? intval( $_POST['google+'] ) : '0',
-    'hyves'       => !empty( $_POST['hyves'] )        ? intval( $_POST['hyves'] ) : '0',
-    'instagram'   => !empty( $_POST['instagram'] )    ? intval( $_POST['instagram'] ) : '0',
-    'myspace'     => !empty( $_POST['myspace'] )      ? intval( $_POST['myspace'] ) : '0',
-    'pinterest'   => !empty( $_POST['pinterest'] )    ? intval( $_POST['pinterest'] ) : '0',
+    'care2'       => !empty( $_POST['care2'] )        ? intval( $_POST['care2'] )       : '0',
+    'delicious'   => !empty( $_POST['delicious'] )    ? intval( $_POST['delicious'] )   : '0',
+    'deviantart'  => !empty( $_POST['deviantart'] )   ? intval( $_POST['deviantart'] )  : '0',
+    'facebook'    => !empty( $_POST['facebook'] )     ? intval( $_POST['facebook'] )    : '0',
+    'github'      => !empty( $_POST['github'] )       ? intval( $_POST['github'] )      : '0',
+    'google+'     => !empty( $_POST['google+'] )      ? intval( $_POST['google+'] )     : '0',
+    'hyves'       => !empty( $_POST['hyves'] )        ? intval( $_POST['hyves'] )       : '0',
+    'instagram'   => !empty( $_POST['instagram'] )    ? intval( $_POST['instagram'] )   : '0',
+    'myspace'     => !empty( $_POST['myspace'] )      ? intval( $_POST['myspace'] )     : '0',
+    'pinterest'   => !empty( $_POST['pinterest'] )    ? intval( $_POST['pinterest'] )   : '0',
     'stumbleupon' => !empty( $_POST['stumbleupon'] )  ? intval( $_POST['stumbleupon'] ) : '0',
-    'tumblr'      => !empty( $_POST['tumblr'] )       ? intval( $_POST['tumblr'] ) : '0',
-    'twitter'     => !empty( $_POST['twitter'] )      ? intval( $_POST['twitter'] ) : '0',
-    'youtube'     => !empty( $_POST['youtube'] )      ? intval( $_POST['youtube'] ) : '0',
+    'tumblr'      => !empty( $_POST['tumblr'] )       ? intval( $_POST['tumblr'] )      : '0',
+    'twitter'     => !empty( $_POST['twitter'] )      ? intval( $_POST['twitter'] )     : '0',
+    'youtube'     => !empty( $_POST['youtube'] )      ? intval( $_POST['youtube'] )     : '0',
 
     // The options
     'show_in_profile'   => isset( $_POST['show_in_profile'] ) ? '1' : '0',

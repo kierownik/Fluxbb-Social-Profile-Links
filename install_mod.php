@@ -140,7 +140,6 @@ function install()
   elseif ( $db->field_exists( 'users', 'social_profile_links', true ) )
   {
     echo '<p style="text-align: center">This was not needed, open readme.txt and read <strong>notes 3</strong>, GOOD LUCK.</p>';
-    exit;
   }
   else
   {
