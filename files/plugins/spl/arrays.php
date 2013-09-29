@@ -212,10 +212,10 @@ function AdminSplOptions()
     'youtube'     => !empty( $_POST['youtube'] )      ? intval( $_POST['youtube'] )     : '0',
 
     // The options
-    'show_in_profile'   => isset( $_POST['show_in_profile'] ) ?   '1' : '0',
+    'show_in_profile'   => isset( $_POST['show_in_profile'] )   ? '1' : '0',
     'show_in_viewtopic' => isset( $_POST['show_in_viewtopic'] ) ? '1' : '0',
-    'use_icon'          => isset( $_POST['use_icon'] ) ?          '1' : '0',
-    'show_guest'        => isset( $_POST['show_guest'] ) ?        '1' : '0',
+    'use_icon'          => isset( $_POST['use_icon'] )          ? '1' : '0',
+    'show_guest'        => isset( $_POST['show_guest'] )        ? '1' : '0',
     'link_target'       => pun_htmlspecialchars( $_POST['link_target'] ),
   );
 
@@ -232,7 +232,7 @@ function SplLinks()
   if ( !empty( $spl_config['care2'] ) AND isset( $spl_cur_user['care2'] ) )
   {
     // Set the spl_username for care2
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['care2'] ) ) : pun_htmlspecialchars( $spl_cur_user['care2'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['care2'] );
 
     // Fill the spl_links array for care2
     $spl_links['care2'] = array(
@@ -247,7 +247,7 @@ function SplLinks()
   if ( !empty( $spl_config['delicious'] ) AND isset( $spl_cur_user['delicious'] ) )
   {
     // Set the spl_username for delicious
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['delicious'] ) ) : pun_htmlspecialchars( $spl_cur_user['delicious'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['delicious'] );
 
     // Fill the spl_links array for deviantart
     $spl_links['delicious'] = array(
@@ -262,7 +262,7 @@ function SplLinks()
   if ( !empty( $spl_config['deviantart'] ) AND isset( $spl_cur_user['deviantart'] ) )
   {
     // Set the spl_username for deviantart
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['deviantart'] ) ) : pun_htmlspecialchars( $spl_cur_user['deviantart'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['deviantart'] );
 
     // Fill the spl_links array for deviantart
     $spl_links['deviantart'] = array(
@@ -277,7 +277,7 @@ function SplLinks()
   if ( !empty( $spl_config['facebook'] ) AND isset( $spl_cur_user['facebook'] ) )
   {
     // Set the spl_username for facebook
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['facebook'] ) ) : pun_htmlspecialchars( $spl_cur_user['facebook'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['facebook'] );
 
     // Fill the spl_links array for facebook
     $spl_links['facebook'] = array(
@@ -292,7 +292,7 @@ function SplLinks()
   if ( !empty( $spl_config['github'] ) AND isset( $spl_cur_user['github'] ) )
   {
     // Set the spl_username for github
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['github'] ) ) : pun_htmlspecialchars( $spl_cur_user['github'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['github'] );
 
     // Fill the spl_links array for github
     $spl_links['github'] = array(
@@ -307,7 +307,7 @@ function SplLinks()
   if ( !empty( $spl_config['google+'] ) AND isset( $spl_cur_user['google+'] ) )
   {
     // Set the spl_username for google+
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['google+'] ) ) : pun_htmlspecialchars( $spl_cur_user['google+'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['google+'] );
 
     // Fill the spl_links array for google+
     $spl_links['google+'] = array(
@@ -322,7 +322,7 @@ function SplLinks()
   if ( !empty( $spl_config['hyves'] ) AND isset( $spl_cur_user['hyves'] ) )
   {
     // Set the spl_username for hyves
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['hyves'] ) ) : pun_htmlspecialchars( $spl_cur_user['hyves'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['hyves'] );
 
     // Fill the spl_links array for hyves
     $spl_links['hyves'] = array(
@@ -337,7 +337,7 @@ function SplLinks()
   if ( !empty( $spl_config['instagram'] ) AND isset( $spl_cur_user['instagram'] ) )
   {
     // Set the spl_username for instagram
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['instagram'] ) ) : pun_htmlspecialchars( $spl_cur_user['instagram'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['instagram'] );
 
     // Fill the spl_links array for instagram
     $spl_links['instagram'] = array(
@@ -352,7 +352,7 @@ function SplLinks()
   if ( !empty( $spl_config['myspace'] ) AND isset( $spl_cur_user['myspace'] ) )
   {
     // Set the spl_username for myspace
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['myspace'] ) ) : pun_htmlspecialchars( $spl_cur_user['myspace'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['myspace'] );
 
     // Fill the spl_links array for myspace
     $spl_links['myspace'] = array(
@@ -367,7 +367,7 @@ function SplLinks()
   if ( !empty( $spl_config['pinterest'] ) AND isset( $spl_cur_user['pinterest'] ) )
   {
     // Set the spl_username for pinterest
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['pinterest'] ) ) : pun_htmlspecialchars( $spl_cur_user['pinterest'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['pinterest'] );
 
     // Fill the spl_links array for pinterest
     $spl_links['pinterest'] = array(
@@ -382,7 +382,7 @@ function SplLinks()
   if ( !empty( $spl_config['stumbleupon'] ) AND isset( $spl_cur_user['stumbleupon'] ) )
   {
     // Set the spl_username for stumbleupon
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['stumbleupon'] ) ) : pun_htmlspecialchars( $spl_cur_user['stumbleupon'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['stumbleupon'] );
 
     // Fill the spl_links array for stumbleupon
     $spl_links['stumbleupon'] = array(
@@ -397,7 +397,7 @@ function SplLinks()
   if ( !empty( $spl_config['tumblr'] ) AND isset( $spl_cur_user['tumblr'] ) )
   {
     // Set the spl_username for tumblr
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['tumblr'] ) ) : pun_htmlspecialchars( $spl_cur_user['tumblr'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['tumblr'] );
 
     // Fill the spl_links array for tumblr
     $spl_links['tumblr'] = array(
@@ -412,7 +412,7 @@ function SplLinks()
   if ( !empty( $spl_config['twitter'] ) AND isset( $spl_cur_user['twitter'] ) )
   {
     // Set the spl_username for twitter
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['twitter'] ) ) : pun_htmlspecialchars( $spl_cur_user['twitter'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['twitter'] );
 
     // Fill the spl_links array for twitter
     $spl_links['twitter'] = array(
@@ -427,7 +427,7 @@ function SplLinks()
   if ( !empty( $spl_config['youtube'] ) AND isset( $spl_cur_user['youtube'] ) )
   {
     // Set the spl_username for youtube
-    $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user['youtube'] ) ) : pun_htmlspecialchars( $spl_cur_user['youtube'] ) );
+    $spl_username = SplCensoring( $spl_cur_user['youtube'] );
 
     // Fill the spl_links array for youtube
     $spl_links['youtube'] = array(
@@ -558,7 +558,7 @@ function ProfileCase()
   {
     $preg_array['myspace'] = array(
       'position'    => $spl_config['myspace'],
-      'preg_match'  => !preg_match( '/[A-Za-z0-9\.-]{3,25}$/', $spl_users['myspace'] ),
+      'preg_match'  => !preg_match( '/[A-Za-z0-9\.-_]{3,25}$/', $spl_users['myspace'] ),
       'message'     => $lang_spl['bad myspace'],
     );
   }
@@ -613,6 +613,15 @@ function ProfileCase()
     );
   }
   return $preg_array;
+}
+
+function SplCensoring( $spl_cur_user )
+{
+  global $pun_config;
+
+  $spl_username = ( $pun_config['o_censoring'] == '1' ? pun_htmlspecialchars( censor_words( $spl_cur_user ) ) : pun_htmlspecialchars( $spl_cur_user ) );
+
+  return $spl_username;
 }
 
 ?>

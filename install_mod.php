@@ -32,7 +32,7 @@ if ( !defined( 'PUN_DEBUG' ) )
 // This following function will be called when the user presses the "Install" button
 function install()
 {
-  global $db, $db_type, $pun_config;
+  global $db, $pun_config;
 
   // old install
   if ( isset( $pun_config['o_spl_github'] ) OR isset( $pun_config['o_spl_prof_github'] ) )
