@@ -43,7 +43,9 @@ array_multisort( $preg_array );
 foreach ( $preg_array AS $key )
 {
   if ( $key['preg_match'] )
+  {
     message( $key['message'] );
+  }
 }
 
 $form = array( 'social_profile_links' => ( !empty( $spl_users ) ) ? serialize( $spl_users ) : NULL );

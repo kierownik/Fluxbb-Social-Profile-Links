@@ -27,7 +27,9 @@ $mod_restore  = TRUE;
 
 // We want the complete error message if the script fails
 if ( !defined( 'PUN_DEBUG' ) )
+{
   define( 'PUN_DEBUG', 1 );
+}
 
 // This following function will be called when the user presses the "Install" button
 function install()
@@ -168,7 +170,7 @@ function install()
 
     $spl_config = serialize( $spl_config );
 
-    $db->query( "INSERT INTO ".$db->prefix."config (conf_name, conf_value) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
+    $db->query( "INSERT INTO ".$db->prefix."config ( conf_name, conf_value ) VALUES ( 'o_social_profile_links', '".$db->escape( $spl_config )."' ) " ) or error( 'Unable to add "o_social_profile_links" to config table', __FILE__, __LINE__, $db->error() );
 
     // Add the new social_profile_links field to the users table
     $allow_null = TRUE;
@@ -238,7 +240,9 @@ require PUN_ROOT.'include/common.php';
 
 // We want the complete error message if the script fails
 if ( !defined('PUN_DEBUG' ) )
+{
   define( 'PUN_DEBUG', 1 );
+}
 
 // Make sure we are running a FluxBB version that this mod works with
 $version_warning = !in_array( $pun_config['o_cur_version'], $fluxbb_versions );
@@ -250,7 +254,7 @@ $style = ( isset( $pun_user ) ) ? $pun_user['style'] : $pun_config['o_default_st
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo pun_htmlspecialchars($mod_title) ?> installation</title>
+<title><?php echo pun_htmlspecialchars( $mod_title ) ?> installation</title>
 <link rel="stylesheet" type="text/css" href="style/<?php echo $style.'.css' ?>" />
 </head>
 <body>
