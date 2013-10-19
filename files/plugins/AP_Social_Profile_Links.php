@@ -20,9 +20,13 @@ if ( !defined( 'PUN' ) )
 
 // Load the social-profile-links.php language file
 if ( file_exists( PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php' ) )
+{
   require PUN_ROOT.'plugins/spl/lang/'.$pun_user['language'].'/social-profile-links.php';
+}
 else
+{
   require PUN_ROOT.'plugins/spl/lang/English/social-profile-links.php';
+}
 
 // Tell admin_loader.php that this is indeed a plugin and that it is loaded
 define( 'PUN_PLUGIN_LOADED', 1 );
