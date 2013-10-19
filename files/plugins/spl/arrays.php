@@ -224,7 +224,7 @@ function AdminSplOptions()
 
 function SplLinks()
 {
-  global $pun_config, $spl_cur_user, $spl_config, $lang_spl;
+  global $spl_cur_user, $spl_config, $lang_spl;
 
   // This is the array we are going to use to build our links
   $spl_links = array();
